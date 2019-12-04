@@ -1,0 +1,29 @@
+.colornav{
+  background-color: $navbarColor;
+  padding: 0;
+}
+
+.navbar-brand{
+  padding: 0;
+  font-family: $fontTitle;
+}
+
+.navbarLogo{
+  margin-right: 10px;
+}
+
+.nav-item{
+  margin: 0 5px;
+}
+
+.dropdown-menu{
+  padding: 0;
+  background-color: $navbarColor;
+  margin: 0;
+  border-radius: 0;
+}
+
+.dropdown-item:hover {
+  color: #716a66;
+  background-color: inherit;
+}
