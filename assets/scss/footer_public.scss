@@ -15,6 +15,7 @@ small {
   font-family: $fontText;
   margin: 0.8em;
   color: $textColor;
+  font-size: $textSize;
 }
 .link-social-footer:hover {
   color: $inherit;
@@ -23,6 +24,7 @@ small {
 .icon-social-footer {
   width: 30px;
   height: 30px;
+  margin: 0.1em;
 }
 .footer-line-two {
   margin-top: 1em;
