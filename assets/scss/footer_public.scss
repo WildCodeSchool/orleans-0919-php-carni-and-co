@@ -3,7 +3,7 @@ footer {
   padding-top: 2em;
   padding-bottom: 1em;
 }
-.footer-line-one {
+.footer-line-date {
   margin-left: 2em;
 }
 small {
@@ -26,6 +26,33 @@ small {
   height: 30px;
   margin: 0.1em;
 }
-.footer-line-two {
+.footer-line-social-icon {
   margin-top: 1em;
+}
+.link-legals-m-footer {
+  font-family: $fontText;
+  color: $textColor;
+  font-size: $textSize;
+  text-decoration: underline;
+}
+.link-legals-m-footer:hover {
+  color: $inherit;
+}
+.box-m-legals-footer {
+  text-align: center;
+  margin-top: 1.5em;
+}
+.box-mail-footer {
+  text-align: center;
+  margin-top: 1em;
+}
+.txt-mail-footer {
+  font-family: $fontText;
+  color: $textColor;
+}
+.links-footer-social {
+  text-align: center;
+}
+.box-icon-social-footer {
+  text-align: center;
 }
