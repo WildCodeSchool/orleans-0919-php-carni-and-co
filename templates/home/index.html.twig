@@ -2,9 +2,25 @@
 
 {% block body %}
     <h1>Carni & Co ?</h1>
-    <p class="text_home_page">Nous somme éleveurs, propriétaires de chiens/chats, amoureux des animaux avant tout.
-        Ces dernières années, l'alimentation animale est devenue un élément complexe et indissociable de la santé de nos animaux.
-        Avec l'expérience, nous avons pu appréhender l'évolution et la mutation de l'industrie de la pet food, avec, au même titre que l'industrie agro-alimentaire humaine, son cortège de dérives...</br>
-        Pour améliorer la vie de votre animal, nous allons, au fil de ces pages, partager nos connaissances et motiver notre point de vue sur l'alimentation animale, pour vous guider vers les meilleurs choix.
+    <p class="text_home_page">
+        Nous somme éleveurs, propriétaires de chiens/chats, amoureux des animaux avant tout.
+        Ces dernières années, l'alimentation animale est devenue un élément complexe et indissociable de la santé de nos
+        animaux.
+        Avec l'expérience, nous avons pu appréhender l'évolution et la mutation de l'industrie de la pet food, avec, au
+        même titre que l'industrie agro-alimentaire humaine, son cortège de dérives...<br/>
+        Pour améliorer la vie de votre animal, nous allons, au fil de ces pages, partager nos connaissances et motiver
+        notre point de vue sur l'alimentation animale, pour vous guider vers les meilleurs choix.
     </p>
+    <img src="/uploads/man_and_dog.png" class="card-img" alt="picture of a man and a dog">
+    <p>
+        L'équipe de Carni-and-Co a développé un outil spécifique complet qui permet une analyse pointue des
+        croquettes ou pâtées de vos animaux.
+        Cette analyse se fait, non seulement sur les composants analytiques, pour vérifier les valeurs optimales, mais
+        aussi sur la qualité des ingrédients, qui peut être très variable, du pire au meilleur...
+        Basées sur les résultats de votre évaluation, des alternatives supérieures en qualité, de l'alimentation
+        actuelle de votre animal vous seront proposées. A utiliser sans modération...
+    </p>
+
+    {% include "home/animal.html.twig" %}
+
 {% endblock %}

@@ -1,3 +1,11 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
 @import "home.scss";
+
+body {
+  background: url('../../public/uploads/background.png') no-repeat center center fixed;
+  position: center;
+  width: 100vw;
+  height:100vh;
+}
+
