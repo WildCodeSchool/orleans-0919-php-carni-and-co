@@ -21,5 +21,4 @@ class AdminIndexController extends AbstractController
             'Home_admin' => 'Administrateur',
         ]);
     }
-
 }
