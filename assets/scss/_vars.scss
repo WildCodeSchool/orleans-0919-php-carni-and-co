@@ -1,10 +1,17 @@
 $navbarColor: #e3d5cd;
 
-$titleColor: #B49E8F;
-$textColor: #212121;
+$titleColor: rgb(180,158,143);
+$textColor: rgb(33, 33, 33);
+$lightColor: rgb(252, 250, 250);
+$backColor: rgb(227, 213, 205);
+$boxColor: rgba(196, 196, 196,0.5);
+$hoverColor: rgb(134, 113, 99);
 
 $textSize: 21px;
 $h1Size: 57px;
-$h2Size: 26px;
+$h2Size: 35px;
+$h3Size: 26px;
 
+$fontTitle:'Comfortaa', sans-serif;
 $fontText: 'Barlow', sans-serif;
+$fontWeightTitle: bold;
