@@ -1,9 +1,4 @@
 @import "vars";
-
-body {
-    background-color: $secondary-color;
-}
-
-a {
-    color: $warm-color;
-}
+@import "~bootstrap/scss/bootstrap";
+@import "footer_public";
+@import "home.scss";

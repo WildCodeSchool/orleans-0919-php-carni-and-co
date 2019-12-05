@@ -1,0 +1,71 @@
+footer {
+    background-color: $navbarColor;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+
+.footer-line-date {
+    margin-left: 2em;
+}
+
+small {
+    font-size: 1em;
+    color: $textColor;
+    font-family: $fontText;
+}
+
+.link-social-footer {
+    font-family: $fontText;
+    margin: 0.8em;
+    color: $textColor;
+    font-size: $textSize;
+}
+
+.link-social-footer:hover {
+    color: $inherit;
+    text-decoration: none;
+}
+
+.icon-social-footer {
+    width: 30px;
+    height: 30px;
+    margin: 0.1em;
+}
+
+.footer-line-social-icon {
+    margin-top: 1em;
+}
+
+.link-legals-m-footer {
+    font-family: $fontText;
+    color: $textColor;
+    font-size: $textSize;
+    text-decoration: underline;
+}
+
+.link-legals-m-footer:hover {
+    color: $inherit;
+}
+
+.box-m-legals-footer {
+    text-align: center;
+    margin-top: 1.5em;
+}
+
+.box-mail-footer {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.txt-mail-footer {
+    font-family: $fontText;
+    color: $textColor;
+}
+
+.links-footer-social {
+    text-align: center;
+}
+
+.box-icon-social-footer {
+    text-align: center;
+}
