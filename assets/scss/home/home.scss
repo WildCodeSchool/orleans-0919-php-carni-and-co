@@ -3,7 +3,9 @@
 .container{
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
+
 
 .margeHome {
     margin-top: 10vh;
