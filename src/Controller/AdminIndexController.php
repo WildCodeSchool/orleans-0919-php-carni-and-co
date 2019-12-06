@@ -17,8 +17,6 @@ class AdminIndexController extends AbstractController
      */
     public function index(): Response
     {
-        return $this->render('admin/index.html.twig', [
-            'Home_admin' => 'Administrateur',
-        ]);
+        return $this->render('admin/index.html.twig');
     }
 }
