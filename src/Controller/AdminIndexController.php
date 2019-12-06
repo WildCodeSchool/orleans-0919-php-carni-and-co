@@ -7,13 +7,13 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
- * @Route ("/" , name="admin_index")
+ * @Route ("/admin" , name="admin")
  * @return Response A response instance
  */
 class AdminIndexController extends AbstractController
 {
     /**
-     * @Route("/admin", name="admin_index")
+     * @Route("/", name="_index")
      */
     public function index(): Response
     {
