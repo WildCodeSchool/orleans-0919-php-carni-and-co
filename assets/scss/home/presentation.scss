@@ -1,0 +1,51 @@
+.container-presentation{
+    width: 85%;
+}
+
+.h1-home {
+    font-family: $fontTitle;
+    color: $titleColor;
+    font-size: $h1Size;
+    font-weight: $fontWeightTitle;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.h2-home {
+    font-family: $fontTitle;
+    font-size: $h2Size;
+    font-weight: $fontWeightTitle;
+    text-align: right;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.background-title{
+    background-color: $boxColor;
+    padding: 0.5em;
+}
+
+.picture-home {
+    display: flex;
+    justify-content: right;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.h2-home a{
+    text-decoration: none;
+    color: $titleColor;
+    font-size: $h2Size;
+}
+
+.h2-home a:hover{
+    color: $hoverColor;
+}
+
+.text_home_page {
+    font-family: $fontText;
+    font-size: $textSize;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}

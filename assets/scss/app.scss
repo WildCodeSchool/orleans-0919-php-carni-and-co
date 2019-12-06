@@ -1,11 +1,5 @@
 @import "vars";
 @import "~bootstrap/scss/bootstrap";
+@import "home/home.scss";
+@import 'navbar.scss';
 @import "footer_public";
-@import "home.scss";
-
-body {
-    background: url('../../public/uploads/background.jpg') no-repeat center center fixed;
-    position: center;
-    width: 100vw;
-}
-
