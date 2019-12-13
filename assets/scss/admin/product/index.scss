@@ -1,0 +1,25 @@
+.h1-Product-Admin{
+    font-family: $fontTitle;
+    color: $titleColor;
+    font-size: $h1Size;
+    font-weight: $fontWeightTitle;
+}
+
+.header-admin-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 5vh;
+    margin:4rem;
+}
+
+.card-admin-product{
+    display: flex;
+    flex-direction: row;
+}
+
+.card-product{
+    margin : 1rem;
+    text-align: center;
+}
