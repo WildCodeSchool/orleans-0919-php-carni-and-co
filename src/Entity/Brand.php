@@ -3,11 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\MarqueRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\BrandRepository")
+ *  @UniqueEntity("name")
  */
-class Marque
+class Brand
 {
     /**
      * @ORM\Id()
@@ -18,6 +21,10 @@ class Marque
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\Length(
+     *     max = 80,
+     *     maxMessage = "La marque ne doit pas excéder {{ limit }} caractères.")
+     * @Assert\NotBlank
      */
     private $name;
 
