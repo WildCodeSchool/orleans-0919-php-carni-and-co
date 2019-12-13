@@ -11,22 +11,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/marque")
+ * @Route("/admin/marque", name="brand")
  */
 class BrandController extends AbstractController
 {
     /**
-     * @Route("/", name="marque_index", methods={"GET"})
+     * @Route("/", name="_index", methods={"GET"})
      */
     public function index(BrandRepository $brandRepository): Response
     {
         return $this->render('brand/index.html.twig', [
-            'marques' => $brandRepository->findAll(),
+            'brands' => $brandRepository->findAll(),
         ]);
     }
 
     /**
-     * @Route("/new", name="marque_new", methods={"GET","POST"})
+     * @Route("/new", name="_new", methods={"GET","POST"})
      */
     public function new(Request $request): Response
     {
@@ -39,7 +39,7 @@ class BrandController extends AbstractController
             $entityManager->persist($brand);
             $entityManager->flush();
 
-            return $this->redirectToRoute('marque_index');
+            return $this->redirectToRoute('brand_index');
         }
 
         return $this->render('brand/new.html.twig', [
@@ -49,17 +49,17 @@ class BrandController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="marque_show", methods={"GET"})
+     * @Route("/{id}", name="_show", methods={"GET"})
      */
     public function show(Brand $brand): Response
     {
         return $this->render('brand/show.html.twig', [
-            'marque' => $brand,
+            'brand' => $brand,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="marque_edit", methods={"GET","POST"})
+     * @Route("/{id}/edit", name="_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Brand $brand): Response
     {
@@ -69,17 +69,17 @@ class BrandController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('marque_index');
+            return $this->redirectToRoute('brand_index');
         }
 
         return $this->render('brand/edit.html.twig', [
-            'marque' => $brand,
+            'brand' => $brand,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="marque_delete", methods={"DELETE"})
+     * @Route("/{id}", name="_delete", methods={"DELETE"})
      */
     public function delete(Request $request, Brand $brand): Response
     {
@@ -89,6 +89,6 @@ class BrandController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('marque_index');
+        return $this->redirectToRoute('brand_index');
     }
 }

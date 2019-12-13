@@ -9,18 +9,18 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ marque.id }}</td>
+                <td>{{ brand.id }}</td>
             </tr>
             <tr>
                 <th>Name</th>
-                <td>{{ marque.name }}</td>
+                <td>{{ brand.name }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('marque_index') }}">back to list</a>
+    <a href="{{ path('brand_index') }}">back to list</a>
 
-    <a href="{{ path('marque_edit', {'id': marque.id}) }}">edit</a>
+    <a href="{{ path('brand_edit', {'id': brand.id}) }}">edit</a>
 
     {{ include('brand/_delete_form.html.twig') }}
 {% endblock %}

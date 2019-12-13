@@ -6,12 +6,12 @@
     <div class="flex-column text-center">
     <h1>Liste des marques</h1>
 
-    <a href="{{ path('marque_new') }}"><button class="btn btn-secondary mb-3 center-button">Enregistrer une nouvelle marque</button></a>
-        {% for marque in marques %}
+    <a href="{{ path('brand_new') }}"><button class="btn btn-secondary mb-3 center-button">Enregistrer une nouvelle marque</button></a>
+        {% for brand in brands %}
             <div class="card mt-3 mb-3">
                 <div class="card-body row justify-content-between align-items-center">
-                    <h4 class="ml-2">{{ marque.name }}</h4>
-                    <a href="{{ path('marque_edit', {'id': marque.id}) }}"><button class="btn btn-secondary text-right">Editer</button></a>
+                    <h4 class="ml-2">{{ brand.name }}</h4>
+                    <a href="{{ path('brand_edit', {'id': brand.id}) }}"><button class="btn btn-secondary text-right">Editer</button></a>
                 </div>
             </div>
         {% else %}
