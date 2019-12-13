@@ -44,7 +44,7 @@ class Product
     /**
      * @ORM\Column(type="blob", nullable=true)
      */
-    private $code_barre;
+    private $barCode;
 
     /**
      * @ORM\Column(type="blob", nullable=true)
@@ -116,14 +116,14 @@ class Product
         return $this;
     }
 
-    public function getCodeBarre()
+    public function getBarCode()
     {
-        return $this->code_barre;
+        return $this->barCode;
     }
 
-    public function setCodeBarre($code_barre): self
+    public function setBarCode($barCode): self
     {
-        $this->code_barre = $code_barre;
+        $this->barCode = $barCode;
 
         return $this;
     }

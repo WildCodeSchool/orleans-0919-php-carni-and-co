@@ -17,7 +17,7 @@ class ProductType extends AbstractType
             ->add('bio')
             ->add('cereale')
             ->add('source')
-            ->add('code_barre')
+            ->add('barCode')
             ->add('image')
         ;
     }
