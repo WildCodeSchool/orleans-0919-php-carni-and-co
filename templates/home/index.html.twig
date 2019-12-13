@@ -1,5 +1,6 @@
 {% extends 'layout.html.twig' %}
 
+
 {% block header %}
     {% include '_navbar.html.twig' %}
     <div id="carouselExampleControls" class="carousel slide d-none d-lg-block d-xl-block" data-ride="carousel" data-pause="false">
@@ -34,6 +35,6 @@
 {% block body %}
 
     {% include 'home/presentation.html.twig' %}
-    {% include "home/animal.html.twig" %}
+    {% include 'animal/index.html.twig' %}
 
 {% endblock %}
