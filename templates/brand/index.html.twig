@@ -1,0 +1,21 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Marque index{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center">
+    <h1>Liste des marques</h1>
+
+    <a href="{{ path('brand_new') }}"><button class="btn btn-secondary mb-3 center-button">Enregistrer une nouvelle marque</button></a>
+        {% for brand in brands %}
+            <div class="card mt-3 mb-3">
+                <div class="card-body row justify-content-between align-items-center">
+                    <h4 class="ml-2">{{ brand.name }}</h4>
+                    <a href="{{ path('brand_edit', {'id': brand.id}) }}"><button class="btn btn-secondary text-right">Editer</button></a>
+                </div>
+            </div>
+        {% else %}
+            <div>Pas de marque enregistrée</div>
+        {% endfor %}
+    </div>
+{% endblock %}
