@@ -14,7 +14,7 @@ class ProductType extends AbstractType
         $builder
             ->add('reference')
             ->add('vegan')
-            ->add('bio')
+            ->add('organic')
             ->add('cereale')
             ->add('source')
             ->add('barCode')

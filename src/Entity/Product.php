@@ -29,7 +29,7 @@ class Product
     /**
      * @ORM\Column(type="boolean")
      */
-    private $bio;
+    private $organic;
 
     /**
      * @ORM\Column(type="boolean")
@@ -42,7 +42,7 @@ class Product
     private $source;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", length=255 ,nullable=true)
      */
     private $barCode;
 
@@ -80,14 +80,14 @@ class Product
         return $this;
     }
 
-    public function getBio(): ?bool
+    public function getOrganic(): ?bool
     {
-        return $this->bio;
+        return $this->organic;
     }
 
-    public function setBio(bool $bio): self
+    public function setOrganic(bool $organic): self
     {
-        $this->bio = $bio;
+        $this->organic = $organic;
 
         return $this;
     }
