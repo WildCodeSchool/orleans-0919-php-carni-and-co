@@ -1,39 +1,36 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Animal index{% endblock %}
 
 {% block body %}
     <h1>Animal index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Image</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for animal in animals %}
-            <tr>
-                <td>{{ animal.id }}</td>
-                <td>{{ animal.name }}</td>
-                <td>{{ animal.description }}</td>
-                <td>{{ animal.image }}</td>
-                <td>
-                    <a href="{{ path('animal_show', {'id': animal.id}) }}">show</a>
-                    <a href="{{ path('animal_edit', {'id': animal.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    <a class="title_create" href="{{ path('animal_new') }}">Create new</a>
 
-    <a href="{{ path('animal_new') }}">Create new</a>
+        {% for animal in animals %}
+            <div class="card mb-3 margeHome">
+                <div class="row no-gutters">
+                    <div class="col-md-4 image">
+                        <img src="{{ asset('build/'~animal.image)}}" class="card-img"
+                             alt="picture of {{ animal.name }}">
+                    </div>
+                    <div class="col-md-8 text">
+                        <div class="card-body textcard">
+                            <h2 class="card-title">{{ animal.name | title }}</h2>
+                            <p>
+                                <a href="{{ path('animal_show', {'id': animal.id}) }}">Show</a>
+                                <a href="{{ path('animal_edit', {'id': animal.id}) }}">Edit</a>
+                            </p>
+                            <p class="card-text">
+                                {{ animal.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        {% else %}
+                <p>no records found</p>
+        {% endfor %}
+
 {% endblock %}

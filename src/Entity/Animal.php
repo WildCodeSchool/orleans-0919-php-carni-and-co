@@ -27,7 +27,7 @@ class Animal
     private $description;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
      */
     private $image;
 
