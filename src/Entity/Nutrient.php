@@ -3,7 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\NutrientRepository")
  */
@@ -18,12 +18,18 @@ class Nutrient
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\Length(
+     *     min = 1,
+     *     minMessage = "Le titre ne doit pas être vide.")
      * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * Assert\Length(
+     *     min = 1,
+     *     minMessage = "La description ne doit pas être vide.")
      * @Assert\NotBlank
      */
     private $description;
