@@ -18,6 +18,10 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(
+     *     max = 100,
+     *     maxMessage = "La réference ne doit pas excéder {{ limit }} caractères.")
+     * @Assert\NotBlank
      */
     private $reference;
 
