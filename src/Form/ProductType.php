@@ -15,13 +15,16 @@ class ProductType extends AbstractType
         $builder
             ->add('reference')
             ->add('vegan', CheckboxType::class, [
-                'label' => 'Vegan'
+                'label' => 'Vegan',
+                'required'=>false,
             ])
             ->add('organic', CheckboxType::class, [
-                'label' => 'Bio'
-                ])
+                'label' => 'Bio',
+                'required'=>false,
+            ])
             ->add('cereal', CheckboxType::class, [
-                'label' => 'Céréales'
+                'label' => 'Céréales',
+                'required'=>false,
             ])
             ->add('source')
             ->add('barCode')
