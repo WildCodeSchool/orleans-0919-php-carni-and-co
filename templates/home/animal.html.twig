@@ -3,8 +3,8 @@
     {% for animal in animals %}
         <div class="card mb-3 margeHome">
             <div class="row no-gutters">
-                <div class="col-md-4 image order-{{ loop.index%2 }}">
-                    <img src="{{ asset('build/dog.png') }}" class="card-img"
+                <div class="col-md-4 image order-{{ loop.index0%2 }}">
+                    <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
                          alt="picture of {{ animal.name }}">
                 </div>
                 <div class="col-md-8 text">
