@@ -1,42 +1,21 @@
 <section class="container-presentation animal">
 
     {% for animal in animals %}
-
-        {% if loop.index is odd %}
-            <div class="card mb-3 margeHome">
-                <div class="row no-gutters">
-                    <div class="col-md-4 image">
-                        <img src="{{ asset('build/dog.png') }}" class="card-img"
-                             alt="picture of {{ animal.name }}">
-                    </div>
-                    <div class="col-md-8 text">
-                        <div class="card-body textcard">
-                            <h2 class="card-title">{{ animal.name }}</h2>
-                            <p class="card-text">
-                                {{ animal.description }}
-                            </p>
-                        </div>
+        <div class="card mb-3 margeHome">
+            <div class="row no-gutters">
+                <div class="col-md-4 image order-{{ loop.index0%2 }}">
+                    <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
+                         alt="picture of {{ animal.name }}">
+                </div>
+                <div class="col-md-8 text">
+                    <div class="card-body textcard order-2">
+                        <h2 class="card-title">{{ animal.name | title }}</h2>
+                        <p class="card-text">
+                            {{ animal.description }}
+                        </p>
                     </div>
                 </div>
             </div>
-        {% else %}
-            <div class="card mb-3 margeHome">
-                <div class="row no-gutters">
-                    <div class="col-md-8 text">
-                        <div class="card-body textcard">
-                            <h2 class="card-title">{{ animal.name }}</h2>
-                            <p class="card-text">
-                                {{ animal.description }}
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 image">
-                        <img src="{{ asset('build/cat.png') }}" class="card-img" alt="picture of {{ animal.name }}">
-                    </div>
-                </div>
-            </div>
-        {% endif %}
-
+        </div>
     {% endfor %}
-
 </section>
