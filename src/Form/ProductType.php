@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Product;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,9 +14,15 @@ class ProductType extends AbstractType
     {
         $builder
             ->add('reference')
-            ->add('vegan')
-            ->add('organic')
-            ->add('cereale')
+            ->add('vegan', CheckboxType::class, [
+                'label' => 'Vegan'
+            ])
+            ->add('organic', CheckboxType::class, [
+                'label' => 'Bio'
+                ])
+            ->add('cereal', CheckboxType::class, [
+                'label' => 'Céréales'
+            ])
             ->add('source')
             ->add('barCode')
             ->add('image')

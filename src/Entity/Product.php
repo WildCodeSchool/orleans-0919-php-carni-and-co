@@ -34,7 +34,7 @@ class Product
     /**
      * @ORM\Column(type="boolean")
      */
-    private $cereale;
+    private $cereal;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -92,14 +92,14 @@ class Product
         return $this;
     }
 
-    public function getCereale(): ?bool
+    public function getCereal(): ?bool
     {
-        return $this->cereale;
+        return $this->cereal;
     }
 
-    public function setCereale(bool $cereale): self
+    public function setCereal(bool $cereal): self
     {
-        $this->cereale = $cereale;
+        $this->cereal = $cereal;
 
         return $this;
     }
