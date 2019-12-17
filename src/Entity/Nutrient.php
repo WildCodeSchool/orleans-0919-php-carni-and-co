@@ -18,11 +18,13 @@ class Nutrient
 
     /**
      * @ORM\Column(type="string", length=80)
+     * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
      */
     private $description;
 
