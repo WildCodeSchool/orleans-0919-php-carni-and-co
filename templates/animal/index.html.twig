@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Animal index</h1>
 
-    <a class="title_create" href="{{ path('animal_new') }}">Create new</a>
+    <a class="title_create" href="{{ path('animal_new') }}">Ajouter</a>
 
         {% for animal in animals %}
             <div class="card mb-3 margeHome">
@@ -18,8 +18,8 @@
                         <div class="card-body textcard">
                             <h2 class="card-title">{{ animal.name | title }}</h2>
                             <p>
-                                <a href="{{ path('animal_show', {'id': animal.id}) }}">Show</a>
-                                <a href="{{ path('animal_edit', {'id': animal.id}) }}">Edit</a>
+                                <a href="{{ path('animal_show', {'id': animal.id}) }}">Voir</a>
+                                <a href="{{ path('animal_edit', {'id': animal.id}) }}">Editer</a>
                             </p>
                             <p class="card-text">
                                 {{ animal.description }}
