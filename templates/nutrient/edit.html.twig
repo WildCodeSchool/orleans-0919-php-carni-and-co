@@ -3,13 +3,9 @@
 {% block title %}Edition d'un nutriment{% endblock %}
 
 {% block body %}
-    <div class="flex-column text-center box-title-nutrient">
-        <h1 class="mt-3">Modification d'un nutriment</h1>
-        <div class="flex-column">
+        <h1>Modification d'un nutriment</h1>
             {{ include('nutrient/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-        </div>
-        <a href="{{ path('nutrient_index') }}"><button class="btn btn-secondary mb-1 button-update-nutrient">Retourner à la liste</button></a>
+        <a href="{{ path('nutrient_index') }}">Retourner à la liste</a>
 
         {{ include('nutrient/_delete_form.html.twig') }}
-    </div>
 {% endblock %}
