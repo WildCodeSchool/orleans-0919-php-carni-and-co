@@ -3,12 +3,12 @@
 {% block title %}Nouveau nutriment{% endblock %}
 
 {% block body %}
-    <div class="flex-column">
+    <div class="flex-column text-center box-title-nutrient">
         <h1 class="mt-3">Creation d'un nouveau nutriment</h1>
         <div class="flex-column">
             {{ include('nutrient/_form.html.twig') }}
         </div>
 
-        <a href="{{ path('nutrient_index') }}"><button class="btn btn-secondary mb-1">Retourner à la liste</button></a>
+        <a href="{{ path('nutrient_index') }}"><button class="btn btn-secondary mb-1 button-return-list-nutrient">Retourner à la liste</button></a>
     </div>
 {% endblock %}
