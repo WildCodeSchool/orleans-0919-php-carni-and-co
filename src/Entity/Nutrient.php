@@ -21,7 +21,7 @@ class Nutrient
      * @ORM\Column(type="string", length=80)
      * @Assert\Length(
      *     max = 80,
-     *     maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères")
+     *     maxMessage = "Le titre ne doit pas dépasser {{ limit origin }} caractères")
      * @Assert\NotBlank
      */
     private $name;
@@ -34,6 +34,9 @@ class Nutrient
 
     /**
      * @ORM\Column(type="string", length=155, nullable=true)
+     * @Assert\Length(
+     *     max = 155,
+     *     maxMessage = "Le nom de l'image ne doit pas dépasser {{ limit origin }} caractères")
      */
     private $image;
 
