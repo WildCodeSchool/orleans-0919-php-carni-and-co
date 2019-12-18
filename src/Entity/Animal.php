@@ -21,7 +21,7 @@ class Animal
      * @ORM\Column(type="string", length=80)
      * @Assert\Length(
      *     max = 80,
-     *     maxMessage = "Le type d'aliment ne doit pas excéder {{ limit }} caractères.")
+     *     maxMessage = "Le nom de l'animal ne doit pas excéder {{ limit }} caractères.")
      * @Assert\NotBlank()
      */
     private $name;
