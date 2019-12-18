@@ -1,0 +1,28 @@
+.navbar-admin{
+    background-color: $navbarColor;
+    padding: 0;
+}
+
+.navbar-brand-admin {
+    color: $titleColor;
+    font-family: $fontText;
+    font-size: $h2Size;
+    margin-left: 10px;
+}
+
+.navbar-brand-admin:hover {
+    color:$hoverColor;
+    text-decoration: none;
+}
+
+.nav-link-admin {
+    color: $titleColor;
+    font-family: $fontText;
+    font-size: $h3Size;
+    margin-left:2vw;
+}
+
+.nav-link-admin:hover{
+    color:$hoverColor;
+    text-decoration: none;
+}
