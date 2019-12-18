@@ -20,17 +20,14 @@ class Nutrient
     /**
      * @ORM\Column(type="string", length=80)
      * @Assert\Length(
-     *     min = 1,
-     *     minMessage = "Le titre ne doit pas être vide.")
+     *     max = 80,
+     *     maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères")
      * @Assert\NotBlank
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
-     * Assert\Length(
-     *     min = 1,
-     *     minMessage = "La description ne doit pas être vide.")
      * @Assert\NotBlank
      */
     private $description;
