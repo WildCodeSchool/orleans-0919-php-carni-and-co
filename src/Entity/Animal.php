@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AnimalRepository")
@@ -17,17 +18,23 @@ class Animal
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=80)
+     * @Assert\Length(
+     *     max = 80,
+     *     maxMessage = "Le nom de l'animal ne doit pas excéder {{ limit }} caractères.")
+     * @Assert\NotBlank()
      */
     private $name;
 
     /**
      * @ORM\Column(type="text")
+     ** @Assert\NotBlank()
      */
     private $description;
 
     /**
-     * @ORM\Column(type="blob")
+     * @ORM\Column(type="string", length=255)
+     ** @Assert\NotBlank()
      */
     private $image;
 
