@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Product{% endblock %}
 
@@ -24,8 +24,8 @@
                 <td>{{ product.organic ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
-                <th>Cereale</th>
-                <td>{{ product.cereale ? 'Yes' : 'No' }}</td>
+                <th>Céréales</th>
+                <td>{{ product.cereal ? 'Yes' : 'No' }}</td>
             </tr>
             <tr>
                 <th>Source</th>

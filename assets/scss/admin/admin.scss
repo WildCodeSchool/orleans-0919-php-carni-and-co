@@ -1,17 +1,5 @@
 @import "product/product.scss";
-@import "blog/blog.scss";
 
-.navbar-brand {
-    color: $titleColor;
-    font-family: $fontText;
-}
-
-.nav-item {
-    color: $titleColor;
-    font-family: $fontText;
-}
-
-.mr-auto {
-    margin-left: 25vw;
-}
+@import "navbarAdmin.scss";
+@import "admin_HomePage.scss";
 
