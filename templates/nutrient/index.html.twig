@@ -1,0 +1,21 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Administration - Page Nutriments{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center box-title-nutrient">
+        <h1>Liste des nutriments</h1>
+
+        <a href="{{ path('nutrient_new') }}"><button class="btn btn-secondary mb-3 center-button">Enregistrer un nouveau nutriment</button></a>
+        {% for nutrient in nutrients %}
+            <div class="card mt-3 mb-3">
+                <div class="card-body row justify-content-between align-items-center">
+                    <h4 class="ml-2">{{ nutrient.name }}</h4>
+                    <a href="{{ path('nutrient_edit', {'id': nutrient.id}) }}"><button class="btn btn-secondary text-right">Editer</button></a>
+                </div>
+            </div>
+        {% else %}
+            <div>Pas de nutriments enregistrés</div>
+        {% endfor %}
+    </div>
+{% endblock %}

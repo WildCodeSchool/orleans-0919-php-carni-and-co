@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
@@ -18,6 +19,10 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Assert\Length(
+     *     max = 100,
+     *     maxMessage = "La réference ne doit pas excéder {{ limit }} caractères.")
+     * @Assert\NotBlank
      */
     private $reference;
 
@@ -34,7 +39,7 @@ class Product
     /**
      * @ORM\Column(type="boolean")
      */
-    private $cereale;
+    private $cereal;
 
     /**
      * @ORM\Column(type="text", nullable=true)
@@ -92,14 +97,14 @@ class Product
         return $this;
     }
 
-    public function getCereale(): ?bool
+    public function getCereal(): ?bool
     {
-        return $this->cereale;
+        return $this->cereal;
     }
 
-    public function setCereale(bool $cereale): self
+    public function setCereal(bool $cereal): self
     {
-        $this->cereale = $cereale;
+        $this->cereal = $cereal;
 
         return $this;
     }
