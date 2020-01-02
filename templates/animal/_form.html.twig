@@ -1,0 +1,7 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    {{ form_row(form.image) }}
+    {{ form_row(form.name) }}
+    {{ form_row(form.description) }}
+<button class="btn">{{ button_label|default('Ajouter') }}</button>
+{{ form_end(form) }}

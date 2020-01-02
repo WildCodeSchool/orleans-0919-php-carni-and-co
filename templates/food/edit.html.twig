@@ -1,13 +1,17 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Edit Food{% endblock %}
 
 {% block body %}
-    <h1>Edit Food</h1>
+<div class="flex-column text-center">
 
-    {{ include('food/_form.html.twig', {'button_label': 'Update'}) }}
+    <h1>Modifier un aliment</h1>
 
-    <a href="{{ path('food_index') }}">back to list</a>
+    {{ include('food/_form.html.twig', {'button_label': 'Valider les modifications'}) }}
 
     {{ include('food/_delete_form.html.twig') }}
+
+    <a href="{{ path('food_index') }}"><button class="btn btn-secondary mb-3 mt-3">Retour à la liste</button></a>
+
+</div>
 {% endblock %}
