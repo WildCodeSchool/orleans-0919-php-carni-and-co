@@ -1,0 +1,40 @@
+.article {
+    margin-left: 2rem;
+}
+
+.article_date {
+    margin-left: 2rem;
+}
+
+.article_title {
+    margin-left: 2rem;
+    padding-top: 1rem;
+}
+
+.col-lg-10 {
+    border: 1px solid $backColor;
+}
+
+.button_article {
+    margin-bottom: 0.5rem;
+}
+
+.image_article {
+    float-wrap: wrap;
+}
+
+.h1-blog {
+    font-family: $fontTitle;
+    font-size: $h1Size;
+    color: $titleColor;
+    text-align: center;
+}
+
+.col {
+    justify-items: center;
+}
+
+.media {
+    width: 50%;
+    height: 50%;
+}

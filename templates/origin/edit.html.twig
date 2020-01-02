@@ -1,0 +1,15 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Modification origine ingrédient{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center">
+        <h1 class="h1-Product-Admin">Modifier une origine d'ingrédient</h1>
+
+        {{ include('origin/_form.html.twig', {'button_label': 'Valider les modifications'}) }}
+
+        {{ include('origin/_delete_form.html.twig') }}
+
+        <a href="{{ path('origin_index') }}"><button class="btn btn-secondary mb-3 mt-3">Retour à la liste</button></a>
+    </div>
+{% endblock %}
