@@ -56,6 +56,24 @@ class Product
      */
     private $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $animal;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Food", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $food;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Brand", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $brand;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -141,6 +159,42 @@ class Product
     public function setImage($image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getAnimal(): ?Animal
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal(?Animal $animal): self
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getFood(): ?Food
+    {
+        return $this->food;
+    }
+
+    public function setFood(?Food $food): self
+    {
+        $this->food = $food;
+
+        return $this;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): self
+    {
+        $this->brand = $brand;
 
         return $this;
     }
