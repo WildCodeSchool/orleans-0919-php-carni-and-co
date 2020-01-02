@@ -1,0 +1,11 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Nouvel Animal{% endblock %}
+
+{% block body %}
+    <h1 class="title_create">Créer un Nouvel Animal</h1>
+
+    {{ include('animal/_form.html.twig') }}
+
+    <a href="{{ path('animal_index') }}">Retour</a>
+{% endblock %}
