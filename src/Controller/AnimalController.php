@@ -39,6 +39,11 @@ class AnimalController extends AbstractController
             $entityManager->persist($animal);
             $entityManager->flush();
 
+            $this->addFlash(
+                'success',
+                'Vos changements ont été validées!'
+            );
+
             return $this->redirectToRoute('animal_index');
         }
 
@@ -69,6 +74,11 @@ class AnimalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
+            $this->addFlash(
+                'success',
+                'Vos changements ont été validés!'
+            );
+
             return $this->redirectToRoute('animal_index');
         }
 
@@ -88,6 +98,11 @@ class AnimalController extends AbstractController
             $entityManager->remove($animal);
             $entityManager->flush();
         }
+
+        $this->addFlash(
+            'success',
+            'Your changes were saved!'
+        );
 
         return $this->redirectToRoute('animal_index');
     }
