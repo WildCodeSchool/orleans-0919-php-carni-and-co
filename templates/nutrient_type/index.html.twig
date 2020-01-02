@@ -1,0 +1,21 @@
+{% extends 'layout_admin.html.twig' %}
+
+{% block title %}Index Type de Nutriment{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center">
+        <h1 class="h1-Product-Admin">Liste des types de nutriments</h1>
+
+        <a href="{{ path('nutrient_type_new') }}"><button class="btn btn-secondary mb-3 center-button">Ajouter un nouveau type de nutriment</button></a>
+        {% for nutrient_type in nutrient_types %}
+            <div class="card mt-3 mb-3 col-8 offset-2">
+                <div class="card-body row justify-content-between align-items-center p-2">
+                    <h4 class="ml-2">{{ nutrient_type.nutrient }}</h4>
+                    <a href="{{ path('nutrient_type_edit', {'id': nutrient_type.id}) }}"><button class="btn btn-secondary text-right">Editer</button></a>
+                </div>
+            </div>
+        {% else %}
+            <div>Pas de type de nutriments enregistrée</div>
+        {% endfor %}
+    </div>
+{% endblock %}
