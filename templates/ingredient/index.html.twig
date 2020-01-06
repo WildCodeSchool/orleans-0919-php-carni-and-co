@@ -1,41 +1,44 @@
 {% extends 'layout_admin.html.twig' %}
 
-{% block title %}Ingredient index{% endblock %}
+{% block title %}Liste ingrédients{% endblock %}
 
 {% block body %}
-    <h1>Ingredient index</h1>
+    <h1 class="h1-Product-Admin">Liste des ingrédients</h1>
+
+    <a href="{{ path('ingredient_new') }}"><button class="btn btn-secondary mb-4">Ajouter un nouvel ingrédient</button></a>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>PrecisedType</th>
-                <th>PrecisedPart</th>
+                <th>Nom</th>
+                <th>Type précisé</th>
+                <th>Morceau précisé</th>
                 <th>Note</th>
-                <th>actions</th>
+                <th>Origine</th>
+                <th>Forme</th>
+                <th>Type de nutriment</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
         {% for ingredient in ingredients %}
             <tr>
-                <td>{{ ingredient.id }}</td>
                 <td>{{ ingredient.name }}</td>
-                <td>{{ ingredient.precisedType ? 'Yes' : 'No' }}</td>
-                <td>{{ ingredient.precisedPart ? 'Yes' : 'No' }}</td>
+                <td>{{ ingredient.precisedType ? 'Oui' : 'Non' }}</td>
+                <td>{{ ingredient.precisedPart ? 'Oui' : 'Non' }}</td>
                 <td>{{ ingredient.note }}</td>
+                <td>{{ ingredient.origin.name }}</td>
+                <td>{{ ingredient.shape.name }}</td>
+                <td>{{ ingredient.nutrientType.nutrient }}</td>
                 <td>
-                    <a href="{{ path('ingredient_show', {'id': ingredient.id}) }}">show</a>
-                    <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}">edit</a>
+                    <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucune données trouvées</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('ingredient_new') }}">Create new</a>
 {% endblock %}
