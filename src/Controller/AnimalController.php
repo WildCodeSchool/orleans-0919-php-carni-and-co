@@ -40,8 +40,8 @@ class AnimalController extends AbstractController
             $entityManager->flush();
 
             $this->addFlash(
-                'success',
-                'Vos changements ont été validées!'
+                'success'.
+                'Votre animal à été ajoutée'
             );
 
             return $this->redirectToRoute('animal_index');
