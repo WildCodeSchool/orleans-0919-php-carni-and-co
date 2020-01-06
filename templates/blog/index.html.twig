@@ -1,0 +1,35 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+        <div class="container-fluid">
+            <h1 class="h1-blog">Blog</h1>
+            {% if articles is defined %}
+                {% for article in articles %}
+
+                    <div class="row col-lg-10 col-md-12 offset-lg-1 mt-3">
+                        <div class="col">
+                            <div class="image_article">
+                                <img class="media p-3 float-left" src="{{ article.image }}" alt="{{ article.title }}">
+                            </div>
+                            <h5 class="mt-0 article_title">{{ article.title }}</h5>
+                            <p class="article">{{ article.description }}</p>
+                            <p class="article_date">{{ article.date|date("d/m/Y") }}</p>
+                            <div class="float-right">
+                                <div class="button_article">
+                                    <button class="btn btn-primary">Voir l'article complet.
+                                        <a href="#"></a>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% else %}
+                    Aucun article trouvé.
+                {% endfor %}
+            {% endif %}
+        </div>
+{% endblock %}
+
