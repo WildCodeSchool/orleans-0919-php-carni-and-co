@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -28,6 +30,16 @@ class Origin
      */
     private $name;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Ingredient", mappedBy="origin")
+     */
+    private $ingredients;
+
+    public function __construct()
+    {
+        $this->ingredients = new ArrayCollection();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -41,6 +53,37 @@ class Origin
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredient[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredient $ingredient): self
+    {
+        if (!$this->ingredients->contains($ingredient)) {
+            $this->ingredients[] = $ingredient;
+            $ingredient->setOrigin($this);
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredient $ingredient): self
+    {
+        if ($this->ingredients->contains($ingredient)) {
+            $this->ingredients->removeElement($ingredient);
+            // set the owning side to null (unless already changed)
+            if ($ingredient->getOrigin() === $this) {
+                $ingredient->setOrigin(null);
+            }
+        }
 
         return $this;
     }
