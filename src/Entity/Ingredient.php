@@ -30,11 +30,13 @@ class Ingredient
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Assert\Type(type="bool")
      */
     private $precisedType;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     * @Assert\Type(type="bool")
      */
     private $precisedPart;
 
