@@ -9,3 +9,13 @@
 .margeHome {
     margin-top: 5vh;
 }
+
+a {
+    text-decoration: none;
+    color: $textColor;
+}
+
+a:hover {
+    text-decoration: none;
+    color: $hoverColor;
+}
