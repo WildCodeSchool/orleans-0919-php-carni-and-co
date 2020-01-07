@@ -8,6 +8,11 @@
     margin-bottom: 2vh;
 }
 
+.card-header-user{
+    font-size: $h3Size;
+    color: $titleColor;
+}
+
 .header-user-product{
     display: flex;
     flex-direction: column;
@@ -21,9 +26,11 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .card-product-user{
     margin : 1rem;
     text-align: center;
+    width: 22%;
 }

@@ -43,5 +43,4 @@ class AnimalFixtures extends Fixture
 
         $manager->flush();
     }
-
 }
