@@ -9,13 +9,13 @@
         <div class="row no-gutters">
             <div class="col-md-4 image">
                 <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
-                     alt="Photo de {{ animal.name }}">
+                     alt="picture of {{ animal.name }}">
             </div>
             <div class="col-md-8 text">
                 <div class="card-body textcard">
                     <h2 class="card-title">{{ animal.name | title }}</h2>
                     <p>
-                        <a href="{{ path('animal_edit', {'id': animal.id}) }}">Modifier</a>
+                        <a href="{{ path('animal_edit', {'id': animal.id}) }}">Editer</a>
                     </p>
                     <p class="card-text">
                         {{ animal.description }}
