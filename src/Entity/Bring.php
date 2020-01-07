@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BringRepository")
@@ -18,66 +19,80 @@ class Bring
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
+     *
      */
     private $calories;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $ratioProteinCalorie;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $proteins;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $lipids;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $ashes;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $fibers;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $humidity;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $carbohydrates;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $calcium;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $phosphorus;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $reportPhosphoCal;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $omega6;
 
     /**
      * @ORM\Column(type="float", nullable=true)
+     * @Assert\Type(type = "float")
      */
     private $omega3;
 
