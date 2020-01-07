@@ -17,6 +17,8 @@ class BringController extends AbstractController
 {
     /**
      * @Route("/", name="bring_index", methods={"GET"})
+     * @param BringRepository $bringRepository
+     * @return Response
      */
     public function index(BringRepository $bringRepository): Response
     {
@@ -27,6 +29,8 @@ class BringController extends AbstractController
 
     /**
      * @Route("/new", name="bring_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +54,8 @@ class BringController extends AbstractController
 
     /**
      * @Route("/{id}", name="bring_show", methods={"GET"})
+     * @param Bring $bring
+     * @return Response
      */
     public function show(Bring $bring): Response
     {
@@ -60,6 +66,9 @@ class BringController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="bring_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Bring $bring
+     * @return Response
      */
     public function edit(Request $request, Bring $bring): Response
     {
@@ -80,6 +89,9 @@ class BringController extends AbstractController
 
     /**
      * @Route("/{id}", name="bring_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Bring $bring
+     * @return Response
      */
     public function delete(Request $request, Bring $bring): Response
     {
