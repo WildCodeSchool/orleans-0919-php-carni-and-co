@@ -69,7 +69,7 @@ class Bring
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $reportPhosphorusCalorie;
+    private $reportPhosphoCal;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -206,14 +206,14 @@ class Bring
         return $this;
     }
 
-    public function getReportPhosphorusCalorie(): ?float
+    public function getReportPhosphoCal(): ?float
     {
-        return $this->reportPhosphorusCalorie;
+        return $this->reportPhosphoCal;
     }
 
-    public function setReportPhosphorusCalorie(?float $reportPhosphorusCalorie): self
+    public function setReportPhosphoCal(?float $reportPhosphoCal): self
     {
-        $this->reportPhosphorusCalorie = $reportPhosphorusCalorie;
+        $this->reportPhosphoCal = $reportPhosphoCal;
 
         return $this;
     }
