@@ -18,5 +18,4 @@ class BringRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Bring::class);
     }
-
 }
