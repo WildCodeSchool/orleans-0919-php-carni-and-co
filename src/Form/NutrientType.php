@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Nutrient;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -13,9 +14,10 @@ class NutrientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('description')
-            ->add('image')
+            ->add('name',TextType::class,['label' => 'Nom'])
+
+            ->add('description', TextType::class,['label' => 'Description'])
+            ->add('image', TextType::class,['label' => 'Image'])
         ;
     }
 
