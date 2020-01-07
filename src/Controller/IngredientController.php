@@ -16,6 +16,8 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class IngredientController extends AbstractController
 {
+    const MAX_PER_PAGE = 20;
+
     /**
      * @Route("/", name="ingredient_index", methods={"GET"})
      */
@@ -24,7 +26,7 @@ class IngredientController extends AbstractController
         $ingredients = $paginator->paginate(
             $ingredientRepository->findBy([], ['name'=>'asc']),
             $request->query->getInt('page', 1), /*page number*/
-            10 /*limit per page*/
+            self::MAX_PER_PAGE /*limit per page*/
         );
         return $this->render('ingredient/index.html.twig', [
             'ingredients' => $ingredients,
