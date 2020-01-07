@@ -94,6 +94,7 @@ class IngredientController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($ingredient);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'ingrédient a bien été supprimé!');
         }
 
         return $this->redirectToRoute('ingredient_index');
