@@ -1,0 +1,24 @@
+{% extends 'layout.html.twig' %}
+
+{% block body %}
+    <div class="container-user-product">
+        <div class="header-user-product">
+            <h1 class="h1-Product-User">Tous les produits</h1>
+        </div>
+        <div class="all-card-user-product">
+            {% for product in products %}
+                <div class="card card-product-user bg-light mb-3" style="max-width: 18rem;">
+                    <div class="card-header">{{ product.reference }}</div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <a href="{{ path('product_show', {'id': product.id}) }}">
+                            <button type="button" class="btn btn-secondary">Plus d'infos</button>
+                        </a>
+                    </div>
+                </div>
+            {% else %}
+                <p>Pas de produits trouvés</p>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,29 @@
+.h1-Product-User{
+    font-family: $fontTitle;
+    color: $titleColor;
+    font-size: $h1Size;
+    font-weight: $fontWeightTitle;
+    text-align: center;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+.header-user-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    height: 5vh;
+    margin:4rem;
+}
+
+.all-card-user-product{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.card-product-user{
+    margin : 1rem;
+    text-align: center;
+}
