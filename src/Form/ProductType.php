@@ -29,6 +29,9 @@ class ProductType extends AbstractType
             ->add('source')
             ->add('barCode')
             ->add('image')
+            ->add('animal')
+            ->add('food')
+            ->add('brand')
         ;
     }
 

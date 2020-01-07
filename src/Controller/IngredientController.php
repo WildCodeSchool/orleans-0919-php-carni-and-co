@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Ingredient;
 use App\Form\IngredientType;
 use App\Repository\IngredientRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,13 +16,20 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class IngredientController extends AbstractController
 {
+    const MAX_PER_PAGE = 20;
+
     /**
      * @Route("/", name="ingredient_index", methods={"GET"})
      */
-    public function index(IngredientRepository $ingredientRepository): Response
+    public function index(PaginatorInterface $paginator, IngredientRepository $ingredientRepository, Request $request)
     {
+        $ingredients = $paginator->paginate(
+            $ingredientRepository->findBy([], ['name'=>'asc']),
+            $request->query->getInt('page', 1), /*page number*/
+            self::MAX_PER_PAGE /*limit per page*/
+        );
         return $this->render('ingredient/index.html.twig', [
-            'ingredients' => $ingredientRepository->findAll(),
+            'ingredients' => $ingredients,
         ]);
     }
 

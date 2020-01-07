@@ -7,10 +7,12 @@
         </div>
         <div class="all-card-user-product">
             {% for product in products %}
-                <div class="card card-product-user bg-light mb-3" style="max-width: 18rem;">
+                <div class="card card-product-user bg-light mb-3" style="width: 20%;">
                     <div class="card-header">{{ product.reference }}</div>
                     <div class="card-body">
-                        <h5 class="card-title"></h5>
+                        <p>{{ product.animal.name }}</p>
+                        <p>Marque : {{ product.brand.name }}</p>
+                        <p>Type : {{ product.food.type }}</p>
                         <a href="{{ path('product_show', {'id': product.id}) }}">
                             <button type="button" class="btn btn-secondary">Plus d'infos</button>
                         </a>
