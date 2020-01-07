@@ -28,16 +28,19 @@ class Product
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $vegan;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $organic;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $cereal;
 
@@ -48,11 +51,17 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255 ,nullable=true)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Le code bar ne doit pas excéder {{ limit }} caractères.")
      */
     private $barCode;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", length=255 , nullable=true)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Le lien de l'image ne doit pas excéder {{ limit }} caractères.")
      */
     private $image;
 
