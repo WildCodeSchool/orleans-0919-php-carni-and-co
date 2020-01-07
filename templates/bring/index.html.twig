@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Bring index{% endblock %}
+
+{% block body %}
+    <h1>Bring index</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Calories</th>
+            <th>RatioProteinCalorie</th>
+            <th>Proteins</th>
+            <th>Lipids</th>
+            <th>Ashes</th>
+            <th>Fibers</th>
+            <th>Humidity</th>
+            <th>Carbohydrates</th>
+            <th>Calcium</th>
+            <th>Phosphorus</th>
+            <th>ReportPhosphoCal</th>
+            <th>Omega6</th>
+            <th>Omega3</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bring in brings %}
+            <tr>
+                <td>{{ bring.id }}</td>
+                <td>{{ bring.calories }}</td>
+                <td>{{ bring.ratioProteinCalorie }}</td>
+                <td>{{ bring.proteins }}</td>
+                <td>{{ bring.lipids }}</td>
+                <td>{{ bring.ashes }}</td>
+                <td>{{ bring.fibers }}</td>
+                <td>{{ bring.humidity }}</td>
+                <td>{{ bring.carbohydrates }}</td>
+                <td>{{ bring.calcium }}</td>
+                <td>{{ bring.phosphorus }}</td>
+                <td>{{ bring.reportPhosphoCal }}</td>
+                <td>{{ bring.omega6 }}</td>
+                <td>{{ bring.omega3 }}</td>
+                <td>
+                    <a href="{{ path('bring_show', {'id': bring.id}) }}">show</a>
+                    <a href="{{ path('bring_edit', {'id': bring.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <button class="btn btn-secondary"><a href="{{ path('bring_new') }}">Ajouter un apport</a></button>
+{% endblock %}
