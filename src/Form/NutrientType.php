@@ -14,10 +14,9 @@ class NutrientType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name',TextType::class,['label' => 'Nom'])
-
-            ->add('description', TextType::class,['label' => 'Description'])
-            ->add('image', TextType::class,['label' => 'Image'])
+            ->add('name', TextType::class, ['label' => 'Nom'])
+            ->add('description', TextType::class, ['label' => 'Description'])
+            ->add('image', TextType::class, ['label' => 'Image', 'required' => false])
         ;
     }
 

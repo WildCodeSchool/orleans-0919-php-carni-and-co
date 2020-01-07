@@ -38,6 +38,7 @@ class NutrientController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($nutrient);
             $entityManager->flush();
+            $this->addFlash('success', 'Le nutriment a bien été ajouté!');
 
             return $this->redirectToRoute('nutrient_index');
         }
@@ -68,7 +69,7 @@ class NutrientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('warning', 'Le nutriment a bien été modifié!');
             return $this->redirectToRoute('nutrient_index');
         }
 
@@ -88,7 +89,7 @@ class NutrientController extends AbstractController
             $entityManager->remove($nutrient);
             $entityManager->flush();
         }
-
+        $this->addFlash('warning', 'Le nutriment a bien été supprimé!');
         return $this->redirectToRoute('nutrient_index');
     }
 }
