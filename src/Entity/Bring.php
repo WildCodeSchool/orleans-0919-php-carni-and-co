@@ -40,7 +40,7 @@ class Bring
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
-    private $ashe;
+    private $ash;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -125,14 +125,14 @@ class Bring
         return $this;
     }
 
-    public function getAshe(): ?float
+    public function getAsh(): ?float
     {
-        return $this->ashe;
+        return $this->ash;
     }
 
-    public function setAshe(?float $ashe): self
+    public function setAsh(?float $ash): self
     {
-        $this->ashe = $ashe;
+        $this->ash = $ash;
 
         return $this;
     }

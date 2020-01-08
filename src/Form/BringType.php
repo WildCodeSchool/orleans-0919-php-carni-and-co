@@ -25,7 +25,7 @@ class BringType extends AbstractType
                 'label' => 'Lipides',
                 'scale' => 2,
             ])
-            ->add('ashe', NumberType::class, [
+            ->add('ash', NumberType::class, [
                 'label' => 'Cendres',
                 'scale' => 2,
             ])
