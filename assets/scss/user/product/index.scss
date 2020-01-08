@@ -1,4 +1,4 @@
-.h1-Product-Admin{
+.h1-Product-User{
     font-family: $fontTitle;
     color: $titleColor;
     font-size: $h1Size;
@@ -8,7 +8,12 @@
     margin-bottom: 2vh;
 }
 
-.header-admin-product{
+.card-header-user{
+    font-size: $h3Size;
+    color: $titleColor;
+}
+
+.header-user-product{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -17,13 +22,15 @@
     margin:4rem;
 }
 
-.card-admin-product{
+.all-card-user-product{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.card-product{
+.card-product-user{
     margin : 1rem;
     text-align: center;
+    width: 22%;
 }
