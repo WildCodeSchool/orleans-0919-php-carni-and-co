@@ -45,7 +45,8 @@
                 <td>{{ bring.omega3 }}</td>
                 <td>
                     <a href="{{ path('bring_show', {'id': bring.id}) }}">show</a>
-                    <a href="{{ path('bring_edit', {'id': bring.id}) }}">edit</a>
+                    <button class="btn btn-secondary m-1"><a
+                                href="{{ path('bring_edit', {'id': bring.id}) }}">Modifier</a></button>
                 </td>
             </tr>
         {% else %}
