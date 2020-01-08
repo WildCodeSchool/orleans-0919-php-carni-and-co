@@ -13,17 +13,22 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    height: 5vh;
-    margin:4rem;
+    height: 15vh;
+    margin:3rem;
 }
+
+.btn-add{
+    margin-top: 2vh;
+    margin-bottom: 2vh;}
 
 .card-admin-product{
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center
 }
 
 .card-product{
     margin : 1rem;
     text-align: center;
+    min-width: 15rem;
 }
