@@ -8,38 +8,36 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
             <th>Calories</th>
-            <th>RatioProteinCalorie</th>
-            <th>Proteins</th>
-            <th>Lipids</th>
-            <th>Ashes</th>
-            <th>Fibers</th>
-            <th>Humidity</th>
-            <th>Carbohydrates</th>
-            <th>Calcium</th>
-            <th>Phosphorus</th>
-            <th>ReportPhosphoCal</th>
-            <th>Omega6</th>
-            <th>Omega3</th>
+            <th>Ratio Proteines Calorie</th>
+            <th>Proteines</th>
+            <th>Lipides</th>
+            <th>Cendres</th>
+            <th>Fibres</th>
+            <th>Humidités</th>
+            <th>Glucides</th>
+            <th>Calciums</th>
+            <th>Phosphores</th>
+            <th>Rapport Phosphores Calciums</th>
+            <th>Omega 6</th>
+            <th>Omega 3</th>
             <th>actions</th>
         </tr>
         </thead>
         <tbody>
         {% for bring in brings %}
             <tr>
-                <td>{{ bring.id }}</td>
-                <td>{{ bring.calories }}</td>
-                <td>{{ bring.ratioProteinCalorie }}</td>
-                <td>{{ bring.proteins }}</td>
-                <td>{{ bring.lipids }}</td>
-                <td>{{ bring.ashes }}</td>
-                <td>{{ bring.fibers }}</td>
+                <td>{{ bring.calorie }}</td>
+                <td>{{ (bring.protein  /  bring.calorie * 10)|round }}</td>
+                <td>{{ bring.protein }}</td>
+                <td>{{ bring.lipid }}</td>
+                <td>{{ bring.ashe }}</td>
+                <td>{{ bring.fiber }}</td>
                 <td>{{ bring.humidity }}</td>
-                <td>{{ bring.carbohydrates }}</td>
+                <td>{{ bring.carbohydrate }}</td>
                 <td>{{ bring.calcium }}</td>
                 <td>{{ bring.phosphorus }}</td>
-                <td>{{ bring.reportPhosphoCal }}</td>
+                <td> {{ bring.calcium / bring.phosphorus }}</td>
                 <td>{{ bring.omega6 }}</td>
                 <td>{{ bring.omega3 }}</td>
                 <td>

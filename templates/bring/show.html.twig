@@ -13,54 +13,54 @@
             </tr>
             <tr>
                 <th>Calories</th>
-                <td>{{ bring.calories }}</td>
+                <td>{{ bring.calorie }}</td>
             </tr>
             <tr>
-                <th>RatioProteinCalorie</th>
-                <td>{{ bring.ratioProteinCalorie }}</td>
+                <th>Ratio Proteines Calorie</th>
+                <td>{{ (bring.protein  /  bring.calorie * 10)|round }}</td>
             </tr>
             <tr>
-                <th>Proteins</th>
-                <td>{{ bring.proteins }}</td>
+                <th>Proteines</th>
+                <td>{{ bring.protein }}</td>
             </tr>
             <tr>
-                <th>Lipids</th>
-                <td>{{ bring.lipids }}</td>
+                <th>Lipides</th>
+                <td>{{ bring.lipid }}</td>
             </tr>
             <tr>
-                <th>Ashes</th>
-                <td>{{ bring.ashes }}</td>
+                <th>Cendres</th>
+                <td>{{ bring.ashe }}</td>
             </tr>
             <tr>
-                <th>Fibers</th>
-                <td>{{ bring.fibers }}</td>
+                <th>Fibres</th>
+                <td>{{ bring.fiber }}</td>
             </tr>
             <tr>
-                <th>Humidity</th>
+                <th>Humidités</th>
                 <td>{{ bring.humidity }}</td>
             </tr>
             <tr>
-                <th>Carbohydrates</th>
-                <td>{{ bring.carbohydrates }}</td>
+                <th>Glucides</th>
+                <td>{{ bring.carbohydrate }}</td>
             </tr>
             <tr>
-                <th>Calcium</th>
+                <th>Calciums</th>
                 <td>{{ bring.calcium }}</td>
             </tr>
             <tr>
-                <th>Phosphorus</th>
+                <th>Phosphores</th>
                 <td>{{ bring.phosphorus }}</td>
             </tr>
             <tr>
-                <th>ReportPhosphoCal</th>
-                <td>{{ bring.reportPhosphoCal }}</td>
+                <th>Rapport Phosphores Calciums</th>
+                <td>{{ bring.calcium / bring.phosphorus }}</td>
             </tr>
             <tr>
-                <th>Omega6</th>
+                <th>Omega 6</th>
                 <td>{{ bring.omega6 }}</td>
             </tr>
             <tr>
-                <th>Omega3</th>
+                <th>Omega 3</th>
                 <td>{{ bring.omega3 }}</td>
             </tr>
         </tbody>

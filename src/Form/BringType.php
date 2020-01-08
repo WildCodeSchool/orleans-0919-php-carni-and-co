@@ -13,40 +13,40 @@ class BringType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('calories', NumberType::class, [
+            ->add('calorie', NumberType::class, [
                 'label' => 'Calories',
                 'scale' => 2,
             ])
-            ->add('proteins', NumberType::class, [
+            ->add('protein', NumberType::class, [
                 'label' => 'Protéines',
                 'scale' => 2,
             ])
-            ->add('lipids', NumberType::class, [
+            ->add('lipid', NumberType::class, [
                 'label' => 'Lipides',
                 'scale' => 2,
             ])
-            ->add('ashes', NumberType::class, [
+            ->add('ashe', NumberType::class, [
                 'label' => 'Cendres',
                 'scale' => 2,
             ])
-            ->add('fibers', NumberType::class, [
+            ->add('fiber', NumberType::class, [
                 'label' => 'Fibres',
                 'scale' => 2,
             ])
             ->add('humidity', NumberType::class, [
-                'label' => 'Humidité',
+                'label' => 'Humidités',
                 'scale' => 2,
             ])
-            ->add('carbohydrates', NumberType::class, [
+            ->add('carbohydrate', NumberType::class, [
                 'label' => 'Glucides',
                 'scale' => 2,
             ])
             ->add('calcium', NumberType::class, [
-                'label' => 'Calcium',
+                'label' => 'Calciums',
                 'scale' => 2,
             ])
             ->add('phosphorus', NumberType::class, [
-                'label' => 'Phosphore',
+                'label' => 'Phosphores',
                 'scale' => 2,
             ])
             ->add('omega6', NumberType::class, [

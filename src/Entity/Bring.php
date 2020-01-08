@@ -22,37 +22,31 @@ class Bring
      * @Assert\Type(type = "float")
      *
      */
-    private $calories;
+    private $calorie;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
-    private $ratioProteinCalorie;
+    private $protein;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
-    private $proteins;
+    private $lipid;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
-    private $lipids;
+    private $ashe;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
-    private $ashes;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     * @Assert\Type(type = "float")
-     */
-    private $fibers;
+    private $fiber;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -64,7 +58,7 @@ class Bring
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
-    private $carbohydrates;
+    private $carbohydrate;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -77,12 +71,6 @@ class Bring
      * @Assert\Type(type = "float")
      */
     private $phosphorus;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     * @Assert\Type(type = "float")
-     */
-    private $reportPhosphoCal;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -101,74 +89,63 @@ class Bring
         return $this->id;
     }
 
-    public function getCalories(): ?float
+    public function getCalorie(): ?float
     {
-        return $this->calories;
+        return $this->calorie;
     }
 
-    public function setCalories(?float $calories): self
+    public function setCalorie(?float $calorie): self
     {
-        $this->calories = $calories;
+        $this->calorie = $calorie;
 
         return $this;
     }
 
-    public function getRatioProteinCalorie(): ?float
+    public function getProtein(): ?float
     {
-        return $this->ratioProteinCalorie;
+        return $this->protein;
     }
 
-    public function setRatioProteinCalorie(?float $ratioProteinCalorie): self
+    public function setProtein(?float $protein): self
     {
-        $this->ratioProteinCalorie = $ratioProteinCalorie;
+        $this->protein = $protein;
 
         return $this;
     }
 
-    public function getProteins(): ?float
+    public function getLipid(): ?float
+
     {
-        return $this->proteins;
+        return $this->lipid;
     }
 
-    public function setProteins(?float $proteins): self
+    public function setLipid(?float $lipid): self
     {
-        $this->proteins = $proteins;
+        $this->lipid = $lipid;
 
         return $this;
     }
 
-    public function getLipids(): ?float
+    public function getAshe(): ?float
     {
-        return $this->lipids;
+        return $this->ashe;
     }
 
-    public function setLipids(?float $lipids): self
+    public function setAshe(?float $ashe): self
     {
-        $this->lipids = $lipids;
+        $this->ashe = $ashe;
 
         return $this;
     }
 
-    public function getAshes(): ?float
+    public function getFiber(): ?float
     {
-        return $this->ashes;
+        return $this->fiber;
     }
 
-    public function setAshes(?float $ashes): self
+    public function setFiber(?float $fiber): self
     {
-        $this->ashes = $ashes;
-
-        return $this;
-    }
-
-    public function getFibers(): ?float
-    {
-        return $this->fibers;
-    }
-
-    public function setFibers(?float $fibers): self
-    {
-        $this->fibers = $fibers;
+        $this->fiber = $fiber;
 
         return $this;
     }
@@ -185,14 +162,14 @@ class Bring
         return $this;
     }
 
-    public function getCarbohydrates(): ?float
+    public function getCarbohydrate(): ?float
     {
-        return $this->carbohydrates;
+        return $this->carbohydrate;
     }
 
-    public function setCarbohydrates(?float $carbohydrates): self
+    public function setCarbohydrate(?float $carbohydrate): self
     {
-        $this->carbohydrates = $carbohydrates;
+        $this->carbohydrate = $carbohydrate;
 
         return $this;
     }
@@ -220,19 +197,7 @@ class Bring
 
         return $this;
     }
-
-    public function getReportPhosphoCal(): ?float
-    {
-        return $this->reportPhosphoCal;
-    }
-
-    public function setReportPhosphoCal(?float $reportPhosphoCal): self
-    {
-        $this->reportPhosphoCal = $reportPhosphoCal;
-
-        return $this;
-    }
-
+    
     public function getOmega6(): ?float
     {
         return $this->omega6;
