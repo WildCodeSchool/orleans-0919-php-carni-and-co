@@ -42,6 +42,7 @@ class BringController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($bring);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'apport a bien été ajouté!');
 
             return $this->redirectToRoute('bring_index');
         }
