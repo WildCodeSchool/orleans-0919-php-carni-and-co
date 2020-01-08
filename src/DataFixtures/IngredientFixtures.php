@@ -16,7 +16,7 @@ class IngredientFixtures extends Fixture implements DependentFixtureInterface
 
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 1; $i <= 50; $i++) {
+        for ($i = 1; $i <= 250; $i++) {
             $ingredient = new Ingredient();
             $ingredient->setName($faker->word);
             $ingredient->setPrecisedPart($faker->boolean);

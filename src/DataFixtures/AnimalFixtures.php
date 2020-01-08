@@ -30,15 +30,17 @@ class AnimalFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-
+        $animalNumber=0;
         foreach (self::ANIMALS as $key => $data) {
             $animal = new Animal();
             $animal-> setName($key);
             $animal-> setDescription($data['description']);
             $animal-> setImage($data['image']);
-
             $manager -> persist($animal);
+            $this->addReference('animal_' . $animalNumber, $animal);
+            $animalNumber++;
         }
+
         $manager->flush();
     }
 }

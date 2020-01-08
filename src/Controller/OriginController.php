@@ -38,6 +38,7 @@ class OriginController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($origin);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'origine a bien été ajoutée!');
 
             return $this->redirectToRoute('origin_index');
         }
@@ -68,6 +69,7 @@ class OriginController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'origine a bien été modifiée!');
 
             return $this->redirectToRoute('origin_index');
         }
@@ -87,6 +89,7 @@ class OriginController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($origin);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'origine a bien été supprimée!');
         }
 
         return $this->redirectToRoute('origin_index');
