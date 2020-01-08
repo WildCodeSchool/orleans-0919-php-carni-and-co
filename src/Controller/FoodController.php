@@ -38,6 +38,7 @@ class FoodController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($food);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'aliment a bien été ajouté!');
 
             return $this->redirectToRoute('food_index');
         }
@@ -68,6 +69,7 @@ class FoodController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'aliment a bien été modifié!');
 
             return $this->redirectToRoute('food_index');
         }
@@ -87,6 +89,7 @@ class FoodController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($food);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'aliment a bien été supprimé!');
         }
 
         return $this->redirectToRoute('food_index');
