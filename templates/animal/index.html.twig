@@ -3,9 +3,9 @@
 {% block title %}Liiste des animaux{% endblock %}
 
 {% block body %}
-    <h1 class="animalTitle">Liste des animaux</h1>
+    <h1 class="h1-Product-Admin">Liste des animaux</h1>
 
-    <a class="title_create" href="{{ path('animal_new') }}">Ajouter</a>
+    <a class="title_create" href="{{ path('animal_new') }}"> <button class="btn btn-secondary">Ajouter</button></a>
 
         {% for animal in animals %}
             <div class="card mb-3 margeHome">
@@ -18,8 +18,8 @@
                         <div class="card-body textcard">
                             <h2 class="card-title">{{ animal.name | title }}</h2>
                             <p>
-                                <a href="{{ path('animal_show', {'id': animal.id}) }}">Voir</a>
-                                <a href="{{ path('animal_edit', {'id': animal.id}) }}">Modifier</a>
+                                <a href="{{ path('animal_show', {'id': animal.id}) }}"> <button class="btn btn-secondary">Voir</button></a>
+                                <a href="{{ path('animal_edit', {'id': animal.id}) }}"> <button class="btn btn-secondary">Modifier</button></a>
                             </p>
                             <p class="card-text">
                                 {{ animal.description }}
