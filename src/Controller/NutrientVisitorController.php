@@ -18,7 +18,7 @@ class NutrientVisitorController extends AbstractController
     /**
      * @Route("/", name="nutrition_index", methods={"GET"})
      */
-    public function indexVisitor(NutrientRepository $nutrientRepository): Response
+    public function index(NutrientRepository $nutrientRepository): Response
     {
         return $this->render('nutrition/index.html.twig', [
             'nutrients' => $nutrientRepository->findAll(),

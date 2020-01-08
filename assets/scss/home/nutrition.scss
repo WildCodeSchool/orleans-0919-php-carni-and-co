@@ -10,6 +10,7 @@
 .box-nutrition-general {
     margin-right: 2em;
     margin-left: 2em;
+    padding-bottom: 2em;
 }
 
 .h2-nutrition {
@@ -44,4 +45,9 @@
     font-family: $fontText;
     font-weight: $fontWeightTitle;
     font-style: $fontStyleItalic;
+}
+.box-nutrition-nutriment {
+    margin-right: 2em;
+    margin-left: 2em;
+    padding-bottom: 2em;
 }

@@ -183,5 +183,26 @@
                 </p>
             </div>
         </div>
+        <div class="box-nutrition-nutriment">
+            <h2 class="h2-nutrition">Les nutriments</h2>
+
+            {% for nutrient in nutrients %}
+
+                <div class="card mb-3 card-nutrition">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 order-{{ loop.index0%2 }}">
+                            <img src="{{ nutrient.image }}" class="card-img" alt="">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="h3-nutrition">{{ nutrient.name }}</h3>
+                                <p class="card-text">{{ nutrient.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
