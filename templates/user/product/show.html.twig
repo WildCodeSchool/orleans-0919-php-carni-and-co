@@ -1,0 +1,48 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Evaluation Produit{% endblock %}
+
+{% block body %}
+    <h1 class="h1-Product-Admin">Evaluation Produit</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ product.id }}</td>
+        </tr>
+        <tr>
+            <th>Reference</th>
+            <td>{{ product.reference }}</td>
+        </tr>
+        <tr>
+            <th>Vegan</th>
+            <td>{{ product.vegan ? 'Oui' : 'Non' }}</td>
+        </tr>
+        <tr>
+            <th>Bio</th>
+            <td>{{ product.organic ? 'Oui' : 'Non' }}</td>
+        </tr>
+        <tr>
+            <th>Céréales</th>
+            <td>{{ product.cereal ? 'Oui' : 'Non' }}</td>
+        </tr>
+        <tr>
+            <th>Source</th>
+            <td>{{ product.source }}</td>
+        </tr>
+        <tr>
+            <th>Code barre</th>
+            <td>{{ product.barcode }}</td>
+        </tr>
+        <tr>
+            <th>Image</th>
+            <td>{{ product.image }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('product_index') }}">
+        <button type="button" class="btn btn-secondary">Retourner à la liste d'ingrédient</button>
+    </a>
+{% endblock %}
