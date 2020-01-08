@@ -6,6 +6,7 @@ use App\Entity\Ingredient;
 use App\Entity\Origin;
 use App\Entity\Shape;
 use App\Entity\NutrientType;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
@@ -32,17 +33,29 @@ class IngredientType extends AbstractType
             ->add('origin', EntityType::class, [
                 'class' => Origin::class,
                 'choice_label' => 'name',
-                'label' => 'Origine'
+                'label' => 'Origine',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('o')
+                        ->orderBy('o.name', 'ASC');
+                },
             ])
             ->add('shape', EntityType::class, [
                 'class' => Shape::class,
                 'choice_label' => 'name',
-                'label' => 'Forme'
+                'label' => 'Forme',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('s')
+                        ->orderBy('s.name', 'ASC');
+                },
             ])
             ->add('nutrientType', EntityType::class, [
                 'class' => NutrientType::class,
                 'choice_label' => 'nutrient',
-                'label' => 'Type de nutriment'
+                'label' => 'Type de nutriment',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('n')
+                        ->orderBy('n.nutrient', 'ASC');
+                },
             ])
         ;
     }
