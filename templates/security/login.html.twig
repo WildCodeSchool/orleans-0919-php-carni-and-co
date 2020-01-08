@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Connexion{% endblock %}
 
 {% block body %}
 <form method="post">
@@ -14,7 +14,7 @@
         </div>
     {% endif %}
 
-    <h1 class="h3 mb-3 font-weight-normal">S'il vous plait remplissez le formuaire</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
     <label for="inputUsername">Pseudo</label>
     <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
     <label for="inputPassword">Mot de Passe</label>
