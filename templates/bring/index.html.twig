@@ -28,7 +28,9 @@
         {% for bring in brings %}
             <tr>
                 <td>{{ bring.calorie }}</td>
-                <td>{{ (bring.protein  /  bring.calorie * 10)|round }}</td>
+
+                <td>{% if bring.calorie != 0 %} {{ (bring.protein  /  bring.calorie * 10)|round }}
+                    {% endif %}</td>
                 <td>{{ bring.protein }}</td>
                 <td>{{ bring.lipid }}</td>
                 <td>{{ bring.ash }}</td>
@@ -37,7 +39,8 @@
                 <td>{{ bring.carbohydrate }}</td>
                 <td>{{ bring.calcium }}</td>
                 <td>{{ bring.phosphorus }}</td>
-                <td> {{ bring.calcium / bring.phosphorus }}</td>
+                <td>{% if bring.phosphorus !=0 %} {{ bring.calcium / bring.phosphorus }}
+                    {% endif %}</td>
                 <td>{{ bring.omega6 }}</td>
                 <td>{{ bring.omega3 }}</td>
                 <td>
