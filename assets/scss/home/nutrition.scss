@@ -1,0 +1,52 @@
+.h1-nutrition {
+    text-align: center;
+    color: $titleColor;
+    font-size: $h1Size;
+    font-family: $fontTitle;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.box-nutrition {
+    margin-right: 2em;
+    margin-left: 2em;
+    padding-bottom: 2em;
+}
+
+.h2-nutrition {
+    color: $titleColor;
+    font-size: $h2Size;
+    font-family: $fontTitle;
+}
+
+.text-nutrition {
+    color: $textColor;
+    font-size: $textSize;
+    font-family: $fontText;
+}
+
+.box-elements-nutrition-general {
+    margin-top: 1em;
+}
+
+.h3-nutrition {
+    color: $textColor;
+    font-size: $h3Size;
+    font-family: $fontText;
+    font-weight: $fontWeightTitle;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.card-nutrition {
+    border: none;
+    margin-top: 1em;
+}
+
+.text-nutrition-italic {
+    color: $textColor;
+    font-size: $textSize;
+    font-family: $fontText;
+    font-weight: $fontWeightTitle;
+    font-style: $fontStyleItalic;
+}
