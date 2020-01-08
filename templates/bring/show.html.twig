@@ -13,7 +13,8 @@
             </tr>
             <tr>
                 <th>Ratio Protido-Calorique</th>
-                <td>{{ (bring.protein  /  bring.calorie * 10)|round }}</td>
+                <td>{% if bring.calorie != 0 %} {{ (bring.protein  /  bring.calorie * 10)|round }}
+                {% endif %}</td>
             </tr>
             <tr>
                 <th>Proteines</th>
@@ -49,7 +50,8 @@
             </tr>
             <tr>
                 <th>Rapport Phosphocalcique</th>
-                <td>{{ bring.calcium / bring.phosphorus }}</td>
+                <td>{% if bring.phosphorus !=0 %} {{ bring.calcium / bring.phosphorus }}
+                    {% endif %}</td>
             </tr>
             <tr>
                 <th>Omega 6</th>
