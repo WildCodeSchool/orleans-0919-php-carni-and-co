@@ -15,5 +15,5 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 10000000px 0 0 0 rgba(255,255,255,0.9) ;
+    box-shadow: inset 10000000px 0 0 0 $backgroundFilter ;
 }
