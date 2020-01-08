@@ -1,9 +1,9 @@
 {% extends 'admin/index.html.twig' %}
 
-{% block title %}Animal index{% endblock %}
+{% block title %}Liiste des animaux{% endblock %}
 
 {% block body %}
-    <h1 class="animalTitle">Animal index</h1>
+    <h1 class="animalTitle">Liste des animaux</h1>
 
     <a class="title_create" href="{{ path('animal_new') }}">Ajouter</a>
 
@@ -12,14 +12,14 @@
                 <div class="row no-gutters">
                     <div class="col-md-4 image">
                         <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
-                             alt="picture of {{ animal.name }}">
+                             alt="Photo de {{ animal.name }}">
                     </div>
                     <div class="col-md-8 text">
                         <div class="card-body textcard">
                             <h2 class="card-title">{{ animal.name | title }}</h2>
                             <p>
                                 <a href="{{ path('animal_show', {'id': animal.id}) }}">Voir</a>
-                                <a href="{{ path('animal_edit', {'id': animal.id}) }}">Editer</a>
+                                <a href="{{ path('animal_edit', {'id': animal.id}) }}">Modifier</a>
                             </p>
                             <p class="card-text">
                                 {{ animal.description }}
@@ -30,7 +30,7 @@
             </div>
 
         {% else %}
-                <p>no records found</p>
+                <p>Aucun animal trouvé</p>
         {% endfor %}
 
 {% endblock %}
