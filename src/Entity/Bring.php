@@ -114,7 +114,6 @@ class Bring
     }
 
     public function getLipid(): ?float
-
     {
         return $this->lipid;
     }
