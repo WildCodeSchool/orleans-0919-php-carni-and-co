@@ -77,6 +77,7 @@ class IngredientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'ingrédient a bien été modifié!');
 
             return $this->redirectToRoute('ingredient_index');
         }

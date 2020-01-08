@@ -38,6 +38,7 @@ class AnimalController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($animal);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'animal a bien été ajouté!');
 
             return $this->redirectToRoute('animal_index');
         }
@@ -87,6 +88,7 @@ class AnimalController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($animal);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'animal a bien été supprimé!');
         }
 
         return $this->redirectToRoute('animal_index');

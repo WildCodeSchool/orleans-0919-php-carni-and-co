@@ -3,9 +3,9 @@
 {% block title %}Liste des animaux{% endblock %}
 
 {% block body %}
-    <h1 class="animalTitle">Liste des animaux</h1>
+    <h1 class="h1-Admin">Liste des animaux</h1>
 
-    <a class="title_create" href="{{ path('animal_new') }}">Ajouter</a>
+    <a class="title_create" href="{{ path('animal_new') }}"> <button class="btn btn-secondary">Ajouter</button></a>
 
         {% for animal in animals %}
             <div class="card mb-3 margeHome">
