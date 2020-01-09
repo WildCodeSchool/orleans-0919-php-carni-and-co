@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Article index{% endblock %}
 
@@ -17,7 +17,7 @@
                 <th>Description</th>
                 <th>Date</th>
                 <th>Image</th>
-                <th>actions</th>
+                <th>Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -29,7 +29,6 @@
                     <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ article.image }}</td>
                     <td>
-                        <a href="{{ path('article_show', {'id': article.id}) }}">show</a>
 
                         <a href="{{ path('article_edit', {'id': article.id}) }}">
                             <button class="btn btn-secondary">Modifier</button>
