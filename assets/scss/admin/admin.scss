@@ -4,3 +4,13 @@
 @import "navbarAdmin.scss";
 @import "admin_HomePage.scss";
 @import "nutrient/nutrient.scss";
+
+.h1-Admin{
+    font-family: $fontTitle;
+    color: $titleColor;
+    font-size: $h1Size;
+    font-weight: $fontWeightTitle;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
