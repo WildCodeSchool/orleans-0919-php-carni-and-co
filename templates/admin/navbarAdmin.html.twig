@@ -1,5 +1,5 @@
 <nav class="navbar navbar-admin navbar-expand-lg navbar-light">
-    <a class="navbar-brand-admin" href="/admin">Administrateur</a>
+    <a class="navbar-brand-admin" href="{{ path('admin_index') }}">Administrateur</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -8,22 +8,22 @@
     <div class="collapse navbar-collapse nav-item-container-admin" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Evaluation</a>
+                <a class="nav-link-admin" href="{{ path('animal_index') }}">Animal</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Nutrition</a>
+                <a class="nav-link-admin" href="{{ path('admin_product_index') }}">Produits</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Alimentation</a>
+                <a class="nav-link-admin" href="{{ path('nutrient_index') }}">Nutrition</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Conseil Santé</a>
+                <a class="nav-link-admin" href="{{ path('ingredient_index') }}">Ingredients</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Contacts</a>
+                <a class="nav-link-admin" href="{{ path('article_index') }}">Blog</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Blog</a>
+                <a class="nav-link-admin" href="#">Autres tables</a>
             </li>
         </ul>
     </div>

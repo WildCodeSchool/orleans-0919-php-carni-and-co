@@ -1,0 +1,15 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Nouvel Article{% endblock %}
+
+{% block body %}
+    <div class="flex-column">
+        <h1 class="h1-Admin">Créer un Nouvel Article</h1>
+
+        {{ include('admin/article/_form.html.twig') }}
+
+        <a href="{{ path('article_index') }}">
+            <button class="btn btn-secondary">Retour à la liste</button>
+        </a>
+    </div>
+{% endblock %}

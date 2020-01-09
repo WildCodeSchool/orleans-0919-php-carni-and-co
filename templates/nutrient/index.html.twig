@@ -4,7 +4,7 @@
 
 {% block body %}
     <div class="flex-column text-center box-title-nutrient">
-        <h1>Liste des nutriments</h1>
+        <h1 class="h1-Admin">Liste des nutriments</h1>
 
         <a href="{{ path('nutrient_new') }}"><button class="btn btn-secondary mb-3 center-button">Enregistrer un nouveau nutriment</button></a>
         {% for nutrient in nutrients %}

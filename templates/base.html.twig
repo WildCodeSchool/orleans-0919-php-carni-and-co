@@ -13,6 +13,22 @@
         <header>
             {% block header %}{% endblock %}
         </header>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{ label }} alert-dismissible fade show">
+                                {{ message }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
         <main class="container">
             {% block body %}{% endblock %}
         </main>

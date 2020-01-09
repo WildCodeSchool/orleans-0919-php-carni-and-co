@@ -1,4 +1,5 @@
 @import "presentation";
+@import "animal.scss";
 
 .container{
     display: flex;
@@ -15,3 +16,4 @@
 .animal {
     margin-bottom: 5vh;
 }
+

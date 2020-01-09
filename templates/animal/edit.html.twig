@@ -1,13 +1,14 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
-{% block title %}Edit Animal{% endblock %}
+{% block title %}Modifier un animal{% endblock %}
 
 {% block body %}
-    <h1>Edit Animal</h1>
+    <h1 class="h1-Admin">Modifier un animal</h1>
 
-    {{ include('animal/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('animal/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
-    <a href="{{ path('animal_index') }}">Retour</a>
-
+    <p>
+        <a href="{{ path('animal_index') }}"> <button class="btn btn-secondary">Retour à la liste</button></a>
+    </p>
     {{ include('animal/_delete_form.html.twig') }}
 {% endblock %}
