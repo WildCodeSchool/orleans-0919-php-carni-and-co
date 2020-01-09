@@ -1,9 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Bring index{% endblock %}
+{% block title %}Apport index{% endblock %}
 
 {% block body %}
-    <h1>Bring index</h1>
+    <h1>Apport index</h1>
 
     <table class="table">
         <thead>
@@ -45,7 +45,8 @@
                 <td>{{ bring.omega3 }}</td>
                 <td>
                     <a href="{{ path('bring_show', {'id': bring.id}) }}">show</a>
-                    <a href="{{ path('bring_edit', {'id': bring.id}) }}">edit</a>
+                    <button class="btn btn-secondary m-1"><a
+                                href="{{ path('bring_edit', {'id': bring.id}) }}">Modifier</a></button>
                 </td>
             </tr>
         {% else %}
