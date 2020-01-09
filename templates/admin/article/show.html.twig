@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/index.html.twig' %}
 
 {% block title %}Article{% endblock %}
 
@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('article_index') }}">back to list</a>
+    <a href="{{ path('article_index') }}"><button class="btn btn-secondary">Retour à la liste</button></a>
 
-    <a href="{{ path('article_edit', {'id': article.id}) }}">edit</a>
+    <a href="{{ path('article_edit', {'id': article.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
 
-    {{ include('article/_delete_form.html.twig') }}
+    {{ include('admin/article/_delete_form.html.twig') }}
 {% endblock %}
