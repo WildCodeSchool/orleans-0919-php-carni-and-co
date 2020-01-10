@@ -18,4 +18,16 @@ class IngredientRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Ingredient::class);
     }
+
+    public function findByName($name)
+    {
+        $qb = $this->createQueryBuilder('i')
+            ->where('i.name LIKE :name')
+            ->setParameter('name', '%'.$name.'%')
+            ->orderBy('i.name', 'ASC');
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 }
