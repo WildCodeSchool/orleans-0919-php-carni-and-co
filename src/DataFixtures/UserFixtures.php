@@ -18,7 +18,7 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        for ( $i = 1 ; $i <= 5 ; $i++ ) {
+        for ($i = 1; $i <= 5; $i++) {
             // Création d’un utilisateur de type “auteur”
             $subscriber = new User();
             $subscriber-> setUsername('username');
@@ -31,7 +31,7 @@ class UserFixtures extends Fixture
             $admin->setUsername('username');
             //$admin->setEmail('email');
             $admin->setRoles(['ROLE_ADMIN']);
-            $admin->setPassword($this->passwordEncoder->encodePassword($admin,'adminpassword'));
+            $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'adminpassword'));
             $manager->persist($admin);
         }
         $manager->flush();
