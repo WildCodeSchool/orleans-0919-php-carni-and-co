@@ -28,7 +28,7 @@ class AdminProductController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $products = $productRepository->findByReference($data['search']);
         }
-        return $this->render('user/product/index.html.twig', [
+        return $this->render('admin/product/index.html.twig', [
             'products' => $products,
             'form' => $form->createView(),
         ]);
