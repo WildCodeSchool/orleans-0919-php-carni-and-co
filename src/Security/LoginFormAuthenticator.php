@@ -86,6 +86,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
+     * @return string|null
      */
     public function getPassword($credentials): ?string
     {
@@ -94,11 +95,10 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
-            return new RedirectResponse($targetPath);
+        if ($this->getTargetPath($request->getSession(), $providerKey)) {
+            return new RedirectResponse($this->getTargetPath($request->getSession(), $providerKey));
         }
         return new RedirectResponse($this->urlGenerator->generate('home_index'));
-       // throw new \Exception('TODO: provide a valid redirect inside '.__FILE__);
     }
 
     protected function getLoginUrl()
