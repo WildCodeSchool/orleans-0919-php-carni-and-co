@@ -6,6 +6,12 @@
     <div class="container-admin-product">
         <div class="header-admin-product">
             <h1 class="h1-Admin">Tous les produits</h1>
+            <div class="search-container">
+                {{ form_start(form, {'method': 'GET'}) }}
+                {{ form_widget(form) }}
+                <button class="btn btn-secondary mb-3 ml-1">{{ button_label|default('Rechercher') }}</button>
+                {{ form_end(form) }}
+            </div>
             <a class="btn-add" href="{{ path('admin_product_new') }}">
                 <button type="button" class="btn btn-secondary">Ajouter un Produit</button>
             </a>
