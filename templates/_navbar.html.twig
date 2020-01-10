@@ -38,14 +38,16 @@
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('blog_index') }}">BLOG</a>
             </li>
+        </ul>
+    </div>
+    <div>
+        <ul class="navbar-nav">
             <li class="nav-item">
                 {% if app.user %}
                     {{ app.user.username }}
                     <a class="nav-link" href="{{ path('app_logout') }}">Se déconnecter</a>
                 {% else %}
-                    <p>
-                        <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a><a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
-                    </p>
+                    <a class="nav-link" href="{{ path('app_login') }}">Se connecter</a><a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
                 {% endif %}
             </li>
         </ul>
