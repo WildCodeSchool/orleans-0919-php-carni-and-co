@@ -5,6 +5,13 @@
 {% block body %}
     <h1 class="h1-Admin">Liste des ingrédients</h1>
 
+    <div class="admin-search-container">
+        {{ form_start(form, {'method': 'GET'}) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-secondary mb-3 ml-1">{{ button_label|default('Rechercher') }}</button>
+        {{ form_end(form) }}
+    </div>
+
     <a href="{{ path('ingredient_new') }}"><button class="btn btn-secondary mb-4">Ajouter un nouvel ingrédient</button></a>
 
     <table class="table">
