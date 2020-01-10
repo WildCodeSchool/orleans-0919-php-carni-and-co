@@ -1,4 +1,4 @@
-<nav class="navbar navbar-admin navbar-expand-lg navbar-light">
+<nav class="navbar navbar-admin navbar-expand-lg navbar-light fixed-top">
     <a class="navbar-brand-admin" href="{{ path('admin_index') }}">Administrateur</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,7 +11,7 @@
                 <a class="nav-link-admin" href="{{ path('animal_index') }}">Animal</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="{{ path('admin_product_index') }}">Produits</a>
+                <a class="nav-link-admin" href="{{ path('admin_product_index') }}">Produit</a>
             </li>
             <li class="nav-item nav-item-admin">
                 <a class="nav-link-admin" href="{{ path('nutrient_index') }}">Nutrition</a>
@@ -24,6 +24,9 @@
             </li>
             <li class="nav-item nav-item-admin">
                 <a class="nav-link-admin" href="#">Autres tables</a>
+            </li>
+            <li class="nav-item nav-item-admin">
+                <a class="nav-link-admin" href="{{ path('home_index') }}">Mode Visiteur</a>
             </li>
         </ul>
     </div>
