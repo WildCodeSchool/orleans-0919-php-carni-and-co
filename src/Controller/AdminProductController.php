@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Form\SearchProductType;
 use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +19,18 @@ class AdminProductController extends AbstractController
     /**
      * @Route("/", name="admin_product_index", methods={"GET"})
      */
-    public function index(ProductRepository $productRepository): Response
+    public function index(ProductRepository $productRepository, Request $request): Response
     {
-        return $this->render('admin/product/index.html.twig', [
-            'products' => $productRepository->findAll(),
+        $products = $productRepository->findBy([], ['reference'=>'asc']);
+        $form = $this->createForm(SearchProductType::class);
+        $form->handleRequest($request);
+        $data = $form->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $products = $productRepository->findByReference($data['search']);
+        }
+        return $this->render('user/product/index.html.twig', [
+            'products' => $products,
+            'form' => $form->createView(),
         ]);
     }
 
