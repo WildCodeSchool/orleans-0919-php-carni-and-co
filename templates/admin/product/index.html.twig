@@ -5,21 +5,21 @@
 {% block body %}
     <div class="container-admin-product">
         <div class="header-admin-product">
-            <h1 class="h1-Product-Admin">Tous les produits</h1>
-            <a href="{{ path('product_new') }}">
+            <h1 class="h1-Admin">Tous les produits</h1>
+            <a class="btn-add" href="{{ path('admin_product_new') }}">
                 <button type="button" class="btn btn-secondary">Ajouter un Produit</button>
             </a>
         </div>
         <div class="card-admin-product">
             {% for product in products %}
-                <div class="card card-product bg-light mb-3" style="max-width: 18rem;">
+                <div class="card card-product bg-light mb-3">
                     <div class="card-header">{{ product.reference }}</div>
                     <div class="card-body">
                         <h5 class="card-title"></h5>
-                        <a href="{{ path('product_show', {'id': product.id}) }}">
+                        <a href="{{ path('admin_product_show', {'id': product.id}) }}">
                             <button type="button" class="btn btn-secondary">Plus d'infos</button>
                         </a>
-                        <a href="{{ path('product_edit', {'id': product.id}) }}">
+                        <a href="{{ path('admin_product_edit', {'id': product.id}) }}">
                             <button type="button" class="btn btn-secondary">Modifier</button>
                         </a>
                     </div>

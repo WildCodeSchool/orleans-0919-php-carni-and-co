@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier un apport{% endblock %}
+
+{% block body %}
+    <div class="flex-column">
+        <h1 class="h1-Admin">Modifier un apport</h1>
+
+        {{ include('bring/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+        <a href="{{ path('bring_index') }}">
+            <button class="btn btn-secondary m-1">Retour à la liste</button>
+        </a>
+
+        {{ include('bring/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

@@ -28,16 +28,19 @@ class Product
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $vegan;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $organic;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\Type(type="bool")
      */
     private $cereal;
 
@@ -48,13 +51,37 @@ class Product
 
     /**
      * @ORM\Column(type="string", length=255 ,nullable=true)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Le code bar ne doit pas excéder {{ limit }} caractères.")
      */
     private $barCode;
 
     /**
-     * @ORM\Column(type="blob", nullable=true)
+     * @ORM\Column(type="string", length=255 , nullable=true)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Le lien de l'image ne doit pas excéder {{ limit }} caractères.")
      */
     private $image;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $animal;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Food", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $food;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Brand", inversedBy="products")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $brand;
 
     public function getId(): ?int
     {
@@ -141,6 +168,42 @@ class Product
     public function setImage($image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getAnimal(): ?Animal
+    {
+        return $this->animal;
+    }
+
+    public function setAnimal(?Animal $animal): self
+    {
+        $this->animal = $animal;
+
+        return $this;
+    }
+
+    public function getFood(): ?Food
+    {
+        return $this->food;
+    }
+
+    public function setFood(?Food $food): self
+    {
+        $this->food = $food;
+
+        return $this;
+    }
+
+    public function getBrand(): ?Brand
+    {
+        return $this->brand;
+    }
+
+    public function setBrand(?Brand $brand): self
+    {
+        $this->brand = $brand;
 
         return $this;
     }

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/forme")
+ * @Route("admin/ingredient/forme")
  */
 class ShapeController extends AbstractController
 {
@@ -38,6 +38,7 @@ class ShapeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($shape);
             $entityManager->flush();
+            $this->addFlash('success', 'La forme a bien été ajoutée!');
 
             return $this->redirectToRoute('shape_index');
         }
@@ -68,6 +69,7 @@ class ShapeController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'La forme a bien été modifiée!');
 
             return $this->redirectToRoute('shape_index');
         }
@@ -87,6 +89,7 @@ class ShapeController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($shape);
             $entityManager->flush();
+            $this->addFlash('success', 'La forme a bien été supprimée!');
         }
 
         return $this->redirectToRoute('shape_index');

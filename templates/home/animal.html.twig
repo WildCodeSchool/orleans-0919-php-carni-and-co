@@ -1,16 +1,16 @@
 <section class="container-presentation animal">
 
     {% for animal in animals %}
-        <div class="card mb-3 margeHome">
+        <div class="card mb-3 margeHome card-animal">
             <div class="row no-gutters">
                 <div class="col-md-4 image order-{{ loop.index0%2 }}">
                     <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
-                         alt="picture of {{ animal.name }}">
+                         alt="Image d'un {{ animal.name }}">
                 </div>
                 <div class="col-md-8 text">
                     <div class="card-body textcard">
-                        <h2 class="card-title">{{ animal.name | title }}</h2>
-                        <p class="card-text">
+                        <h2 class="card-title card-title-animal">{{ animal.name | title }}</h2>
+                        <p class="card-text card-text-animal">
                             {{ animal.description }}
                         </p>
                     </div>

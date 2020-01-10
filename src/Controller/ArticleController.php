@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/article")
+ * @Route("/admin/article")
  */
 class ArticleController extends AbstractController
 {
@@ -22,7 +22,7 @@ class ArticleController extends AbstractController
      */
     public function index(ArticleRepository $articleRepository): Response
     {
-        return $this->render('article/index.html.twig', [
+        return $this->render('admin/article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
         ]);
     }
@@ -44,7 +44,7 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('article_index');
         }
 
-        return $this->render('article/new.html.twig', [
+        return $this->render('admin/article/new.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
         ]);
@@ -55,7 +55,7 @@ class ArticleController extends AbstractController
      */
     public function show(Article $article): Response
     {
-        return $this->render('article/show.html.twig', [
+        return $this->render('admin/article/show.html.twig', [
             'article' => $article,
         ]);
     }
@@ -74,7 +74,7 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute('article_index');
         }
 
-        return $this->render('article/edit.html.twig', [
+        return $this->render('admin/article/edit.html.twig', [
             'article' => $article,
             'form' => $form->createView(),
         ]);
