@@ -70,7 +70,7 @@ class Ingredient
     private $nutrientType;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="ingredient")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="ingredients")
      */
     private $products;
 

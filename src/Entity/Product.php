@@ -93,11 +93,11 @@ class Product
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Ingredient", inversedBy="products")
      */
-    private $ingredient;
+    private $ingredients;
 
     public function __construct()
     {
-        $this->ingredient = new ArrayCollection();
+        $this->ingredients = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -240,24 +240,24 @@ class Product
     /**
      * @return Collection|Ingredient[]
      */
-    public function getIngredient(): Collection
+    public function getIngredients(): Collection
     {
-        return $this->ingredient;
+        return $this->ingredients;
     }
 
-    public function addIngredient(Ingredient $ingredient): self
+    public function addIngredient(Ingredient $ingredients): self
     {
-        if (!$this->ingredient->contains($ingredient)) {
-            $this->ingredient[] = $ingredient;
+        if (!$this->ingredients->contains($ingredients)) {
+            $this->ingredients[] = $ingredients;
         }
 
         return $this;
     }
 
-    public function removeIngredient(Ingredient $ingredient): self
+    public function removeIngredient(Ingredient $ingredients): self
     {
-        if ($this->ingredient->contains($ingredient)) {
-            $this->ingredient->removeElement($ingredient);
+        if ($this->ingredients->contains($ingredients)) {
+            $this->ingredients->removeElement($ingredients);
         }
 
         return $this;
