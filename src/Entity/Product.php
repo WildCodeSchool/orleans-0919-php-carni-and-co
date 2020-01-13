@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -82,6 +84,21 @@ class Product
      * @ORM\JoinColumn(nullable=false)
      */
     private $brand;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Bring", cascade={"persist", "remove"})
+     */
+    private $bring;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ingredient", inversedBy="products")
+     */
+    private $ingredients;
+
+    public function __construct()
+    {
+        $this->ingredients = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -204,6 +221,44 @@ class Product
     public function setBrand(?Brand $brand): self
     {
         $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getBring(): ?Bring
+    {
+        return $this->bring;
+    }
+
+    public function setBring(?Bring $bring): self
+    {
+        $this->bring = $bring;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredient[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredient $ingredients): self
+    {
+        if (!$this->ingredients->contains($ingredients)) {
+            $this->ingredients[] = $ingredients;
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredient $ingredients): self
+    {
+        if ($this->ingredients->contains($ingredients)) {
+            $this->ingredients->removeElement($ingredients);
+        }
 
         return $this;
     }
