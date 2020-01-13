@@ -17,7 +17,8 @@ class NutrientType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('description', TextType::class, ['label' => 'Description'])
-            ->add('imageFile', VichImageType::class, ['label' => 'Image', 'required' => false])
+            ->add('imageFile', VichImageType::class, ['label' => 'Image', 'required' => false,
+                'download_uri' => false])
         ;
     }
 
