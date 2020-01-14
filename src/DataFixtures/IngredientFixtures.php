@@ -22,9 +22,9 @@ class IngredientFixtures extends Fixture implements DependentFixtureInterface
             $ingredient->setPrecisedPart($faker->boolean);
             $ingredient->setPrecisedType($faker->boolean);
             $ingredient->setNote($faker->numberBetween(0, 20));
-            $ingredient->setOrigin($this->getReference('origin_'.random_int(1, 15)));
-            $ingredient->setShape($this->getReference('shape_'.random_int(1, 15)));
-            $ingredient->setNutrientType($this->getReference('nutrient_'.random_int(1, 15)));
+            $ingredient->setOrigin($this->getReference('origin_'.random_int(0, 4)));
+            $ingredient->setShape($this->getReference('shape_'.random_int(0, 15)));
+            $ingredient->setNutrientType($this->getReference('nutrient_'.random_int(0, 4)));
 
             $manager->persist($ingredient);
             $this->addReference('ingredient_' . $i, $ingredient);

@@ -29,11 +29,16 @@ class IngredientType extends AbstractType
                 'label' => 'Morceau précisé',
                 'required'=>false,
                 ])
-            ->add('note', NumberType::class, ["html5" => true])
+            ->add('note', NumberType::class, [
+                'html5' => true,
+                'required'   => false,
+                ])
             ->add('origin', EntityType::class, [
                 'class' => Origin::class,
                 'choice_label' => 'name',
                 'label' => 'Origine',
+                'required'   => false,
+                'empty_data' => '',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('o')
                         ->orderBy('o.name', 'ASC');
@@ -43,6 +48,8 @@ class IngredientType extends AbstractType
                 'class' => Shape::class,
                 'choice_label' => 'name',
                 'label' => 'Forme',
+                'required'   => false,
+                'empty_data' => '',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('s')
                         ->orderBy('s.name', 'ASC');
@@ -52,6 +59,8 @@ class IngredientType extends AbstractType
                 'class' => NutrientType::class,
                 'choice_label' => 'nutrient',
                 'label' => 'Type de nutriment',
+                'required'   => false,
+                'empty_data' => '',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('n')
                         ->orderBy('n.nutrient', 'ASC');
