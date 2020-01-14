@@ -116,7 +116,6 @@ class User implements UserInterface
      */
     public function getSalt()
     {
-      
     }
 
     /**
@@ -124,6 +123,5 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
-        
     }
 }
