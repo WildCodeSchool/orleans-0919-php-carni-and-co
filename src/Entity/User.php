@@ -20,7 +20,11 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180, unique=true)
+     * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
+     * @Assert\Length(
+     *      max = 255,
+     *      maxMessage = "Votre Pseudo ne doit pscontenir plus de {{ limit }} caractères")
      */
     private $username;
 
