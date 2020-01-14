@@ -4,12 +4,11 @@ const myLabel = ['Protéines', 'Lipides', 'Cendres', 'Fibres', 'Humidités', 'Gl
 const bringElement = document.getElementById('graph-bring');
 
 let bring = bringElement.dataset.graph.split(',');
-bring = bring.map((coord) => {
-    return +coord;
-});
+bring = bring.map(coord => +coord);
 
 function getTotal() {
     let myTotal = 0;
+    // eslint-disable-next-line no-plusplus
     for (let j = 0; j < bring.length; j++) {
         myTotal += (typeof bring[j] === 'number') ? bring[j] : 0;
     }
@@ -33,6 +32,7 @@ function plotData() {
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < bring.length; i++) {
         ctx.fillStyle = myColor[i];
         ctx.beginPath();
