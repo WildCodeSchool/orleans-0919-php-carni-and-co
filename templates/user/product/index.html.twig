@@ -5,6 +5,12 @@
         <div class="header-user-product">
             <h1 class="h1-Product-User">Tous les produits</h1>
         </div>
+        <div class="search-container">
+            {{ form_start(form, {'method': 'GET'}) }}
+            {{ form_widget(form) }}
+            <button class="btn btn-secondary mb-3 ml-5">{{ button_label|default('Rechercher') }}</button>
+            {{ form_end(form) }}
+        </div>
         <div class="all-card-user-product">
             {% for product in products %}
                 <div class="card card-product-user bg-light mb-3">
@@ -22,5 +28,6 @@
                 <p>Pas de produits trouvés</p>
             {% endfor %}
         </div>
+        {{ knp_pagination_render(products) }}
     </div>
 {% endblock %}

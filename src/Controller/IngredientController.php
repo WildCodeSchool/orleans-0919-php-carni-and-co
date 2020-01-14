@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Ingredient;
 use App\Form\IngredientType;
+use App\Form\SearchIngredientType;
 use App\Repository\IngredientRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -23,13 +24,21 @@ class IngredientController extends AbstractController
      */
     public function index(PaginatorInterface $paginator, IngredientRepository $ingredientRepository, Request $request)
     {
+        $ingredients = $ingredientRepository->findBy([], ['name'=>'asc']);
+        $form = $this->createForm(SearchIngredientType::class);
+        $form->handleRequest($request);
+        $data = $form->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $ingredients = $ingredientRepository->findByName($data['search']);
+        }
         $ingredients = $paginator->paginate(
-            $ingredientRepository->findBy([], ['name'=>'asc']),
+            $ingredients,
             $request->query->getInt('page', 1), /*page number*/
             self::MAX_PER_PAGE /*limit per page*/
         );
         return $this->render('ingredient/index.html.twig', [
             'ingredients' => $ingredients,
+            'form' => $form->createView(),
         ]);
     }
 

@@ -34,3 +34,16 @@
     text-align: center;
     width: 22%;
 }
+
+.search-container{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-left: 34%;
+
+    form {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+}

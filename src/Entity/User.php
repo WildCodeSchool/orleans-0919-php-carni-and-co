@@ -18,7 +18,7 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-    
+  
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
@@ -27,7 +27,7 @@ class User implements UserInterface
      *      maxMessage = "Votre Pseudo ne doit pas contenir plus de {{ limit }} caractères")
      */
     private $username;
-
+    
     /**
      * @ORM\Column(type="json")
      */
