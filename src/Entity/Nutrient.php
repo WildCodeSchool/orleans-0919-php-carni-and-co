@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use DateTime;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
@@ -124,5 +125,12 @@ class Nutrient
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
     }
 }

@@ -29,9 +29,9 @@ class NutrientFixtures extends Fixture
         foreach (self::NUTRIENTS as $nutrientName) {
             $nutrientFixtures = new Nutrient();
             $nutrientFixtures->setName($nutrientName);
-            $nutrientFixtures->setUpdatedAt(new DateTime());
+            $nutrientFixtures->setUpdatedAt($faker->dateTime);
             $nutrientFixtures->setDescription($faker->paragraphs(4, true));
-            $nutrientFixtures->setImage($faker->imageUrl());
+            $nutrientFixtures->setImage('placeholder.png');
 
             $manager->persist($nutrientFixtures);
         }
