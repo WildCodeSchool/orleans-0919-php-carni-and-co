@@ -24,7 +24,13 @@
 .form-group > #nutrient_description {
     height: 200px;
 }
+
 .vich-image a img {
     max-width: 200px;
-    maw-height: 200px;
+    max-height: 200px;
 }
+
+.custom-file-input ~ .custom-file-label:lang(fr)::after {
+    content: "Choisir une image";
+}
+
