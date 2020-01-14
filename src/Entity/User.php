@@ -24,7 +24,7 @@ class User implements UserInterface
      * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
      * @Assert\Length(
      *      max = 255,
-     *      maxMessage = "Votre Pseudo ne doit pscontenir plus de {{ limit }} caractères")
+     *      maxMessage = "Votre Pseudo ne doit pas contenir plus de {{ limit }} caractères")
      */
     private $username;
 
