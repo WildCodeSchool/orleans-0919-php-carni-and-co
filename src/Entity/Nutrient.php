@@ -43,6 +43,12 @@ class Nutrient
      * @Vich\UploadableField(mapping="pictures", fileNameProperty="image")
      *
      * @var File|null
+     * @Assert\File(
+     *    maxSize = "200k",
+     *    maxSizeMessage = "L'image ne doit pas faire plus de {{ limit }} mega-octets.",
+     *    mimeTypes = {"image/gif", "image/jpeg", "image/png", "image/svg+xml", "image/webp"},
+     *    mimeTypesMessage = "Format d'image non reconnu. Veuillez choisir une nouvelle image."
+     *)
      */
     private $imageFile;
 
@@ -51,6 +57,7 @@ class Nutrient
      * @Assert\Length(
      *     max = 255,
      *     maxMessage = "Le lien de l'image ne doit pas dépasser {{ limit }} caractères")
+     *
      */
     private $image;
 
