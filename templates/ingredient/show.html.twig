@@ -25,15 +25,15 @@
             </tr>
             <tr>
                 <th>Origine</th>
-                <td>{{ ingredient.origin.name }}</td>
+                <td>{{ ingredient.origin.name ?? 'Non précisée'}}</td>
             </tr>
             <tr>
                 <th>Forme</th>
-                <td>{{ ingredient.shape.name }}</td>
+                <td>{{ ingredient.shape.name ?? 'Non précisée'}}</td>
             </tr>
             <tr>
                 <th>Type de nutriment</th>
-                <td>{{ ingredient.nutrientType.nutrient }}</td>
+                <td>{{ ingredient.nutrientType.nutrient ?? 'Non précisée'}}</td>
             </tr>
         </tbody>
     </table>
