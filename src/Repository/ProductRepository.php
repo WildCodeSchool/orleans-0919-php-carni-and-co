@@ -18,4 +18,16 @@ class ProductRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Product::class);
     }
+
+    public function findByReference($reference)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->where('p.reference LIKE :reference')
+            ->setParameter('reference', '%'.$reference.'%')
+            ->orderBy('p.reference', 'ASC');
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 }
