@@ -3,8 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Product;
+use App\Form\BrandType;
+use App\Form\FilterProductType;
+use App\Form\FilterSearchType;
 use App\Form\ProductType;
 use App\Form\SearchProductType;
+use App\Repository\BrandRepository;
 use App\Repository\ProductRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -26,14 +30,23 @@ class ProductController extends AbstractController
         ProductRepository $productRepository,
         Request $request,
         PaginatorInterface $paginator
-    ):Response {
-        $products = $productRepository->findBy([], ['reference'=>'asc']);
+    ): Response
+    {
+        $products = $productRepository->findBy([], ['reference' => 'asc']);
         $form = $this->createForm(SearchProductType::class);
         $form->handleRequest($request);
         $data = $form->getData();
         if ($form->isSubmitted() && $form->isValid()) {
             $products = $productRepository->findByReference($data['search']);
         }
+
+        $formfilterbrand = $this->createForm(FilterProductType::class);
+        $formfilterbrand->handleRequest($request);
+        $data = $formfilterbrand->getData();
+        if ($formfilterbrand->isSubmitted() && $formfilterbrand->isValid()) {
+            $products = $productRepository->findByBrand($data['brand']);
+        }
+
         $products = $paginator->paginate(
             $products,
             $request->query->getInt('page', 1), /*page number*/
@@ -42,8 +55,10 @@ class ProductController extends AbstractController
         return $this->render('user/product/index.html.twig', [
             'products' => $products,
             'form' => $form->createView(),
+            'formfilterbrand' => $formfilterbrand->createView(),
         ]);
     }
+
     /**
      * @Route("/{id}", name="product_show", methods={"GET"})
      */

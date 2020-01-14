@@ -10,6 +10,11 @@
             {{ form_widget(form) }}
             <button class="btn btn-secondary mb-3 ml-5">{{ button_label|default('Rechercher') }}</button>
             {{ form_end(form) }}
+
+            {{ form_start(formfilterbrand, {'method': 'GET'}) }}
+            {{ form_widget(formfilterbrand) }}
+            <button class="btn btn-secondary mb-3 ml-5">{{ button_label|default('Rechercher') }}</button>
+            {{ form_end(formfilterbrand) }}
         </div>
         <div class="all-card-user-product">
             {% for product in products %}

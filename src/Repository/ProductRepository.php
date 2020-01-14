@@ -30,4 +30,18 @@ class ProductRepository extends ServiceEntityRepository
 
         return $query->execute();
     }
+
+    public function findByBrand($brand)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('')
+            ->join('p.brand' , 'b')
+            ->where('b.id LIKE :id')
+            ->setParameter('id', $brand)
+            ->orderBy('p.reference', 'ASC');
+
+        $query = $qb->getQuery();
+
+        return $query->execute();
+    }
 }
