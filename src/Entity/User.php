@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -26,7 +27,7 @@ class User implements UserInterface
      *      maxMessage = "Votre Pseudo ne doit pas contenir plus de {{ limit }} caractères")
      */
     private $username;
-    
+
     /**
      * @ORM\Column(type="json")
      */
