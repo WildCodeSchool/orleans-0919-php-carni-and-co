@@ -110,4 +110,20 @@ class User implements UserInterface
 
         return $this;
     }
+    
+    /**
+     * @see UserInterface
+     */
+    public function getSalt()
+    {
+      
+    }
+
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
+    {
+        
+    }
 }
