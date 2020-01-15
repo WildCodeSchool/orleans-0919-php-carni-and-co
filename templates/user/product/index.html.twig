@@ -1,38 +1,38 @@
 {% extends 'layout.html.twig' %}
 
 {% block body %}
-    <div class="container-user-product">
-        <div class="header-user-product">
-            <h1 class="h1-Product-User">Tous les produits</h1>
-        </div>
-        <div class="search-container">
-            {{ form_start(form, {'method': 'GET'}) }}
-            {{ form_widget(form) }}
-            <button class="btn btn-secondary mb-3 ml-5">{{ button_label|default('Rechercher') }}</button>
-            {{ form_end(form) }}
+    <div class="header-user-product">
+        <h1 class="h1-Product-User">Tous les produits</h1>
+    </div>
+    <div class="row">
+        <div class="container-filter">
+                <div class="flex-column">
+                    {{ form_start(formfilter,{'method': 'GET'}) }}
+                    {{ form_widget(formfilter) }}
+                    <button class="btn btn-secondary w-100">{{ button_label|default('Rechercher') }}</button>
+                    {{ form_end(formfilter) }}
 
-            {{ form_start(formfilterbrand, {'method': 'GET'}) }}
-            {{ form_widget(formfilterbrand) }}
-            <button class="btn btn-secondary mb-3 ml-5">{{ button_label|default('Rechercher') }}</button>
-            {{ form_end(formfilterbrand) }}
-        </div>
-        <div class="all-card-user-product">
-            {% for product in products %}
-                <div class="card card-product-user bg-light mb-3">
-                    <div class="card-header card-header-user">{{ product.reference }}</div>
-                    <div class="card-body">
-                        <p>{{ product.animal.name }}</p>
-                        <p>Marque : {{ product.brand.name }}</p>
-                        <p>Type : {{ product.food.type }}</p>
-                        <a href="{{ path('product_show', {'id': product.id}) }}">
-                            <button type="button" class="btn btn-secondary">Plus d'infos</button>
-                        </a>
-                    </div>
                 </div>
-            {% else %}
-                <p>Pas de produits trouvés</p>
-            {% endfor %}
+            </div>
+        </div>
+        <div class="container-user-product">
+            <div class="all-card-user-product">
+                {% for product in products %}
+                    <div class="card card-product-user bg-light mb-3">
+                        <div class="card-header card-header-user">{{ product.reference }}</div>
+                        <div class="card-body">
+                            <p>{{ product.animal.name }}</p>
+                            <p>Marque : {{ product.brand.name }}</p>
+                            <p>Type : {{ product.food.type }}</p>
+                            <a href="{{ path('product_show', {'id': product.id}) }}">
+                                <button type="button" class="btn btn-secondary">Plus d'infos</button>
+                            </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <p>Pas de produits trouvés</p>
+                {% endfor %}
+            </div>
         </div>
         {{ knp_pagination_render(products) }}
-    </div>
 {% endblock %}
