@@ -27,6 +27,9 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             $product->setBrand($this->getReference('brand_' . rand(1, 50)));
             $product->setFood($this->getReference('food_' . rand(1, 15)));
             $product->setBring($this->getReference('bring_'. $i));
+            for ($j = 1; $j <= 5; $j++) {
+                $product->addIngredient($this->getReference('ingredient_'.rand(1, 250)));
+            }
 
             $manager->persist($product);
             $this->addReference('product_' . $i, $product);
@@ -35,6 +38,6 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
     }
     public function getDependencies()
     {
-        return [AnimalFixtures::class, FoodFixtures::class, BrandFixtures::class];
+        return [AnimalFixtures::class, FoodFixtures::class, BrandFixtures::class, BringFixtures::class];
     }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Carni and Co{% endblock %}</title>
@@ -36,7 +36,7 @@
             {% block footer %}{% endblock %}
         </footer>
         {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
         {% endblock %}
+        {{ encore_entry_script_tags('app') }}
     </body>
 </html>

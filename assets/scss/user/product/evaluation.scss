@@ -1,0 +1,73 @@
+.header-evaluation{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.image-evaluation{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    margin:3vh;
+    width: 150px;
+
+    img{
+        margin:2%;
+    }
+}
+
+.value-evaluation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: $fontText;
+    font-size: $h2Size;
+    margin: 2%;
+
+    .product-reference{
+        width: 40%;
+
+        p{
+            font-size: $textSize;
+        }
+    }
+}
+
+.graph-evaluation{
+    margin: auto;
+    padding-right: 10px;
+}
+
+.canvas{
+    width: 90%;
+    height: 90%;
+}
+
+.ingredients-evaluation{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: $fontText;
+    font-size: $h3Size;
+
+    .ingredient-title{
+        width: 50%;
+        background: $gradientBackground;
+    }
+
+    div{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-size: $textSize;
+        border-bottom: $boxColor 2px solid;
+        margin-bottom: 1vh;
+
+        p{
+            display: flex;
+            width: 20%;
+            justify-content: center;
+        }
+    }
+}

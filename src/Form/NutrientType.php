@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class NutrientType extends AbstractType
 {
@@ -16,7 +17,8 @@ class NutrientType extends AbstractType
         $builder
             ->add('name', TextType::class, ['label' => 'Nom'])
             ->add('description', TextType::class, ['label' => 'Description'])
-            ->add('image', TextType::class, ['label' => 'Image', 'required' => false])
+            ->add('imageFile', VichImageType::class, ['label' => 'Image', 'required' => false,
+                'download_uri' => false])
         ;
     }
 

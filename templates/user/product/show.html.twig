@@ -3,46 +3,60 @@
 {% block title %}Evaluation Produit{% endblock %}
 
 {% block body %}
-    <h1 class="h1-Product-Admin">Evaluation Produit</h1>
-
-    <table class="table">
-        <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ product.id }}</td>
-        </tr>
-        <tr>
-            <th>Reference</th>
-            <td>{{ product.reference }}</td>
-        </tr>
-        <tr>
-            <th>Vegan</th>
-            <td>{{ product.vegan ? 'Oui' : 'Non' }}</td>
-        </tr>
-        <tr>
-            <th>Bio</th>
-            <td>{{ product.organic ? 'Oui' : 'Non' }}</td>
-        </tr>
-        <tr>
-            <th>Céréales</th>
-            <td>{{ product.cereal ? 'Oui' : 'Non' }}</td>
-        </tr>
-        <tr>
-            <th>Source</th>
-            <td>{{ product.source }}</td>
-        </tr>
-        <tr>
-            <th>Code barre</th>
-            <td>{{ product.barcode }}</td>
-        </tr>
-        <tr>
-            <th>Image</th>
-            <td>{{ product.image }}</td>
-        </tr>
-        </tbody>
-    </table>
-
+    <h1 class="h1-Admin">Evaluation pour votre {{ product.animal.name }}</h1>
     <a href="{{ path('product_index') }}">
-        <button type="button" class="btn btn-secondary">Retourner à la liste d'ingrédient</button>
+        <button type="button" class="btn btn-secondary">Retourner à la liste de produit</button>
     </a>
+    <div class="container-evaluation">
+        <div class="header-evaluation">
+            <div class="image-evaluation">
+                <img alt="image produit" src="https://via.placeholder.com/150">
+                <img alt="image code barre" src="https://via.placeholder.com/150">
+            </div>
+            <div class="value-evaluation">
+                <div class="product-reference">{{ product.reference }}
+                    <p class="bring-evaluation">
+                        Protéines : {{ product.bring.protein }} </br>
+                        Lipides : {{ product.bring.lipid }} </br>
+                        Cendres : {{ product.bring.ash }} </br>
+                        Fibres : {{ product.bring.fiber }} </br>
+                        Humidité {{ product.bring.humidity }} </br>
+                        Glucides : {{ product.bring.carbohydrate }}
+                    </p>
+                </div>
+                <div class='graph-evaluation' id="graph-bring"
+                     data-graph='{{ product.bring.protein }},
+                             {{ product.bring.lipid }},
+                             {{ product.bring.ash }},
+                             {{ product.bring.fiber }},
+                             {{ product.bring.humidity }},
+                             {{ product.bring.carbohydrate }}'>
+                    <canvas id="canvas" class="canvas" width="600" height="400">
+                        No Love for HTML5 eh?
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="ingredients-evaluation">
+            {% for ingredient in product.ingredients %}
+                <p class="ingredient-title">Ingredient {{ loop.index }}</p>
+                <div>
+                    <p>{{ ingredient.name }}</p>
+                    <p>{{ ingredient.nutrientType.nutrient }}</p>
+                    <p>{{ ingredient.origin.name }}</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="note-evaluation">
+
+        </div>
+        <div class="recommendation-evaluation">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('graph') }}
 {% endblock %}
