@@ -29,14 +29,14 @@ class ProductController extends AbstractController
         $products = $productRepository->findBy([], ['reference' => 'asc']);
         $formfilter = $this->createForm(FilterProductType::class);
         $formfilter->handleRequest($request);
-        $data1 = $formfilter->getData();
+        $data = $formfilter->getData();
 
         if ($formfilter->isSubmitted() && $formfilter->isValid()) {
             $products = $productRepository->findByBrand(
-                $data1['brand'],
-                $data1['food'],
-                $data1['animal'],
-                $data1['search']
+                $data['brand'],
+                $data['food'],
+                $data['animal'],
+                $data['search']
             );
         }
 
