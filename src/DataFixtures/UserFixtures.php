@@ -30,7 +30,6 @@ class UserFixtures extends Fixture
             $subscriber-> setRoles(['ROLE_SUBSCRIBER']);
             $subscriber-> setPassword($this->passwordEncoder->encodePassword($subscriber, 'subscriberpassword'));
             $manager->persist($subscriber);
-
         }
         $subscriber = new User();
         $subscriber-> setUsername('username');
