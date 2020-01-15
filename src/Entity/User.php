@@ -3,8 +3,9 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -18,7 +19,7 @@ class User implements UserInterface
      * @ORM\Column(type="integer")
      */
     private $id;
-  
+
     /**
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
@@ -27,7 +28,7 @@ class User implements UserInterface
      *      maxMessage = "Votre Pseudo ne doit pas contenir plus de {{ limit }} caractères")
      */
     private $username;
-    
+
     /**
      * @ORM\Column(type="json")
      */
@@ -110,7 +111,7 @@ class User implements UserInterface
 
         return $this;
     }
-    
+
     /**
      * @see UserInterface
      */
