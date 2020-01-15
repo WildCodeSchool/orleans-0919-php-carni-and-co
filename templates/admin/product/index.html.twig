@@ -3,7 +3,7 @@
 {% block title %}Product index{% endblock %}
 
 {% block body %}
-    <div class="container-admin-product">
+    <div class="container">
         <div class="header-admin-product">
             <h1 class="h1-Admin">Tous les produits</h1>
             <div class="search-container">
@@ -16,24 +16,37 @@
                 <button type="button" class="btn btn-secondary">Ajouter un Produit</button>
             </a>
         </div>
-        <div class="card-admin-product">
+        <table class="table-admin">
+            <thead class="header-table-admin">
+            <tr>
+                <th>Reference</th>
+                <th>Animal</th>
+                <th>Aliment</th>
+                <th>Marque</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody class="body-table-admin">
             {% for product in products %}
-                <div class="card card-product bg-light mb-3">
-                    <div class="card-header">{{ product.reference }}</div>
-                    <div class="card-body">
-                        <h5 class="card-title"></h5>
-                        <a href="{{ path('admin_product_show', {'id': product.id}) }}">
-                            <button type="button" class="btn btn-secondary">Plus d'infos</button>
+                <tr>
+                    <td>{{ product.reference }}</td>
+                    <td>{{ product.animal.name }}</td>
+                    <td>{{ product.food.type }}</td>
+                    <td>{{ product.brand.name }}</td>
+                    <td>
+                        <a href="{{ path('admin_product_show', {'id': 'x'}) }}">
+                            <button class="btn btn-secondary">Voir</button>
                         </a>
-                        <a href="{{ path('admin_product_edit', {'id': product.id}) }}">
-                            <button type="button" class="btn btn-secondary">Modifier</button>
+                        <a href="{{ path('admin_product_edit', {'id': 'x'}) }}">
+                            <button class="btn btn-secondary">Modifier</button>
                         </a>
-                    </div>
-                </div>
+                    </td>
+                </tr>
             {% else %}
                 <p>Pas de produits trouvés</p>
             {% endfor %}
-        </div>
-        {{ knp_pagination_render(products) }}
+        </table>
+    </div>
+    {{ knp_pagination_render(products) }}
     </div>
 {% endblock %}

@@ -1,0 +1,27 @@
+.table-admin{
+    width: 100%;
+    margin-bottom: 4vh;
+    margin-top: 4vh;
+}
+
+.header-table-admin{
+    background-color: $backColor;
+    font-family: $fontText;
+    font-size: $textSize;
+    width: 100%;
+    th{
+        padding:2rem;
+        text-align: center;
+    }
+}
+
+.body-table-admin{
+    font-family: $fontText;
+    font-size: $textSize;
+    width: 100%;
+    td{
+        padding:1rem;
+        border-bottom: $backColor 1px solid;
+        text-align: center;
+    }
+}
