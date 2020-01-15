@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\FilterProductType;
-use App\Form\SearchProductType;
 use App\Repository\ProductRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
