@@ -16,7 +16,6 @@ class SearchProductType extends AbstractType
                 'label' => false
             ]);
     }
-
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
