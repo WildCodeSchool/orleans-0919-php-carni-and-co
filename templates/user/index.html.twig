@@ -1,9 +1,11 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout_admin.html.twig' %}
 
-{% block title %}User index{% endblock %}
+{% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
-    <h1>User index</h1>
+    <h1 class="h1-Admin">Liste des utilisateurs</h1>
+
+    <a class="btn btn-secondary" href="{{ path('user_new') }}"><button class="btn btn-secondary">Ajouter un utilisateur</button></a>
 
     <table class="table">
         <thead>
@@ -11,8 +13,8 @@
                 <th>Id</th>
                 <th>Username</th>
                 <th>Roles</th>
-                <th>Password</th>
                 <th>Email</th>
+                <th>Password</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -22,20 +24,19 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
-                <td>{{ user.password }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.password }}</td>
                 <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
+                    <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-secondary">Voir</button></a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun utilisateur trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('user_new') }}">Create new</a>
 {% endblock %}
