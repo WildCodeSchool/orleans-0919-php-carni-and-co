@@ -44,8 +44,10 @@ class ProductController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+
     /**
      * @Route("/{id}", name="product_show", methods={"GET"})
+     * @return Response
      */
     public function show(Product $product): Response
     {
