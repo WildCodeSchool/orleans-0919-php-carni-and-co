@@ -110,4 +110,3 @@ class Contact
         return $this->message;
     }
 }
-
