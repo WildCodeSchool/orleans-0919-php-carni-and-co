@@ -19,7 +19,7 @@ class Contact
     private $firstname;
 
     /**
-     * @var string
+     * @var string|null
      * @Assert\NotBlank()
      * @Assert\Length(
      *     min=1,
@@ -30,7 +30,7 @@ class Contact
     private $lastname;
 
     /**
-     * @var string
+     * @var string|null
      * @Assert\NotBlank()
      * @Assert\Email(
      *     message = "Veuillez rentrer un Email valide.")
@@ -38,7 +38,7 @@ class Contact
     private $mail;
 
     /**
-     * @var string
+     * @var string|null
      * @Assert\NotBlank()
      * @Assert\Length(
      *     min=10,
@@ -55,15 +55,15 @@ class Contact
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getFirstname(): string
+    public function getFirstname(): ?string
     {
         return $this->firstname;
     }
 
     /**
-     * @param string $lastname
+     * @param null|string $lastname
      */
     public function setLastname(string $lastname): void
     {
@@ -71,15 +71,15 @@ class Contact
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getLastname(): string
+    public function getLastname(): ?string
     {
         return $this->lastname;
     }
 
     /**
-     * @param string $mail
+     * @param null|string $mail
      */
     public function setMail(string $mail): void
     {
@@ -87,15 +87,15 @@ class Contact
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMail(): string
+    public function getMail(): ?string
     {
         return $this->mail;
     }
 
     /**
-     * @param string $message
+     * @param null|string $message
      */
     public function setMessage(string $message): void
     {
@@ -103,9 +103,9 @@ class Contact
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->message;
     }
