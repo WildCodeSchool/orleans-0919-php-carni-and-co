@@ -77,7 +77,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_SUBSCRIBER';
 
         return array_unique($roles);
     }
