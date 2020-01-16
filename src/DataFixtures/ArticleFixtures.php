@@ -21,6 +21,7 @@ class ArticleFixtures extends Fixture
             $article->setImage($faker->imageUrl());
             $article->setDescription($faker->sentence);
             $article->setDate($faker->dateTime);
+            $article->setUpdatedAt($faker->dateTime());
 
             $manager->persist($article);
             $this->addReference('article_' . $i, $article);

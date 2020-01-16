@@ -10,15 +10,15 @@
             Ajouter un nouvel aliment</button>
     </a>
 
-    <table class="table">
-        <thead>
+    <table class="table-admin">
+        <thead class="header-table-admin">
             <tr>
                 <th>Type</th>
                 <th>Description</th>
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="body-table-admin">
         {% for food in foods %}
             <tr>
                 <td>{{ food.type }}</td>
