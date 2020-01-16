@@ -8,6 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class AnimalType extends AbstractType
 {
@@ -20,8 +21,10 @@ class AnimalType extends AbstractType
             ->add('description', TextareaType:: class, [
                 'label' => 'Description'
             ])
-            ->add('image', TextType:: class, [
-                'label' => 'Image'
+            ->add('imageFile', VichImageType::class, [
+                'label' => 'Image',
+                'required' => false,
+                'download_uri' => false
             ])
         ;
     }
