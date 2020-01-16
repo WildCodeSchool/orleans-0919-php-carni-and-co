@@ -13,6 +13,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class User implements UserInterface
 {
+    const ROLE_SUBSCRIBER = 'Utilisateur';
+    const ROLE_ADMIN = 'Admin';
+    const ROLES = ['Utilisateur' => self::ROLE_SUBSCRIBER, 'Admin' => self::ROLE_ADMIN];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
