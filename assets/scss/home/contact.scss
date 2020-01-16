@@ -20,15 +20,19 @@
 .box-form-contact input {
     border: 2px solid $titleColor;
     height: 30px;
-    width: 500px;
+    width: 150%;
+    color: $textColor;
+    font-family: $fontText;
 }
 
 .box-form-contact textarea {
     border: 2px solid $titleColor;
+    color: $textColor;
+    font-family: $fontText;
 }
 
 .box-form-contact #contact_message {
-    width: 500px;
+    width: 150%;
     height: 200px;
 }
 
