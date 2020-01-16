@@ -21,12 +21,14 @@
                 <tr>
                     <td>{{ brand.name }}</td>
                     <td>
-                        <a href="{{ path('brand_edit', {'id': brand.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                        <a href="{{ path('brand_edit', {'id': brand.id}) }}">
+                            <button class="btn btn-secondary">Modifier</button>
+                        </a>
                     </td>
                 </tr>
             {% else %}
                 <div>Pas de marque enregistrée</div>
             {% endfor %}
-        </div>
+        </table>
     </div>
 {% endblock %}
