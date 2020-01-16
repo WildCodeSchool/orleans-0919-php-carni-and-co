@@ -32,6 +32,7 @@ class FoodController extends AbstractController
     {
         $food = new Food();
         $form = $this->createForm(FoodType::class, $food);
+
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
