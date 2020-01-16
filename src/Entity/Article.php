@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use DateTime;
 use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Exception;
 use Symfony\Component\HttpFoundation\File\File;
@@ -60,7 +61,7 @@ class Article
 
     /**
      * @ORM\Column(type="datetime")
-     * @var DateTimeImmutable
+     * @var DateTimeInterface
      */
     private $updatedAt;
 
