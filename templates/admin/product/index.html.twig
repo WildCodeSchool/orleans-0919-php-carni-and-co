@@ -34,10 +34,10 @@
                     <td>{{ product.food.type }}</td>
                     <td>{{ product.brand.name }}</td>
                     <td>
-                        <a href="{{ path('admin_product_show', {'id': 'x'}) }}">
+                        <a href="{{ path('admin_product_show', {'id': product.id}) }}">
                             <button class="btn btn-secondary">Voir</button>
                         </a>
-                        <a href="{{ path('admin_product_edit', {'id': 'x'}) }}">
+                        <a href="{{ path('admin_product_edit', {'id': product.id}) }}">
                             <button class="btn btn-secondary">Modifier</button>
                         </a>
                     </td>
