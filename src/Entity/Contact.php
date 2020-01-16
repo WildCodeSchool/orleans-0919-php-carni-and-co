@@ -3,13 +3,13 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraint as Assert;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Contact
 {
     /**
      * @var string
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(
      *     min=1,
      *     max=100,
@@ -20,7 +20,7 @@ class Contact
 
     /**
      * @var string|null
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(
      *     min=1,
      *     max=100,
@@ -31,15 +31,24 @@ class Contact
 
     /**
      * @var string|null
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Email(
      *     message = "Veuillez rentrer un Email valide.")
      */
     private $mail;
 
     /**
+     * @var string
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     max=150,
+     *     maxMessage = "Votre objet doit contenir moins de {{ limit }} caractères."))
+     */
+    private $subject;
+
+    /**
      * @var string|null
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(
      *     min=10,
      *     minMessage = "Votre message doit contenir au moins {{ limit }} caractères.")
@@ -63,7 +72,7 @@ class Contact
     }
 
     /**
-     * @param null|string $lastname
+     * @param string $lastname
      */
     public function setLastname(string $lastname): void
     {
@@ -79,7 +88,7 @@ class Contact
     }
 
     /**
-     * @param null|string $mail
+     * @param string $mail
      */
     public function setMail(string $mail): void
     {
@@ -95,7 +104,7 @@ class Contact
     }
 
     /**
-     * @param null|string $message
+     * @param string $message
      */
     public function setMessage(string $message): void
     {
@@ -108,5 +117,21 @@ class Contact
     public function getMessage(): ?string
     {
         return $this->message;
+    }
+
+    /**
+     * @param string $subject
+     */
+    public function setSubject(string $subject): void
+    {
+        $this->subject = $subject;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubject(): string
+    {
+        return $this->subject ?? '';
     }
 }

@@ -1,5 +1,5 @@
 {% extends 'layout.html.twig' %}
-{% block title %}Contact{% endblock %}
+{% block title %}Nous contacter{% endblock %}
 {% block body %}
    <h1 class="h1-contact">Nous contacter</h1>
    <div class="box-form-contact">
@@ -13,6 +13,9 @@
       </div>
       <div class="row">
          {{ form_row(form.mail) }}
+      </div>
+      <div class="row">
+         {{ form_row(form.subject) }}
       </div>
       <div class="row">
          {{ form_row(form.message) }}
