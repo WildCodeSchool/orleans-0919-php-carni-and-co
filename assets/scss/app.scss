@@ -1,4 +1,8 @@
 @import "vars";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
 @import "~bootstrap/scss/bootstrap";
 @import "home/home.scss";
 @import 'navbar.scss';
@@ -17,11 +21,10 @@ body {
     background-size: cover;
     box-shadow: inset 10000000px 0 0 0 $backgroundFilter ;
     height: 100%;
-    bottom: 0;
+    margin-top: 4vh;
 }
 
 main{
-    margin-top: 4vh;
-    margin-bottom: 3vh;
-    min-height: 63vh;
+    margin-bottom: 35vh;
+    min-height: 100vh;
 }
