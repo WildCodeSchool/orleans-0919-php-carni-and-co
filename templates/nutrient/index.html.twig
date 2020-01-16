@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ nutrient.name }}</td>
                     <td>
-                        <a href="{{ path('nutrient_edit', {'id': 'x'}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                        <a href="{{ path('nutrient_edit', {'id': nutrient.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
                     </td>
                 </tr>
         {% else %}

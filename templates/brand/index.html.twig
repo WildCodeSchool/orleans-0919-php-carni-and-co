@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ brand.name }}</td>
                     <td>
-                        <a href="{{ path('brand_edit', {'id': 'x'}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                        <a href="{{ path('brand_edit', {'id': brand.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
                     </td>
                 </tr>
             {% else %}

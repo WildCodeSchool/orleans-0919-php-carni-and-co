@@ -22,7 +22,7 @@
             <td>{{ animal.name }}</td>
             <td>{{ animal.description }}</td>
             <td>
-                <a href="{{ path('animal_edit', {'id': 'x'}) }}">
+                <a href="{{ path('animal_edit', {'id': animal.id}) }}">
                     <button class="btn btn-secondary">Modifier</button>
                 </a>
             </td>
