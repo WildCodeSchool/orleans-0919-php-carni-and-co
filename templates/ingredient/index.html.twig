@@ -14,8 +14,8 @@
 
     <a href="{{ path('ingredient_new') }}"><button class="btn btn-secondary mb-4">Ajouter un nouvel ingrédient</button></a>
 
-    <table class="table">
-        <thead>
+    <table class="table-admin">
+        <thead class="header-table-admin">
             <tr>
                 <th>Nom</th>
                 <th>Type précisé</th>
@@ -27,7 +27,7 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="body-table-admin">
         {% for ingredient in ingredients %}
             <tr>
                 <td>{{ ingredient.name }}</td>
