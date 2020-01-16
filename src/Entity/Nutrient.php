@@ -4,7 +4,9 @@ namespace App\Entity;
 
 use DateTime;
 use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -64,7 +66,7 @@ class Nutrient
     /**
      * @ORM\Column(type="datetime")
      *
-     * @var \DateTimeInterface
+     * @var DateTimeInterface
      */
     private $updatedAt;
 
@@ -109,8 +111,10 @@ class Nutrient
 
         return $this;
     }
+
     /**
      * @param File|UploadedFile $imageFile
+     * @throws Exception
      */
     public function setImageFile(?File $imageFile = null): void
     {
