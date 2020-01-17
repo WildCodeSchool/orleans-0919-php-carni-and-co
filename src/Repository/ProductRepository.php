@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Animal;
 use App\Entity\Brand;
+use App\Entity\Bring;
 use App\Entity\Food;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -39,10 +40,9 @@ class ProductRepository extends ServiceEntityRepository
         }
         if ($reference) {
             $query->andWhere('p.reference LIKE :reference')
-                ->setParameter('reference', '%' . $reference . '%')
-                ->orderBy('p.reference', 'ASC');
+                ->setParameter('reference', '%' . $reference . '%');
         }
-        $query->orderBy('p.reference', 'ASC');
+            $query->orderBy('p.reference', 'ASC');
 
         $query = $query->getQuery();
         return $query->execute();
