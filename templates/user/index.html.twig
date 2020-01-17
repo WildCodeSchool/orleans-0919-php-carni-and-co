@@ -7,25 +7,21 @@
 
     <a class="btn btn-secondary" href="{{ path('user_new') }}"><button class="btn btn-secondary">Ajouter un utilisateur</button></a>
 
-    <table class="table">
-        <thead>
+    <table class="table-admin">
+        <thead class="header-table-admin">
             <tr>
                 <th>Id</th>
                 <th>Username</th>
-                <th>Roles</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>actions</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="body-table-admin">
         {% for user in users %}
             <tr>
                 <td>{{ user.id }}</td>
                 <td>{{ user.username }}</td>
-                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.password }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-secondary">Voir</button></a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
