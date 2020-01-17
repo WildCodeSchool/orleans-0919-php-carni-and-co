@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Animal;
 use App\Entity\Product;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -23,6 +24,7 @@ class ProductFixtures extends Fixture implements DependentFixtureInterface
             $product->setCereal($faker->boolean(33));
             $product->setOrganic($faker->boolean(33));
             $product->setVegan($faker->boolean(33));
+            $product->setUpdatedAt(new DateTime());
             $product->setAnimal($this->getReference('animal_' . rand(0, 1)));
             $product->setBrand($this->getReference('brand_' . rand(1, 50)));
             $product->setFood($this->getReference('food_' . rand(1, 15)));
