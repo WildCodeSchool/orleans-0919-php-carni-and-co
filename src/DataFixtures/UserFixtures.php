@@ -34,16 +34,16 @@ class UserFixtures extends Fixture
         $subscriber = new User();
         $subscriber-> setUsername('username');
         $subscriber-> setEmail('username@monsite.com');
-            $subscriber-> setRoles(['ROLE_SUBSCRIBER']);
-            $subscriber-> setPassword($this->passwordEncoder->encodePassword($subscriber, 'subscriberpassword'));
-            $manager->persist($subscriber);
+        $subscriber-> setRoles(['ROLE_SUBSCRIBER']);
+        $subscriber-> setPassword($this->passwordEncoder->encodePassword($subscriber, 'subscriberpassword'));
+        $manager->persist($subscriber);
 
-            $admin = new User();
-            $admin->setUsername('admin');
-            $admin->setEmail('admin@monsite.com');
-            $admin->setRoles(['ROLE_ADMIN']);
-            $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'adminpassword'));
-            $manager->persist($admin);
+        $admin = new User();
+        $admin->setUsername('admin');
+        $admin->setEmail('admin@monsite.com');
+        $admin->setRoles(['ROLE_ADMIN']);
+        $admin->setPassword($this->passwordEncoder->encodePassword($admin, 'adminpassword'));
+        $manager->persist($admin);
         $manager->flush();
     }
 }
