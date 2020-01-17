@@ -10,21 +10,21 @@
 
     {% if app.user %}
         <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+            Vous êtes connecté comme {{ app.user.username }}, <a href="{{ path('app_logout') }}">Déconnexion</a>
         </div>
     {% endif %}
 
     <h1 class="h1-Admin mb-3">Se connecter</h1>
-    <label for="inputUsername">Pseudo</label>
-    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
+    <label for="inputUsername">Identifiant</label>
+    <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control field-input" required autofocus>
+    <label for="inputPassword">Mot de passe</label>
+    <input type="password" name="password" id="inputPassword" class="form-control field-input" required>
 
     <input type="hidden" name="_csrf_token"
            value="{{ csrf_token('authenticate') }}"
     >
 
-    <button class="btn btn-secondary" type="submit">
+    <button class="btn btn-secondary center-button field-connexion" type="submit">
         Connexion
     </button>
 </form>
