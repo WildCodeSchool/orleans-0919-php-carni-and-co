@@ -70,13 +70,13 @@ class Ingredient
     private $nutrientType;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="ingredients")
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="ingredient")
      */
-    private $products;
+    private $compositions;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->compositions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -169,28 +169,31 @@ class Ingredient
     }
 
     /**
-     * @return Collection|Product[]
+     * @return Collection|Composition[]
      */
-    public function getProducts(): Collection
+    public function getCompositions(): Collection
     {
-        return $this->products;
+        return $this->compositions;
     }
 
-    public function addProduct(Product $product): self
+    public function addComposition(Composition $composition): self
     {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->addIngredient($this);
+        if (!$this->compositions->contains($composition)) {
+            $this->compositions[] = $composition;
+            $composition->setIngredient($this);
         }
 
         return $this;
     }
 
-    public function removeProduct(Product $product): self
+    public function removeComposition(Composition $composition): self
     {
-        if ($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            $product->removeIngredient($this);
+        if ($this->compositions->contains($composition)) {
+            $this->compositions->removeElement($composition);
+            // set the owning side to null (unless already changed)
+            if ($composition->getIngredient() === $this) {
+                $composition->setIngredient(null);
+            }
         }
 
         return $this;

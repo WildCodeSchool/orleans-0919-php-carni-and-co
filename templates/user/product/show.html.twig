@@ -38,12 +38,13 @@
             </div>
         </div>
         <div class="ingredients-evaluation">
-            {% for ingredient in product.ingredients %}
+            {% for compositions in product.compositions %}
                 <p class="ingredient-title">Ingredient {{ loop.index }}</p>
                 <div>
-                    <p>{{ ingredient.name }}</p>
-                    <p>{{ ingredient.nutrientType.nutrient }}</p>
-                    <p>{{ ingredient.origin.name }}</p>
+                    <p>{{ compositions.ingredient.name }}</p>
+                    <p>{{ compositions.ingredient.nutrientType.nutrient }}</p>
+                    <p>{{ compositions.ingredient.origin.name }}</p>
+                    <p>{{ compositions.percentage }} %</p>
                 </div>
             {% endfor %}
         </div>
