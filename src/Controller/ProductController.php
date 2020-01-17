@@ -30,7 +30,6 @@ class ProductController extends AbstractController
         $formfilter = $this->createForm(FilterProductType::class);
         $formfilter->handleRequest($request);
         $data = $formfilter->getData();
-
         if ($formfilter->isSubmitted() && $formfilter->isValid()) {
             $products = $productRepository->findByBrand(
                 $data['brand'],
