@@ -1,0 +1,38 @@
+.h1-contact {
+    color: $titleColor;
+    font-size: $h1Size;
+    font-family: $fontTitle;
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.box-form-contact {
+    margin-bottom: 4em;
+}
+
+.box-form-contact label {
+    color: $textColor;
+    font-size: $textSize;
+    font-family: $fontText;
+}
+
+.box-form-contact input {
+    border: 2px solid $titleColor;
+    height: 30px;
+    width: 150%;
+    color: $textColor;
+    font-family: $fontText;
+}
+
+.box-form-contact textarea {
+    border: 2px solid $titleColor;
+    color: $textColor;
+    font-family: $fontText;
+}
+
+.box-form-contact #contact_message {
+    width: 150%;
+    height: 200px;
+}
+

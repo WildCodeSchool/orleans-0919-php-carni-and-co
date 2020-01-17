@@ -1,22 +1,4 @@
 {{ form_start(form) }}
-<div class="card mb-3 margeHome">
-    <div class="row no-gutters">
-        <div class="col-md-4 image">
-            <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
-                 alt="Photo de {{ animal.name }}">
-            {{ form_row(form.image) }}
-
-        </div>
-        <div class="col-md-8 text">
-            <div class="card-body textcard">
-                <h2 class="card-title">{{ form_row(form.name) }}</h2>
-                {{ form_row(form.name) }}
-                <p class="card-text">
-                    {{ form_row(form.description) }}
-                </p>
-            </div>
-        </div>
-    </div>
-    <button class="btn btn-secondary">{{ button_label|default('Ajouter') }}</button>
-</div>
+    {{ form_widget(form) }}
+<button class="btn btn-secondary mb-1">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
