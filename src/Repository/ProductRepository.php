@@ -2,6 +2,10 @@
 
 namespace App\Repository;
 
+use App\Entity\Animal;
+use App\Entity\Brand;
+use App\Entity\Bring;
+use App\Entity\Food;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
@@ -19,15 +23,28 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findByReference($reference)
+    public function findByBrand(?Brand $brand, ?Food $food, ?Animal $animal, ?string $reference)
     {
-        $qb = $this->createQueryBuilder('p')
-            ->where('p.reference LIKE :reference')
-            ->setParameter('reference', '%'.$reference.'%')
-            ->orderBy('p.reference', 'ASC');
+        $query = $this->createQueryBuilder('p');
+        if ($brand) {
+            $query->andWhere('p.brand = :brand')
+                ->setParameter('brand', $brand);
+        }
+        if ($food) {
+            $query->andWhere('p.food = :food')
+                ->setParameter('food', $food);
+        }
+        if ($animal) {
+            $query->andWhere('p.animal = :animal')
+                ->setParameter('animal', $animal);
+        }
+        if ($reference) {
+            $query->andWhere('p.reference LIKE :reference')
+                ->setParameter('reference', '%' . $reference . '%');
+        }
+            $query->orderBy('p.reference', 'ASC');
 
-        $query = $qb->getQuery();
-
+        $query = $query->getQuery();
         return $query->execute();
     }
 }

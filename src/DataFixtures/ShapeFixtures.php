@@ -10,15 +10,34 @@ use Faker;
 
 class ShapeFixtures extends Fixture
 {
+    const SHAPE = [
+        'brut',
+        'texturant',
+        'frais',
+        'déshydraté',
+        'désossé',
+        'séché',
+        'amidon',
+        'arôme',
+        'concassé',
+        'moulu',
+        'cuit',
+        'rôti',
+        'hydrolisé',
+        'bouillon',
+        'huile',
+        'transformé',
+    ];
+
     public function load(ObjectManager $manager)
     {
-        $faker = Faker\Factory::create('fr_FR');
-
-        for ($i = 1; $i <= 15; $i++) {
-            $shape = new Shape();
-            $shape->setName($faker->word);
-            $manager->persist($shape);
-            $this->addReference('shape_' . $i, $shape);
+        $shapeNumber = 0;
+        foreach (self::SHAPE as $shape) {
+            $shapeFixture = new Shape();
+            $shapeFixture->setName($shape);
+            $manager->persist($shapeFixture);
+            $this->addReference('shape_' . $shapeNumber, $shapeFixture);
+            $shapeNumber ++;
         }
         $manager->flush();
     }

@@ -2,11 +2,21 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ProductRepository")
+ * @Vich\Uploadable
  */
 class Product
 {
@@ -58,6 +68,20 @@ class Product
     private $barCode;
 
     /**
+     *
+     * @Vich\UploadableField(mapping="pictures", fileNameProperty="image")
+     *
+     * @var File|null
+     * @Assert\File(
+     *    maxSize = "200k",
+     *    maxSizeMessage = "L'image ne doit pas faire plus de {{ limit }} mega-octets.",
+     *    mimeTypes = {"image/gif", "image/jpeg", "image/png", "image/svg+xml", "image/webp"},
+     *    mimeTypesMessage = "Format d'image non reconnu. Veuillez choisir une nouvelle image."
+     *)
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=255 , nullable=true)
      * @Assert\Length(
      *     max = 255,
@@ -82,6 +106,27 @@ class Product
      * @ORM\JoinColumn(nullable=false)
      */
     private $brand;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Bring", cascade={"persist", "remove"})
+     */
+    private $bring;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Ingredient", inversedBy="products")
+     */
+    private $ingredients;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var DateTimeInterface
+     */
+    private $updatedAt;
+
+    public function __construct()
+    {
+        $this->ingredients = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -160,6 +205,31 @@ class Product
         return $this;
     }
 
+    /**
+     * @param File|UploadedFile $imageFile
+     * @throws Exception
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
     public function getImage()
     {
         return $this->image;
@@ -204,6 +274,44 @@ class Product
     public function setBrand(?Brand $brand): self
     {
         $this->brand = $brand;
+
+        return $this;
+    }
+
+    public function getBring(): ?Bring
+    {
+        return $this->bring;
+    }
+
+    public function setBring(?Bring $bring): self
+    {
+        $this->bring = $bring;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Ingredient[]
+     */
+    public function getIngredients(): Collection
+    {
+        return $this->ingredients;
+    }
+
+    public function addIngredient(Ingredient $ingredients): self
+    {
+        if (!$this->ingredients->contains($ingredients)) {
+            $this->ingredients[] = $ingredients;
+        }
+
+        return $this;
+    }
+
+    public function removeIngredient(Ingredient $ingredients): self
+    {
+        if ($this->ingredients->contains($ingredients)) {
+            $this->ingredients->removeElement($ingredients);
+        }
 
         return $this;
     }

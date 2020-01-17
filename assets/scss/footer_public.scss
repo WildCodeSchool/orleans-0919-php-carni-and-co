@@ -1,71 +1,60 @@
 .footer-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     background-color: $navbarColor;
-    padding-top: 2em;
-    padding-bottom: 1em;
-}
-
-.footer-line-date {
-    margin-left: 2em;
-}
-
-small {
-    font-size: 1em;
-    color: $textColor;
+    margin-top: -30vh;
+    height: 30vh;
+    position: relative;
+    bottom: 0;
     font-family: $fontText;
+
+    i{
+        font-size: $footerTitleSize;
+    }
 }
 
-.link-social-footer {
-    font-family: $fontText;
-    margin: 0.8em;
-    color: $textColor;
-    font-size: $textSize;
+.footer-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width :30%;
+
+    .text{
+        font-size: $footerTextSize;
+        padding-bottom: 0.5vh;
+    }
 }
 
-.link-social-footer:hover {
-    color: $inherit;
-    text-decoration: none;
+.footer-logo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width :30%;
+
+    img{
+        width: 150px;
+        height: 150px;
+    }
 }
 
-.icon-social-footer {
-    width: 30px;
-    height: 30px;
-    margin: 0.1em;
+.footer-resaux {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width :30%;
+
+    .text{
+        font-size: $footerTextSize;
+        padding-bottom: 0.5vh;
+    }
 }
 
-.footer-line-social-icon {
-    margin-top: 1em;
-}
-
-.link-legals-m-footer {
-    font-family: $fontText;
-    color: $textColor;
-    font-size: $textSize;
-    text-decoration: underline;
-}
-
-.link-legals-m-footer:hover {
-    color: $inherit;
-}
-
-.box-m-legals-footer {
-    text-align: center;
-    margin-top: 1.5em;
-}
-
-.box-mail-footer {
-    text-align: center;
-    margin-top: 1em;
-}
-
-.txt-mail-footer {
-    font-family: $fontText;
-    color: $textColor;
-}
-
-.links-footer-social {
-    text-align: center;
-}
-
-.box-icon-social-footer {
-    text-align: center;
+.title {
+    font-size: $footerTitleSize;
+    font-weight: $fontWeightTitle;
+    padding-bottom: 1vh;
 }

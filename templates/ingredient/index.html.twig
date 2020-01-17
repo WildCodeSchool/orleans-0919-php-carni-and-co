@@ -5,10 +5,17 @@
 {% block body %}
     <h1 class="h1-Admin">Liste des ingrédients</h1>
 
+    <div class="admin-search-container">
+        {{ form_start(form, {'method': 'GET'}) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-secondary mb-3 ml-1">{{ button_label|default('Rechercher') }}</button>
+        {{ form_end(form) }}
+    </div>
+
     <a href="{{ path('ingredient_new') }}"><button class="btn btn-secondary mb-4">Ajouter un nouvel ingrédient</button></a>
 
-    <table class="table">
-        <thead>
+    <table class="table-admin">
+        <thead class="header-table-admin">
             <tr>
                 <th>Nom</th>
                 <th>Type précisé</th>
@@ -20,16 +27,16 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="body-table-admin">
         {% for ingredient in ingredients %}
             <tr>
                 <td>{{ ingredient.name }}</td>
                 <td>{{ ingredient.precisedType ? 'Oui' : 'Non' }}</td>
                 <td>{{ ingredient.precisedPart ? 'Oui' : 'Non' }}</td>
                 <td>{{ ingredient.note }}</td>
-                <td>{{ ingredient.origin.name }}</td>
-                <td>{{ ingredient.shape.name }}</td>
-                <td>{{ ingredient.nutrientType.nutrient }}</td>
+                <td>{{ ingredient.origin.name ?? 'Non précisée'}}</td>
+                <td>{{ ingredient.shape.name ?? 'Non précisée'}}</td>
+                <td>{{ ingredient.nutrientType.nutrient ?? 'Non précisée'}}</td>
                 <td>
                     <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
                 </td>

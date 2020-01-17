@@ -9,8 +9,8 @@
         <a href="{{ path('article_new') }}">
             <button class="btn btn-secondary mb-3 center-button">Enregistrer un article</button>
         </a>
-        <table class="table">
-            <thead>
+        <table class="table-admin">
+            <thead class="header-table-admin">
             <tr>
                 <th>Id</th>
                 <th>Title</th>
@@ -20,7 +20,7 @@
                 <th>Actions</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="body-table-admin">
             {% for article in articles %}
                 <tr>
                     <td>{{ article.id }}</td>

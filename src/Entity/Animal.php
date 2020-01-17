@@ -2,13 +2,21 @@
 
 namespace App\Entity;
 
+use DateTime;
+use DateTimeImmutable;
+use DateTimeInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Exception;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\AnimalRepository")
+ * @Vich\Uploadable
  */
 class Animal
 {
@@ -35,6 +43,20 @@ class Animal
     private $description;
 
     /**
+     *
+     * @Vich\UploadableField(mapping="pictures", fileNameProperty="image")
+     *
+     * @var File|null
+     * @Assert\File(
+     *    maxSize = "200k",
+     *    maxSizeMessage = "L'image ne doit pas faire plus de {{ limit }} mega-octets.",
+     *    mimeTypes = {"image/gif", "image/jpeg", "image/png", "image/svg+xml", "image/webp"},
+     *    mimeTypesMessage = "Format d'image non reconnu. Veuillez choisir une nouvelle image."
+     *)
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="string", length=255)
      ** @Assert\NotBlank()
      */
@@ -44,6 +66,12 @@ class Animal
      * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="animal", orphanRemoval=true)
      */
     private $products;
+
+    /**
+     * @ORM\Column(type="datetime")
+     * @var DateTimeInterface
+     */
+    private $updatedAt;
 
     public function __construct()
     {
@@ -75,6 +103,31 @@ class Animal
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @param File|UploadedFile $imageFile
+     * @throws Exception
+     */
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setUpdatedAt(DateTime $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
 
         return $this;
     }
