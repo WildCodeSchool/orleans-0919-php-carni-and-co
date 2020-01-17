@@ -21,9 +21,8 @@
                                 <p>{{ product.animal.name }}</p>
                                 <p>Marque : {{ product.brand.name }}</p>
                                 <p>Type : {{ product.food.type }}</p>
-                                <a href="{{ path('product_show', {'id': product.id}) }}">
-                                    <button type="button" class="btn btn-secondary">Plus d'infos</button>
-                                </a>
+                                <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}"
+                                   role="button">Plus d'infos</a>
                             </div>
                         </div>
                     {% else %}
