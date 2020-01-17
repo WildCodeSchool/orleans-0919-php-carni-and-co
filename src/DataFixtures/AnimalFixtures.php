@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Animal;
+use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
@@ -36,6 +37,7 @@ class AnimalFixtures extends Fixture
             $animal-> setName($key);
             $animal-> setDescription($data['description']);
             $animal-> setImage($data['image']);
+            $animal->setUpdatedAt(new DateTime());
             $manager -> persist($animal);
             $this->addReference('animal_' . $animalNumber, $animal);
             $animalNumber++;
