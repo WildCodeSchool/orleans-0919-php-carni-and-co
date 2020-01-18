@@ -13,6 +13,10 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  */
 class User implements UserInterface
 {
+    const ROLE_SUBSCRIBER = 'Utilisateur';
+    const ROLE_ADMIN = 'Admin';
+    const ROLES = ['Utilisateur' => self::ROLE_SUBSCRIBER, 'Admin' => self::ROLE_ADMIN];
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -73,7 +77,7 @@ class User implements UserInterface
     public function getRoles(): array
     {
         $roles = $this->roles;
-        $roles[] = 'ROLE_USER';
+        $roles[] = 'ROLE_SUBSCRIBER';
 
         return array_unique($roles);
     }

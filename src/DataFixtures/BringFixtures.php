@@ -17,17 +17,17 @@ class BringFixtures extends Fixture
 
         for ($i = 1; $i <= 500; $i++) {
             $bring = new Bring();
-            $bring->setAsh($faker->randomFloat(2, 0, 100));
+            $bring->setAsh($faker->randomFloat(2, 0, 20));
             $bring->setCalcium($faker->randomFloat(2, 0, 100));
             $bring->setCalorie($faker->randomFloat(2, 0, 100));
-            $bring->setCarbohydrate($faker->randomFloat(2, 0, 100));
-            $bring->setFiber($faker->randomFloat(2, 0, 100));
-            $bring->setHumidity($faker->randomFloat(2, 0, 100));
-            $bring->setLipid($faker->randomFloat(2, 0, 100));
+            $bring->setCarbohydrate($faker->randomFloat(2, 0, 20));
+            $bring->setFiber($faker->randomFloat(2, 0, 20));
+            $bring->setHumidity($faker->randomFloat(2, 0, 20));
+            $bring->setLipid($faker->randomFloat(2, 0, 20));
             $bring->setOmega3($faker->randomFloat(2, 0, 100));
             $bring->setOmega6($faker->randomFloat(2, 0, 100));
             $bring->setPhosphorus($faker->randomFloat(2, 0, 100));
-            $bring->setProtein($faker->randomFloat(2, 0, 100));
+            $bring->setProtein($faker->randomFloat(2, 0, 20));
             $manager->persist($bring);
             $this->addReference('bring_' . $i, $bring);
         }

@@ -1,11 +1,18 @@
 .colornav {
     background-color: $navbarColor;
     padding: 0;
+    font-family: $fontText;
 }
 
 .navbar-brand {
     padding: 0;
     font-family: $fontTitle;
+    font-weight: $fontWeightTitle;
+
+    img{
+        height: 60px;
+        width: 60px;
+    }
 }
 
 .navbarLogo {
@@ -14,6 +21,7 @@
 
 .nav-item {
     margin: 0 5px;
+    font-size: $textSize;
 }
 
 .dropdown-menu {
@@ -25,4 +33,14 @@
 
 .dropdown-item:hover {
     background-color: inherit;
+}
+
+.connexion{
+    margin-right: 2vw;
+}
+
+.nav-user{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
