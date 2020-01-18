@@ -15,7 +15,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 10000000px 0 0 0 $backgroundFilter ;
+    box-shadow: inset 10000000px 0 0 0 $bodyFilter ;
     height: 100%;
     margin-top: 6vh;
     min-height: 100vh;
@@ -23,4 +23,5 @@ body {
 
 main{
     min-height: 70vh;
+    box-shadow: inset 10000000px 0 0 0 $mainFilter ;
 }
