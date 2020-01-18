@@ -4,15 +4,8 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import "~bootstrap/scss/bootstrap";
-@import "home/home.scss";
-@import 'navbar.scss';
-@import "footer_public";
 @import "admin/admin.scss";
-@import "home/blog.scss";
-@import "home/nutrition.scss";
-@import "user/product/product.scss";
-@import "home/contact.scss";
-@import "home/legals_mentions.scss";
+@import "user/user.scss";
 @import "connexion.scss";
 
 body {
