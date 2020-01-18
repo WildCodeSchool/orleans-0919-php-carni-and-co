@@ -5,11 +5,11 @@
 {% block body %}
     <h1 class="h1-Admin">Liste des utilisateurs</h1>
 
-    <div class="admin-search-container">
-        {{ form_start(form, {'method': 'GET'}) }}
-        {{ form_widget(form) }}
-        <button class="btn btn-secondary mb-3 ml-1">{{ button_label|default('Rechercher') }}</button>
-        {{ form_end(form) }}
+    <div class="col-3">
+        {{ form_start(formfilter,{'method': 'GET'}) }}
+        {{ form_widget(formfilter) }}
+        <button class="btn btn-secondary w-100">{{ button_label|default('Rechercher') }}</button>
+        {{ form_end(formfilter) }}
     </div>
 
     <a class="btn btn-secondary" href="{{ path('user_new') }}"><button class="btn btn-secondary">Ajouter un utilisateur</button></a>
@@ -39,5 +39,5 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {{ knp_pagination_render(users) }}
 {% endblock %}

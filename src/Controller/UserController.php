@@ -34,7 +34,7 @@ class UserController extends AbstractController
         $form->handleRequest($request);
         $data = $form->getData();
         if ($form->isSubmitted() && $form->isValid()) {
-            $users = $userRepository->findByName($data['search']);
+            $users = $userRepository->findByUsername($data['search']);
         }
         $users = $paginator->paginate(
             $users,
@@ -44,6 +44,7 @@ class UserController extends AbstractController
 
         return $this->render('user/index.html.twig', [
             'users' => $users,
+            'form' => $form->createView(),
         ]);
     }
 
