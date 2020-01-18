@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\FaqRepository")
@@ -18,16 +19,28 @@ class Faq
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Le titre ne doit pas dépasser {{ limit }} caractères")
+     * @Assert\NotBlank
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *     min = 5,
+     *     minMessage = "La question doit faire au moins {{ limit }} caractères")
+     * @Assert\NotBlank
      */
     private $question;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\Length(
+     *     min = 5,
+     *     minMessage = "La réponse doit faire au moins {{ limit }} caractères")
+     * @Assert\NotBlank
      */
     private $answer;
 
