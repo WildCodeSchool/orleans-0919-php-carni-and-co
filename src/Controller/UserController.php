@@ -43,6 +43,7 @@ class UserController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'utilisateur a bien été Ajouté!');
 
             return $this->redirectToRoute('user_index');
         }
