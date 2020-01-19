@@ -26,6 +26,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(pattern="/^[a-zA-Z0-9_]{3,16}$/", match=true, message="L'identifiant ne peut contenir que des
+     * minuscules, majuscules et des chiffres.")
      * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
      * @Assert\Length(
      *      max = 255,
@@ -46,6 +48,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(pattern="/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/",
+     * match=true, message="L'adresse email doit être valide.")
      */
     private $email;
 
