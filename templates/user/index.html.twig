@@ -5,13 +5,20 @@
 {% block body %}
     <h1 class="h1-Admin">Liste des utilisateurs</h1>
 
+    <div class="col-3">
+        {{ form_start(form,{'method': 'GET'}) }}
+        {{ form_widget(form) }}
+        <button class="btn btn-secondary w-100">{{ button_label|default('Rechercher') }}</button>
+        {{ form_end(form) }}
+    </div>
+
     <table class="table-admin">
         <thead class="header-table-admin">
-            <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Username</th>
+            <th>Email</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody class="body-table-admin">
         {% for user in users %}
@@ -29,5 +36,5 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {{ knp_pagination_render(users) }}
 {% endblock %}
