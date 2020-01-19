@@ -6,13 +6,11 @@
     <h1 class="h1-Admin">Liste des utilisateurs</h1>
 
     <div class="col-3">
-        {{ form_start(formfilter,{'method': 'GET'}) }}
-        {{ form_widget(formfilter) }}
+        {{ form_start(form,{'method': 'GET'}) }}
+        {{ form_widget(form) }}
         <button class="btn btn-secondary w-100">{{ button_label|default('Rechercher') }}</button>
-        {{ form_end(formfilter) }}
+        {{ form_end(form) }}
     </div>
-
-    <a class="btn btn-secondary" href="{{ path('user_new') }}"><button class="btn btn-secondary">Ajouter un utilisateur</button></a>
 
     <table class="table-admin">
         <thead class="header-table-admin">

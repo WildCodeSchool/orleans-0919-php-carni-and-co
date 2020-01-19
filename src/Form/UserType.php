@@ -16,7 +16,7 @@ class UserType extends AbstractType
         $builder
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'name',
+                'choice_label' => 'username',
                 'label' => 'User',
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')

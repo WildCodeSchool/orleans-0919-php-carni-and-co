@@ -4,10 +4,8 @@ namespace App\Form;
 
 use App\Entity\User;
 use Doctrine\ORM\EntityRepository;
-use Nette\Neon\Entity;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -21,13 +19,13 @@ class FilterUserType extends AbstractType
                 'label' => false,
                 'required' => false,
                 'attr' => [
-                    'placeholder' => 'Référence',
+                    'placeholder' => 'Identifiant',
                 ]
             ])
             ->add('user', EntityType::class, [
                 'class' => User::class,
-                'choice_label' => 'name',
-                'label' => 'Animal',
+                'choice_label' => 'username',
+                'label' => 'Identifiant',
                 'required' => false,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('u')
