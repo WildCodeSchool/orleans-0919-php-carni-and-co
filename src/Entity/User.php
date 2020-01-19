@@ -26,6 +26,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^[a-zA-Z0-9_]{3,16}$/")
      * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
      * @Assert\Length(
      *      max = 255,
@@ -46,6 +47,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * * @Assert\Regex("/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/")
+
      */
     private $email;
 
