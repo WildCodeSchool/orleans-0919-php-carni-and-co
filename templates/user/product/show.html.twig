@@ -43,9 +43,17 @@
                 <p class="ingredient-title">Ingredient {{ loop.index }}</p>
                 <div>
                     <p>{{ composition.ingredient.name }}</p>
-                    <p>{{ composition.ingredient.nutrientType.nutrient }}</p>
-                    <p>{{ composition.ingredient.origin.name }}</p>
-                    <p>{{ composition.percentage }} %</p>
+                    <p>{{ composition.ingredient.nutrientType.nutrient }} {{ composition.ingredient.origin.name }}</p>
+                    <p>
+                        {% if composition.ingredient.note < 10 %}
+                            <a class="bad">Mauvais</a>
+                        {% elseif composition.ingredient.note <=15 %}
+                            <a class="medium">Moyen</a>
+                        {% else %}
+                            <a class="good">Bon</a>
+                        {% endif %}
+
+                    </p>
                 </div>
             {% endfor %}
         </div>
