@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/ingredient/origine")
+ * @Route("admin/ingredients/origine")
  */
 class OriginController extends AbstractController
 {
