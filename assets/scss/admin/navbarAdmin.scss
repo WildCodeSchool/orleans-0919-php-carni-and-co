@@ -26,3 +26,13 @@
     color:$hoverColor;
     text-decoration: none;
 }
+
+.connexion-admin{
+    margin-right: 2vw;
+}
+
+.nav-item-container-admin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

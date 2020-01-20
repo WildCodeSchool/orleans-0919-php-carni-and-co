@@ -1,12 +1,13 @@
-@import "blog/blog.scss";
-@import "home/home.scss";
-@import "nutrient/nutrient.scss";
 @import "product/product.scss";
-@import "nutrient/nutrient.scss";
-@import "navbarAdmin.scss";
-@import "table_admin.scss";
+@import "blog/blog.scss";
+@import "nutrient/nutrition.scss";
+@import "contact/contact.scss";
+@import "home/legals_mentions.scss";
+@import "home/home";
+@import 'navbar';
+@import "footer_public";
 
-.h1-Admin{
+.h1-User{
     font-family: $fontTitle;
     color: $titleColor;
     font-size: $h1Size;
@@ -15,4 +16,3 @@
     margin-top: 5vh;
     margin-bottom: 3vh;
 }
-

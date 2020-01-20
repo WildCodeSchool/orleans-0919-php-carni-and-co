@@ -3,9 +3,7 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
-    <h1 class="h1-Admin">Liste des utilisateurs</h1>
-
-    <a class="btn btn-secondary" href="{{ path('user_new') }}"><button class="btn btn-secondary">Ajouter un nouvel utilisateur</button></a>
+    <h1 class="h1-User">Liste des utilisateurs</h1>
 
     <table class="table-admin">
         <thead class="header-table-admin">
@@ -22,7 +20,6 @@
                 <td>{{ user.email }}</td>
                 <td>
                     <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-secondary">Voir</button></a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
                 </td>
             </tr>
         {% else %}

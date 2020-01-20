@@ -4,16 +4,8 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import "~bootstrap/scss/bootstrap";
-@import "home/home.scss";
-@import 'navbar.scss';
-@import "footer_public";
 @import "admin/admin.scss";
-@import "home/blog.scss";
-@import "home/nutrition.scss";
-@import "user/product/product.scss";
-@import "home/contact.scss";
-@import "home/errors.scss";
-@import "home/legals_mentions.scss";
+@import "user/user.scss";
 @import "connexion.scss";
 
 
@@ -24,7 +16,7 @@ body {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    box-shadow: inset 10000000px 0 0 0 $backgroundFilter ;
+    box-shadow: inset 10000000px 0 0 0 $bodyFilter ;
     height: 100%;
     margin-top: 6vh;
     min-height: 100vh;
@@ -32,4 +24,5 @@ body {
 
 main{
     min-height: 70vh;
+    box-shadow: inset 10000000px 0 0 0 $mainFilter ;
 }
