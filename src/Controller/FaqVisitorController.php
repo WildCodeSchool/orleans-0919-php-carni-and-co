@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FaqVisitorController extends AbstractController
 {
     /**
-     * @Route("/", name="faq_index", methods={"GET"})
+     * @Route("/", name="faq_visitor", methods={"GET"})
      */
     public function index(FaqRepository $faqRepository): Response
     {
