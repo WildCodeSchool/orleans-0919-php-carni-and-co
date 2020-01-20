@@ -82,13 +82,12 @@ class AdminProductController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_product_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Product $product): Response
+    public function edit(Request $request, Product $product, Calculator $calculator): Response
     {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $calculator = new Calculator();
             $note = $calculator->calculNoteProduct($product);
             $product->setNote($note);
             $this->getDoctrine()->getManager()->flush();
