@@ -1,0 +1,19 @@
+@import "product/product.scss";
+@import "blog/blog.scss";
+@import "nutrient/nutrition.scss";
+@import "contact/contact.scss";
+@import "home/legals_mentions.scss";
+@import "faq/faq.scss";
+@import "home/home";
+@import 'navbar';
+@import "footer_public";
+
+.h1-User{
+    font-family: $fontTitle;
+    color: $titleColor;
+    font-size: $h1Size;
+    font-weight: $fontWeightTitle;
+    text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+}
