@@ -58,10 +58,8 @@ class ProductController extends AbstractController
      */
     public function show(Product $product): Response
     {
-        $note = $product->getNote($product);
         return $this->render('user/product/show.html.twig', [
             'product' => $product,
-            'note' => $note
         ]);
     }
 

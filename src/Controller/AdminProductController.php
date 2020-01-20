@@ -6,6 +6,7 @@ use App\Entity\Product;
 use App\Form\ProductType;
 use App\Form\SearchProductType;
 use App\Repository\ProductRepository;
+use App\Services\Calculator;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -87,6 +88,9 @@ class AdminProductController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $calculator = new Calculator();
+            $note = $calculator->calculNoteProduct($product);
+            $product->setNote($note);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_product_index');
