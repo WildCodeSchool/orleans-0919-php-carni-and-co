@@ -82,14 +82,6 @@ class Product
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable=true)
-     * @Assert\Length(
-     *     max = 255,
-     *     maxMessage = "Le lien de l'image ne doit pas excéder {{ limit }} caractères.")
-     */
-    private $image;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -122,6 +114,18 @@ class Product
      * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product")
      */
     private $compositions;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Assert\LessThanOrEqual(
+     *     value = 20,
+     *     message = "La note ne doit pas excéder {{ compared_value }}."
+     * )
+     * @Assert\PositiveOrZero(
+     *     message = "La note doit être positive."
+     * )
+     */
+    private $note;
 
     public function __construct()
     {
@@ -230,18 +234,6 @@ class Product
         return $this;
     }
 
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setImage($image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
     public function getAnimal(): ?Animal
     {
         return $this->animal;
@@ -278,12 +270,12 @@ class Product
         return $this;
     }
 
-    public function getBring(): ?Bring
+    public function getBring(): Bring
     {
         return $this->bring;
     }
 
-    public function setBring(?Bring $bring): self
+    public function setBring(Bring $bring): self
     {
         $this->bring = $bring;
 
@@ -317,6 +309,18 @@ class Product
                 $composition->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

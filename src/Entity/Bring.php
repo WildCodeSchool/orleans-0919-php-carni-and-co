@@ -25,37 +25,37 @@ class Bring
     private $calorie;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float")
      * @Assert\Type(type = "float")
      */
     private $protein;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float")
      * @Assert\Type(type = "float")
      */
     private $lipid;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float", options={"default":8})
      * @Assert\Type(type = "float")
      */
     private $ash;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float", options={"default":3})
      * @Assert\Type(type = "float")
      */
     private $fiber;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float", options={"default":10})
      * @Assert\Type(type = "float")
      */
     private $humidity;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float")
      * @Assert\Type(type = "float")
      */
     private $carbohydrate;
@@ -101,72 +101,72 @@ class Bring
         return $this;
     }
 
-    public function getProtein(): ?float
+    public function getProtein(): float
     {
         return $this->protein;
     }
 
-    public function setProtein(?float $protein): self
+    public function setProtein(float $protein): self
     {
         $this->protein = $protein;
 
         return $this;
     }
 
-    public function getLipid(): ?float
+    public function getLipid(): float
     {
         return $this->lipid;
     }
 
-    public function setLipid(?float $lipid): self
+    public function setLipid(float $lipid): self
     {
         $this->lipid = $lipid;
 
         return $this;
     }
 
-    public function getAsh(): ?float
+    public function getAsh(): float
     {
         return $this->ash;
     }
 
-    public function setAsh(?float $ash): self
+    public function setAsh(float $ash): self
     {
         $this->ash = $ash;
 
         return $this;
     }
 
-    public function getFiber(): ?float
+    public function getFiber(): float
     {
         return $this->fiber;
     }
 
-    public function setFiber(?float $fiber): self
+    public function setFiber(float $fiber): self
     {
         $this->fiber = $fiber;
 
         return $this;
     }
 
-    public function getHumidity(): ?float
+    public function getHumidity(): float
     {
         return $this->humidity;
     }
 
-    public function setHumidity(?float $humidity): self
+    public function setHumidity(float $humidity): self
     {
         $this->humidity = $humidity;
 
         return $this;
     }
 
-    public function getCarbohydrate(): ?float
+    public function getCarbohydrate(): float
     {
         return $this->carbohydrate;
     }
 
-    public function setCarbohydrate(?float $carbohydrate): self
+    public function setCarbohydrate(float $carbohydrate): self
     {
         $this->carbohydrate = $carbohydrate;
 
