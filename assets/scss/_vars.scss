@@ -10,6 +10,9 @@ $mainFilter: rgba(227, 213 ,205 ,0.3);
 
 $transparent : rgba(255, 255, 255, 0);
 $gradientBackground: linear-gradient(0.25turn, $boxColor , $transparent);
+$gradientGood: linear-gradient(180deg, rgba(28,171,0,1) 0%, rgba(28,171,0,0.4) 50%, rgba(28,171,0,1) 100%);
+$gradientMedium: linear-gradient(180deg, rgba(224,139,8,1) 0%, rgba(224,139,8,0.4) 50%, rgba(224,139,8,1) 100%);
+$gradientBad: linear-gradient(180deg, rgba(224,36,8,1) 0%, rgba(224,36,8,0.4) 50%, rgba(224,36,8,1) 100%);
 
 $inherit: inherit;
 
