@@ -66,8 +66,26 @@
 
         p{
             display: flex;
-            width: 20%;
+            width: 30%;
             justify-content: center;
+
+            .bad{
+                background: $gradientBad;
+                width: 7vw;
+                text-align: center;
+            }
+
+            .medium{
+                background: $gradientMedium;
+                width: 7vw;
+                text-align: center;
+            }
+
+            .good{
+                background: $gradientGood;
+                width: 7vw;
+                text-align: center;
+            }
         }
     }
 }
