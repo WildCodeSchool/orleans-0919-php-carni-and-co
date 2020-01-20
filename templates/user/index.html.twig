@@ -3,7 +3,6 @@
 {% block title %}Liste des utilisateurs{% endblock %}
 
 {% block body %}
-<<<<<<< HEAD
     <h1 class="h1-Admin">Liste des utilisateurs</h1>
 
     <div class="col-3">
@@ -15,22 +14,11 @@
 
     <table class="table-admin">
         <thead class="header-table-admin">
-        <tr>
-            <th>Identifiant</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-=======
-    <h1 class="h1-User">Liste des utilisateurs</h1>
-
-    <table class="table-admin">
-        <thead class="header-table-admin">
             <tr>
                 <th>Identifiant</th>
                 <th>Email</th>
-                <th>Actions</th>
+                <th></th>
             </tr>
->>>>>>> 1a5b5f5b82589308e3db29dc93880fac9b606f9c
         </thead>
         <tbody class="body-table-admin">
         {% for user in users %}
@@ -38,11 +26,7 @@
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
                 <td>
-<<<<<<< HEAD
                     <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-secondary mb-4">Voir</button></a>
-=======
-                    <a href="{{ path('user_show', {'id': user.id}) }}"><button class="btn btn-secondary">Voir</button></a>
->>>>>>> 1a5b5f5b82589308e3db29dc93880fac9b606f9c
                 </td>
             </tr>
         {% else %}
