@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/admin/marque", name="brand_index")
+ * @Route("/admin/marque", name="brand")
  */
 class BrandController extends AbstractController
 {
