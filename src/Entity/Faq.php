@@ -28,18 +28,12 @@ class Faq
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(
-     *     min = 5,
-     *     minMessage = "La question doit faire au moins {{ limit }} caractères")
      * @Assert\NotBlank
      */
     private $question;
 
     /**
      * @ORM\Column(type="text")
-     * @Assert\Length(
-     *     min = 5,
-     *     minMessage = "La réponse doit faire au moins {{ limit }} caractères")
      * @Assert\NotBlank
      */
     private $answer;
