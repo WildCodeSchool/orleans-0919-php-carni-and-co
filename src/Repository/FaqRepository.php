@@ -18,5 +18,4 @@ class FaqRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Faq::class);
     }
-
 }
