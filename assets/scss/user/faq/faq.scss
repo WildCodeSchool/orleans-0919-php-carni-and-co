@@ -1,0 +1,35 @@
+.h1-faq {
+    color: $titleColor;
+    font-size: $h1Size;
+    font-family: $fontTitle;
+    font-weight: $fontWeightTitle;
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 1em;
+}
+
+.box-faq {
+    margin-top: 1em;
+    margin-bottom: 3em;
+}
+
+.txt-question-faq {
+    color: $textColor;
+    font-family: $fontText;
+    font-size: $textSize;
+    background: $gradientBackground;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding: 0.8em;
+}
+
+.faq-public {
+    background-color: $transparent;
+    border: 1px solid $titleColor;
+}
+
+.txt-answer-faq {
+    color: $textColor;
+    font-family: $fontText;
+    font-size: $textSize;
+}
