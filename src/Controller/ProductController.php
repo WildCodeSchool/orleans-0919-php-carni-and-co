@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Product;
 use App\Form\FilterProductType;
 use App\Repository\ProductRepository;
+use App\Services\Calculator;
 use Dompdf\Dompdf;
 use Dompdf\Options;
 use Knp\Component\Pager\PaginatorInterface;
@@ -58,8 +59,11 @@ class ProductController extends AbstractController
      */
     public function show(Product $product): Response
     {
+        $calculator = new Calculator();
+        $note = $calculator->calculNoteProduct($product);
         return $this->render('user/product/show.html.twig', [
             'product' => $product,
+            'note' => $note
         ]);
     }
 

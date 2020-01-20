@@ -55,12 +55,6 @@ class Bring
     private $humidity;
 
     /**
-     * @ORM\Column(type="float")
-     * @Assert\Type(type = "float")
-     */
-    private $carbohydrate;
-
-    /**
      * @ORM\Column(type="float", nullable=true)
      * @Assert\Type(type = "float")
      */
@@ -163,14 +157,13 @@ class Bring
 
     public function getCarbohydrate(): float
     {
-        return $this->carbohydrate;
-    }
-
-    public function setCarbohydrate(float $carbohydrate): self
-    {
-        $this->carbohydrate = $carbohydrate;
-
-        return $this;
+        return  100 - (
+                $this->getAsh() +
+                $this->getLipid() +
+                $this->getProtein() +
+                $this->getFiber() +
+                $this->getHumidity()
+            );
     }
 
     public function getCalcium(): ?float
