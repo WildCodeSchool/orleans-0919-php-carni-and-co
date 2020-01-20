@@ -21,3 +21,4 @@ class OtherTablesController extends AbstractController
         return $this->render('admin/other-tables.html.twig');
     }
 }
+
