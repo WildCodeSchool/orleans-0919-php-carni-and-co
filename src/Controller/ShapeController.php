@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/ingredient/forme")
+ * @Route("admin/ingredients/forme")
  */
 class ShapeController extends AbstractController
 {
