@@ -10,6 +10,7 @@ use Doctrine\ORM\ORMException;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
+use function get_class;
 
 /**
  * @method User|null find($id, $lockMode = null, $lockVersion = null)
@@ -40,5 +41,18 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
         $user->setPassword($newEncodedPassword);
         $this->_em->persist($user);
         $this->_em->flush();
+    }
+
+    public function findByUsername($username)
+    {
+        $query = $this->createQueryBuilder('u')
+            ->where('u.username LIKE :name')
+            ->setParameter('name', $username.'%')
+            ->orderBy('u.username', 'ASC');
+
+        $query->orderBy('u.username', 'ASC');
+
+        $query = $query->getQuery();
+        return $query->execute();
     }
 }
