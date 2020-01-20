@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Foire aux questions{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="h1-faq">Foire aux questions</h1>
+        <div class="box-faq">
+            {% for faq in faqs %}
+                <p class="txt-question-faq">
+                    {{ faq.question }}
+                </p>
+                <p>
+                    <button class="btn btn-secondary mb-1" type="button" data-toggle="collapse" data-target="#collapse{{ faq.id }}" aria-expanded="false" aria-controls="collapse{{ faq.id }}">
+                        Voir la réponse
+                    </button>
+                </p>
+                <div class="collapse" id="collapse{{ faq.id }}">
+                    <div class="card card-body faq-public">
+                        <p class="txt-answer-faq">{{ faq.answer }}</p>
+                    </div>
+                </div>
+            {% else %}
+                <p>Pas de questions trouvés</p>
+            {% endfor %}
+        </div>
+    </div>
+
+
+{% endblock %}

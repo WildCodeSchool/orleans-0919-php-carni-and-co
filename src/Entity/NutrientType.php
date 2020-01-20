@@ -45,7 +45,7 @@ class NutrientType
         return $this->id;
     }
 
-    public function getNutrient(): ?string
+    public function getNutrient(): string
     {
         return $this->nutrient;
     }

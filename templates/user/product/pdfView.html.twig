@@ -1,13 +1,9 @@
-{% extends 'layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %}Evaluation Produit{% endblock %}
+{% block title %}PDF Produit{% endblock %}
 
 {% block body %}
     <h1 class="h1-Admin">Evaluation pour votre {{ product.animal.name }}</h1>
-    <a href="{{ path('product_index') }}">
-        <button type="button" class="btn btn-secondary">Retourner à la liste de produit</button>
-    </a>
-    <a href="{{ path('product_pdf', {id : product.id}) }}">PDF</a>
     <div class="container-evaluation">
         <div class="header-evaluation">
             <div class="image-evaluation">
@@ -43,17 +39,9 @@
                 <p class="ingredient-title">Ingredient {{ loop.index }}</p>
                 <div>
                     <p>{{ composition.ingredient.name }}</p>
-                    <p>{{ composition.ingredient.nutrientType.nutrient }} {{ composition.ingredient.origin.name }}</p>
-                    <p>
-                        {% if composition.ingredient.note < 10 %}
-                            <a class="bad">Mauvais</a>
-                        {% elseif composition.ingredient.note <=15 %}
-                            <a class="medium">Moyen</a>
-                        {% else %}
-                            <a class="good">Bon</a>
-                        {% endif %}
-
-                    </p>
+                    <p>{{ composition.ingredient.nutrientType.nutrient }}</p>
+                    <p>{{ composition.ingredient.origin.name }}</p>
+                    <p>{{ composition.percentage }} %</p>
                 </div>
             {% endfor %}
         </div>
