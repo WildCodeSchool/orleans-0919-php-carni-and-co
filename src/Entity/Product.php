@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Services\Calculator;
 use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
@@ -313,9 +314,10 @@ class Product
         return $this;
     }
 
-    public function getNote(): ?float
+    public function getNote(Product $product): ?float
     {
-        return $this->note;
+        $calculator = new Calculator();
+        return $calculator->calculNoteProduct($product);
     }
 
     public function setNote(?float $note): self

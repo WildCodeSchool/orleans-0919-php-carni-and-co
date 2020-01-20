@@ -71,3 +71,26 @@
         }
     }
 }
+
+.note-evaluation{
+    display: flex;
+    flex-direction: row;
+
+    .note{
+        padding: 10px 20px;
+        background-color: $boxColor;
+        font-size: $h1Size;
+        color: $lightColor;
+        width: 5vw;
+        text-align: center;
+    }
+
+    div{
+        padding-left: 5px;
+        align-content: center;
+
+        .titre{
+            font-size: $h2Size;
+        }
+    }
+}
