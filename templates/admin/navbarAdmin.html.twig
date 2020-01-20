@@ -26,17 +26,17 @@
                 <a class="nav-link-admin" href="{{ path('user_index') }}">Utilisateur</a>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="#">Autres tables</a>
+                <a class="nav-link-admin" href="{{ path('other_tables_index') }}">Autres tables</a>
             </li>
             <li class="nav-item nav-item-admin">
                 <a class="nav-link-admin" href="{{ path('home_index') }}">Mode Visiteur</a>
             </li>
         </ul>
-    </div>
-    <div>
-        {% if app.user %}
-            {{ app.user.username }}
-            <a class="nav-item nav-link-admin" href="{{ path('app_logout') }}">Se déconnecter</a>
-        {% endif %}
+        <div class="connexion-admin">
+            {% if app.user %}
+                <a class="nav-item nav-link-admin">{{ app.user.username }}</a>
+                <a class="nav-item nav-link-admin" href="{{ path('app_logout') }}">Se déconnecter</a>
+            {% endif %}
+        </div>
     </div>
 </nav>

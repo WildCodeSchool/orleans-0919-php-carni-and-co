@@ -3,54 +3,53 @@
 namespace App\Controller;
 
 use App\Entity\User;
-use App\Form\UserType;
+use App\Form\SearchUserType;
 use App\Repository\UserRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/user")
+ * @Route("/admin/user")
  */
 class UserController extends AbstractController
 {
+    const MAX_PER_PAGE = 20;
+
     /**
      * @Route("/", name="user_index", methods={"GET"})
+     * @param PaginatorInterface $paginator
+     * @param UserRepository $userRepository
+     * @param Request $request
+     * @return Response
      */
-    public function index(UserRepository $userRepository): Response
+    public function index(PaginatorInterface $paginator, UserRepository $userRepository, Request $request): Response
     {
-        $users = $userRepository->findBy([], ['username' => 'asc']);
+        $users = $userRepository->findBy([], ['username'=>'asc']);
+        $form = $this->createForm(SearchUserType::class);
+        $form->handleRequest($request);
+        $data = $form->getData();
+        if ($form->isSubmitted() && $form->isValid()) {
+            $users = $userRepository->findByUsername($data['search']);
+        }
+        $users = $paginator->paginate(
+            $users,
+            $request->query->getInt('page', 1), /*page number*/
+            self::MAX_PER_PAGE /*limit per page*/
+        );
+
         return $this->render('user/index.html.twig', [
             'users' => $users,
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="user_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
-    {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($user);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('user_index');
-        }
-
-        return $this->render('user/new.html.twig', [
-            'user' => $user,
             'form' => $form->createView(),
         ]);
     }
 
     /**
      * @Route("/{id}", name="user_show", methods={"GET"})
+     * @param User $user
+     * @return Response
      */
     public function show(User $user): Response
     {
@@ -60,27 +59,10 @@ class UserController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="user_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, User $user): Response
-    {
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('user_index');
-        }
-
-        return $this->render('user/edit.html.twig', [
-            'user' => $user,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
      * @Route("/{id}", name="user_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param User $user
+     * @return Response
      */
     public function delete(Request $request, User $user): Response
     {

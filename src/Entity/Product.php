@@ -82,14 +82,6 @@ class Product
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255 , nullable=true)
-     * @Assert\Length(
-     *     max = 255,
-     *     maxMessage = "Le lien de l'image ne doit pas excéder {{ limit }} caractères.")
-     */
-    private $image;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="products")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -113,19 +105,31 @@ class Product
     private $bring;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Ingredient", inversedBy="products")
-     */
-    private $ingredients;
-
-    /**
      * @ORM\Column(type="datetime")
      * @var DateTimeInterface
      */
     private $updatedAt;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product")
+     */
+    private $compositions;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Assert\LessThanOrEqual(
+     *     value = 20,
+     *     message = "La note ne doit pas excéder {{ compared_value }}."
+     * )
+     * @Assert\PositiveOrZero(
+     *     message = "La note doit être positive."
+     * )
+     */
+    private $note;
+
     public function __construct()
     {
-        $this->ingredients = new ArrayCollection();
+        $this->compositions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -230,18 +234,6 @@ class Product
         return $this;
     }
 
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setImage($image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
     public function getAnimal(): ?Animal
     {
         return $this->animal;
@@ -278,12 +270,12 @@ class Product
         return $this;
     }
 
-    public function getBring(): ?Bring
+    public function getBring(): Bring
     {
         return $this->bring;
     }
 
-    public function setBring(?Bring $bring): self
+    public function setBring(Bring $bring): self
     {
         $this->bring = $bring;
 
@@ -291,27 +283,44 @@ class Product
     }
 
     /**
-     * @return Collection|Ingredient[]
+     * @return Collection|Composition[]
      */
-    public function getIngredients(): Collection
+    public function getCompositions(): Collection
     {
-        return $this->ingredients;
+        return $this->compositions;
     }
 
-    public function addIngredient(Ingredient $ingredients): self
+    public function addComposition(Composition $composition): self
     {
-        if (!$this->ingredients->contains($ingredients)) {
-            $this->ingredients[] = $ingredients;
+        if (!$this->compositions->contains($composition)) {
+            $this->compositions[] = $composition;
+            $composition->setProduct($this);
         }
 
         return $this;
     }
 
-    public function removeIngredient(Ingredient $ingredients): self
+    public function removeComposition(Composition $composition): self
     {
-        if ($this->ingredients->contains($ingredients)) {
-            $this->ingredients->removeElement($ingredients);
+        if ($this->compositions->contains($composition)) {
+            $this->compositions->removeElement($composition);
+            // set the owning side to null (unless already changed)
+            if ($composition->getProduct() === $this) {
+                $composition->setProduct(null);
+            }
         }
+
+        return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): self
+    {
+        $this->note = $note;
 
         return $this;
     }

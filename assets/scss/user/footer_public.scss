@@ -3,11 +3,11 @@
     flex-direction: row;
     justify-content: space-around;
     background-color: $navbarColor;
-    margin-top: -30vh;
     height: 30vh;
     position: relative;
     bottom: 0;
     font-family: $fontText;
+
 
     i{
         font-size: $footerTitleSize;
@@ -24,6 +24,7 @@
     .text{
         font-size: $footerTextSize;
         padding-bottom: 0.5vh;
+        color: $textColor;
     }
 }
 
@@ -50,6 +51,7 @@
     .text{
         font-size: $footerTextSize;
         padding-bottom: 0.5vh;
+        color: $textColor;
     }
 }
 

@@ -43,7 +43,7 @@ class Ingredient
     private $precisedPart;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      * @Assert\LessThanOrEqual(
      *     value = 20,
      *     message = "La note ne doit pas excéder {{ compared_value }}."
@@ -70,13 +70,13 @@ class Ingredient
     private $nutrientType;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Product", mappedBy="ingredients")
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="ingredient")
      */
-    private $products;
+    private $compositions;
 
     public function __construct()
     {
-        $this->products = new ArrayCollection();
+        $this->compositions = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,19 +120,19 @@ class Ingredient
         return $this;
     }
 
-    public function getNote(): ?int
+    public function getNote(): int
     {
         return $this->note;
     }
 
-    public function setNote(?int $note): self
+    public function setNote(int $note): self
     {
         $this->note = $note;
 
         return $this;
     }
 
-    public function getOrigin(): ?Origin
+    public function getOrigin(): Origin
     {
         return $this->origin;
     }
@@ -144,7 +144,7 @@ class Ingredient
         return $this;
     }
 
-    public function getShape(): ?Shape
+    public function getShape(): Shape
     {
         return $this->shape;
     }
@@ -156,7 +156,7 @@ class Ingredient
         return $this;
     }
 
-    public function getNutrientType(): ?NutrientType
+    public function getNutrientType(): NutrientType
     {
         return $this->nutrientType;
     }
@@ -169,28 +169,31 @@ class Ingredient
     }
 
     /**
-     * @return Collection|Product[]
+     * @return Collection|Composition[]
      */
-    public function getProducts(): Collection
+    public function getCompositions(): Collection
     {
-        return $this->products;
+        return $this->compositions;
     }
 
-    public function addProduct(Product $product): self
+    public function addComposition(Composition $composition): self
     {
-        if (!$this->products->contains($product)) {
-            $this->products[] = $product;
-            $product->addIngredient($this);
+        if (!$this->compositions->contains($composition)) {
+            $this->compositions[] = $composition;
+            $composition->setIngredient($this);
         }
 
         return $this;
     }
 
-    public function removeProduct(Product $product): self
+    public function removeComposition(Composition $composition): self
     {
-        if ($this->products->contains($product)) {
-            $this->products->removeElement($product);
-            $product->removeIngredient($this);
+        if ($this->compositions->contains($composition)) {
+            $this->compositions->removeElement($composition);
+            // set the owning side to null (unless already changed)
+            if ($composition->getIngredient() === $this) {
+                $composition->setIngredient(null);
+            }
         }
 
         return $this;
