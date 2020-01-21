@@ -103,6 +103,10 @@ class ResetPasswordController extends AbstractController
 
     /**
      * @Route("/{id}/{token}", name="resettoken")
+     * @param User $user
+     * @param Request $request
+     * @param UserPasswordEncoderInterface $passwordEncoder
+     * @return RedirectResponse|Response
      */
     public function resettoken(User $user, $token, Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
