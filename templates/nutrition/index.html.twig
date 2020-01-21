@@ -5,6 +5,9 @@
         <h1 class="h1-User">Nutrition</h1>
         <div class="box-nutrition">
             <h2 class="h2-nutrition">Carnivores ou omnivores?</h2>
+            <div class="box-img-carni-nutrition">
+                <img src="{{asset('build/dog-mouth.jpg')}}" class="img-nutrition-carni" alt=" Carnivore ou omnivore" />
+            </div>
             <p class="text-nutrition">
                 La question de savoir si le chien est un
                 carnivore ou un omnivore fait depuis
@@ -30,6 +33,9 @@
                 et le bétail.
             </p>
             <div class="box-elements-nutrition-general">
+                <div class="box-img-carni-nutrition">
+                    <img src="{{asset('build/appareil_digestif_chat.webp')}}" class="img-nutrition-intestin" alt=" Système digestif du chat" />
+                </div>
                 <h3 class="h3-nutrition">Le système gastro-intestinal</h3>
                 <p class="text-nutrition">
                     Puisque nous parlons d'évolution alimentaire,
@@ -67,7 +73,7 @@
                 <div class="card mb-3 card-nutrition">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="{{asset('build/Boxer-nutrition.webp')}}" class="card-img nutrition" alt="Dentition chien">
+                            <img src="{{asset('build/Boxer-nutrition.webp')}}" class="card-img nutrition-img" alt="Dentition chien">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -142,7 +148,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img src="{{asset('build/cat-nutrition.webp')}}" class="card-img nutrition" alt="chat soleil">
+                            <img src="{{asset('build/cat-nutrition.webp')}}" class="card-img nutrition-img" alt="chat soleil">
                         </div>
                     </div>
                 </div>
@@ -191,7 +197,7 @@
                 <div class="card mb-3 card-nutrition">
                     <div class="row no-gutters">
                         <div class="col-md-4 order-{{ loop.index0%2 }}">
-                            <img src="{{ vich_uploader_asset(nutrient, 'imageFile') }}" class="card-img" alt="{{ nutrient.name }}">
+                            <img src="{{ vich_uploader_asset(nutrient, 'imageFile') }}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
