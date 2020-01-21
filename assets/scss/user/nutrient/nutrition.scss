@@ -51,3 +51,22 @@
     font-weight: $fontWeightTitle;
     font-style: $fontStyleItalic;
 }
+
+.nutrition-img {
+    margin-top: 46px;
+}
+
+.box-img-carni-nutrition {
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+.box-img-carni-nutrition > .img-nutrition-carni {
+    width: 40%;
+    border-radius: 5px;
+}
+
+.box-img-carni-nutrition > .img-nutrition-intestin {
+    border-radius: 5px;
+}
