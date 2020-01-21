@@ -26,10 +26,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\Regex("/^[a-zA-Z0-9_]{3,50}$/")
      * @Assert\NotBlank(message="Le champ pseudo est obligatoire")
      * @Assert\Length(
-     *      max = 255,
+     *      max = 50,
      *      maxMessage = "Votre Pseudo ne doit pas contenir plus de {{ limit }} caractères")
      */
     private $username;
@@ -47,8 +46,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=80)
-     * * @Assert\Regex("/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/")
-
+     * @Assert\Length(min="2", max="80", minMessage="email.error", maxMessage="email.error")
      */
     private $email;
 
