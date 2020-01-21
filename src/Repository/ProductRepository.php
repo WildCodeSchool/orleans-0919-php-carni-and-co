@@ -43,7 +43,7 @@ class ProductRepository extends ServiceEntityRepository
                 ->setParameter('reference', '%' . $reference . '%');
         }
         if ($note) {
-            $query->orderBy('p.note', 'DESC');
+            $query->orderBy('p.note', $note);
         }
         $query->addOrderBy('p.reference', 'ASC');
         $query = $query->getQuery();

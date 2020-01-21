@@ -58,9 +58,14 @@ class FilterProductType extends AbstractType
                         ->orderBy('f.type', 'ASC');
                 }
             ])
-            ->add('note', CheckboxType::class, [
+            ->add('note', ChoiceType::class, [
                 'required' => false,
-                'label' => 'Trier par note'
+                'label' => 'Trier par :',
+                'placeholder' => 'Référence',
+                'choices'  => [
+                    'note ▼' => 'DESC',
+                    'note ▲ ' => 'ASC',
+                ],
             ]);
     }
 
