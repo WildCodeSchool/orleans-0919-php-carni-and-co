@@ -62,7 +62,7 @@ class AdminProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_product_index');
+            return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
 
         return $this->render('admin/product/new.html.twig', [
