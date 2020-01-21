@@ -207,6 +207,6 @@ class Calculator
         $this->calculPercentageCarbohydrate($product);
         $this->calculAshAndFiber($product);
 
-        return round($this->note / 8 * 20);
+        return $this->note / 8 * 20;
     }
 }
