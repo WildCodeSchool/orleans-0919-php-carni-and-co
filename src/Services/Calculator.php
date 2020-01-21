@@ -3,7 +3,12 @@
 
 namespace App\Services;
 
+use App\Entity\Bring;
+use App\Entity\Ingredient;
+use App\Entity\NutrientType;
+use App\Entity\Origin;
 use App\Entity\Product;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class Calculator
 {
@@ -66,9 +71,11 @@ class Calculator
     //calcul 3
     private function calculPercentageProtein(Product $product) :float
     {
-        if ($product->getBring()->getProtein() > self::GOOD_PROTEIN) {
+        if ($product->getBring() instanceof Bring &&
+            $product->getBring()->getProtein() > self::GOOD_PROTEIN) {
             $this->setNote($this->getNote() + 1);
-        } elseif ($product->getBring()->getProtein() >= self::INTERMEDIATE_PROTEIN &&
+        } elseif ($product->getBring() instanceof Bring &&
+            $product->getBring()->getProtein() >= self::INTERMEDIATE_PROTEIN &&
             $product->getBring()->getProtein() <= self::GOOD_PROTEIN) {
             $this->setNote($this->getNote() + 0.5);
         }
@@ -79,9 +86,13 @@ class Calculator
     private function calculQualityIngredient(Product $product) :float
     {
         $compositions = $product->getCompositions();
+
         $percentage = 0;
         foreach ($compositions as $composition) {
-            if ($composition->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getOrigin() instanceof Origin &&
+                $composition->getIngredient()->getNutrientType() instanceof NutrientType &&
+                $composition->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
                 $composition->getIngredient()->getNutrientType()->getNutrient() == self::PROTEINS) {
                 $percentage += $composition->getPercentage();
             }
@@ -102,10 +113,12 @@ class Calculator
         $countBad = 0;
         $countMedium = 0;
         foreach ($compositions as $composition) {
-            if ($composition->getIngredient()->getNote() <= self::MIN_NOTE_INGREDIENT) {
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getNote() <= self::MIN_NOTE_INGREDIENT) {
                 $countBad += 1;
             }
-            if ($composition->getIngredient()->getNote() > self::MIN_NOTE_INGREDIENT &&
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getNote() > self::MIN_NOTE_INGREDIENT &&
                 $composition->getIngredient()->getNote() <= self::MAX_NOTE_INGREDIENT) {
                 $countMedium += 1;
             }
@@ -126,7 +139,8 @@ class Calculator
         $compositions = $product->getCompositions();
         $percentage = 0;
         foreach ($compositions as $composition) {
-            if ($composition->getIngredient()->getShape() == self::CEREALS) {
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getShape() == self::CEREALS) {
                 $percentage += $composition->getPercentage();
             }
         }
@@ -141,9 +155,11 @@ class Calculator
     //calcul 8
     private function calculPercentageLipid(Product $product) :float
     {
-        if ($product->getBring()->getLipid() > self::GOOD_LIPID) {
+        if ($product->getBring() instanceof Bring &&
+            $product->getBring()->getLipid() > self::GOOD_LIPID) {
             $this->setNote($this->getNote() + 1);
-        } elseif ($product->getBring()->getLipid() >= self::INTERMEDIATE_LIPID) {
+        } elseif ($product->getBring() instanceof Bring &&
+            $product->getBring()->getLipid() >= self::INTERMEDIATE_LIPID) {
             $this->setNote($this->getNote() + 0.5);
         }
         return $this->getNote();
@@ -152,9 +168,11 @@ class Calculator
     //calcul 9
     private function calculPercentageCarbohydrate(Product $product) :float
     {
-        if ($product->getBring()->getCarbohydrate() < self::GOOD_CARBOHYDRATE) {
+        if ($product->getBring() instanceof Bring &&
+            $product->getBring()->getCarbohydrate() < self::GOOD_CARBOHYDRATE) {
             $this->setNote($this->getNote() + 1);
-        } elseif ($product->getBring()->getCarbohydrate() <= self::INTERMEDIATE_CARBOHYDRATE) {
+        } elseif ($product->getBring() instanceof Bring &&
+            $product->getBring()->getCarbohydrate() <= self::INTERMEDIATE_CARBOHYDRATE) {
             $this->setNote($this->getNote() + 0.5);
         }
         return $this->getNote();
@@ -163,9 +181,11 @@ class Calculator
     //calcul 10
     private function calculAshAndFiber(Product $product) :float
     {
-        if ($product->getBring()->getAsh() <= self::GOOD_ASH && $product->getBring()->getFiber() <= self::GOOD_FIBER) {
+        if ($product->getBring() instanceof Bring &&
+            $product->getBring()->getAsh() <= self::GOOD_ASH && $product->getBring()->getFiber() <= self::GOOD_FIBER) {
             $this->setNote($this->getNote() + 1);
-        } elseif ($product->getBring()->getAsh() <= self::INTERMEDIATE_ASH &&
+        } elseif ($product->getBring() instanceof Bring &&
+            $product->getBring()->getAsh() <= self::INTERMEDIATE_ASH &&
             $product->getBring()->getFiber() <= self::INTERMEDIATE_FIBER) {
             $this->setNote($this->getNote() + 0.5);
         }
@@ -173,8 +193,11 @@ class Calculator
     }
 
 
-    public function calculNoteProduct(Product $product)
+    public function calculNoteProduct(Product $product) :?float
     {
+        if ($product->getCompositions()->isEmpty()) {
+            return null;
+        }
         $this->calculFirstGoodIngredient($product);
         $this->calculPercentageProtein($product);
         $this->calculQualityIngredient($product);
@@ -183,6 +206,7 @@ class Calculator
         $this->calculPercentageLipid($product);
         $this->calculPercentageCarbohydrate($product);
         $this->calculAshAndFiber($product);
+
         return $this->note / 8 * 20;
     }
 }

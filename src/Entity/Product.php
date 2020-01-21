@@ -68,6 +68,11 @@ class Product
     private $barCode;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
+
+    /**
      *
      * @Vich\UploadableField(mapping="pictures", fileNameProperty="image")
      *
@@ -209,6 +214,18 @@ class Product
         return $this;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
     /**
      * @param File|UploadedFile $imageFile
      * @throws Exception
@@ -270,7 +287,7 @@ class Product
         return $this;
     }
 
-    public function getBring(): Bring
+    public function getBring(): ?Bring
     {
         return $this->bring;
     }
@@ -323,5 +340,10 @@ class Product
         $this->note = $note;
 
         return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 }

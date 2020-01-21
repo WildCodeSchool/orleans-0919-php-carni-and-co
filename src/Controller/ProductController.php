@@ -22,6 +22,10 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/", name="product_index", methods={"GET"})
+     * @param ProductRepository $productRepository
+     * @param Request $request
+     * @param PaginatorInterface $paginator
+     * @return Response
      */
     public function index(
         ProductRepository $productRepository,
@@ -54,6 +58,7 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/{id}", name="product_show", methods={"GET"})
+     * @param Product $product
      * @return Response
      */
     public function show(Product $product): Response

@@ -95,7 +95,7 @@ class Bring
         return $this;
     }
 
-    public function getProtein(): float
+    public function getProtein(): ?float
     {
         return $this->protein;
     }
@@ -107,7 +107,7 @@ class Bring
         return $this;
     }
 
-    public function getLipid(): float
+    public function getLipid(): ?float
     {
         return $this->lipid;
     }
@@ -119,7 +119,7 @@ class Bring
         return $this;
     }
 
-    public function getAsh(): float
+    public function getAsh(): ?float
     {
         return $this->ash;
     }
@@ -131,7 +131,7 @@ class Bring
         return $this;
     }
 
-    public function getFiber(): float
+    public function getFiber(): ?float
     {
         return $this->fiber;
     }
@@ -143,7 +143,7 @@ class Bring
         return $this;
     }
 
-    public function getHumidity(): float
+    public function getHumidity(): ?float
     {
         return $this->humidity;
     }
@@ -155,7 +155,7 @@ class Bring
         return $this;
     }
 
-    public function getCarbohydrate(): float
+    public function getCarbohydrate(): ?float
     {
         return  100 - (
                 $this->getAsh() +
