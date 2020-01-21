@@ -13,7 +13,13 @@
         </div>
         <ul>
         {%  for composition in product.compositions %}
-            <li>{{ composition.ingredient.name }} {{ composition.percentage }}%</li>
+            <li>{{ composition.ingredient.name }} {{ composition.percentage }}%
+                <form method="post" action="{{ path('composition_delete', {'id': composition.id}) }}" onsubmit="return confirm('Etes-vous sûr(e) de vouloir retirer cet ingredient du produit ?');">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ composition.id) }}">
+                    <button class="btn btn-secondary mb-1">Retirer</button>
+                </form>
+            </li>
         {% endfor %}
         </ul>
         <div class="form-composition">

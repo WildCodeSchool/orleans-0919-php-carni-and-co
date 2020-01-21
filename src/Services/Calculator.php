@@ -79,6 +79,7 @@ class Calculator
     private function calculQualityIngredient(Product $product) :float
     {
         $compositions = $product->getCompositions();
+
         $percentage = 0;
         foreach ($compositions as $composition) {
             if ($composition->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
@@ -173,8 +174,11 @@ class Calculator
     }
 
 
-    public function calculNoteProduct(Product $product)
+    public function calculNoteProduct(Product $product) :?float
     {
+        if ($product->getCompositions()->isEmpty()) {
+            return null;
+        }
         $this->calculFirstGoodIngredient($product);
         $this->calculPercentageProtein($product);
         $this->calculQualityIngredient($product);
@@ -183,6 +187,7 @@ class Calculator
         $this->calculPercentageLipid($product);
         $this->calculPercentageCarbohydrate($product);
         $this->calculAshAndFiber($product);
+
         return round($this->note / 8 * 20);
     }
 }
