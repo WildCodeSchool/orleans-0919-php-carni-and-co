@@ -5,18 +5,21 @@
 {% block body %}
     <h1 class="h1-Admin">Utilisateur {{ user.username }}</h1>
 
-    <table class="table">
+    <table class="table-admin">
         <thead class="header-table-admin">
-            <th>Identifiant</th>
-            <th>Email</th>
-            <th colspan="2">Actions</th>
+            <tr>
+                <th>Identifiant</th>
+                <th>Email</th>
+                <th colspan="2"></th>
+                <th></th>
+            </tr>
         </thead>
         <tbody class="body-table-admin">
             <tr>
                 <td>{{ user.username }}</td>
                 <td>{{ user.email }}</td>
-                <td>
-                    <a href="{{ path('user_index') }}"><button class="btn btn-secondary mb-4">Retour à la liste</button></a>
+                <td colspan="2">
+                    <a href="{{ path('user_index') }}"><button class="btn btn-secondary">Retour à la liste</button></a>
                 </td>
                 <td>
                     {{ include('user/_delete_form.html.twig') }}
