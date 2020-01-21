@@ -287,7 +287,7 @@ class Product
         return $this;
     }
 
-    public function getBring(): Bring
+    public function getBring(): ?Bring
     {
         return $this->bring;
     }
