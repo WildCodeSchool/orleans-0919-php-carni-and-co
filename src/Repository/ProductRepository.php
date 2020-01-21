@@ -47,4 +47,13 @@ class ProductRepository extends ServiceEntityRepository
         $query = $query->getQuery();
         return $query->execute();
     }
+
+    public function findByReference(string $reference)
+    {
+        $query = $this->createQueryBuilder('p')
+            ->andWhere('p.reference LIKE :reference')
+            ->setParameter('reference', '%' . $reference . '%');
+        $query = $query->getQuery();
+        return $query->execute();
+    }
 }
