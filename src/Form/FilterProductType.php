@@ -57,6 +57,10 @@ class FilterProductType extends AbstractType
                     return $er->createQueryBuilder('f')
                         ->orderBy('f.type', 'ASC');
                 }
+            ])
+            ->add('note', CheckboxType::class, [
+                'required' => false,
+                'label' => 'Trier par note'
             ]);
     }
 
