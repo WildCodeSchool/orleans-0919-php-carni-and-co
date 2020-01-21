@@ -60,7 +60,7 @@ class Composition
         return $this;
     }
 
-    public function getIngredient(): Ingredient
+    public function getIngredient(): ?Ingredient
     {
         return $this->ingredient;
     }

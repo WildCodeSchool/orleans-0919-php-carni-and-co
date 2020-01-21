@@ -3,6 +3,7 @@
 
 namespace App\Services;
 
+use App\Entity\Ingredient;
 use App\Entity\Product;
 
 class Calculator
@@ -79,9 +80,11 @@ class Calculator
     private function calculQualityIngredient(Product $product) :float
     {
         $compositions = $product->getCompositions();
+
         $percentage = 0;
         foreach ($compositions as $composition) {
-            if ($composition->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
                 $composition->getIngredient()->getNutrientType()->getNutrient() == self::PROTEINS) {
                 $percentage += $composition->getPercentage();
             }
@@ -102,10 +105,12 @@ class Calculator
         $countBad = 0;
         $countMedium = 0;
         foreach ($compositions as $composition) {
-            if ($composition->getIngredient()->getNote() <= self::MIN_NOTE_INGREDIENT) {
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getNote() <= self::MIN_NOTE_INGREDIENT) {
                 $countBad += 1;
             }
-            if ($composition->getIngredient()->getNote() > self::MIN_NOTE_INGREDIENT &&
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getNote() > self::MIN_NOTE_INGREDIENT &&
                 $composition->getIngredient()->getNote() <= self::MAX_NOTE_INGREDIENT) {
                 $countMedium += 1;
             }
@@ -126,7 +131,8 @@ class Calculator
         $compositions = $product->getCompositions();
         $percentage = 0;
         foreach ($compositions as $composition) {
-            if ($composition->getIngredient()->getShape() == self::CEREALS) {
+            if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getShape() == self::CEREALS) {
                 $percentage += $composition->getPercentage();
             }
         }
@@ -173,8 +179,11 @@ class Calculator
     }
 
 
-    public function calculNoteProduct(Product $product)
+    public function calculNoteProduct(Product $product) :?float
     {
+        if ($product->getCompositions()->isEmpty()) {
+            return null;
+        }
         $this->calculFirstGoodIngredient($product);
         $this->calculPercentageProtein($product);
         $this->calculQualityIngredient($product);
@@ -183,6 +192,7 @@ class Calculator
         $this->calculPercentageLipid($product);
         $this->calculPercentageCarbohydrate($product);
         $this->calculAshAndFiber($product);
+
         return round($this->note / 8 * 20);
     }
 }
