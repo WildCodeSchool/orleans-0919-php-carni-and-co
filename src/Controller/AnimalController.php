@@ -20,7 +20,7 @@ class AnimalController extends AbstractController
      */
     public function index(AnimalRepository $animalRepository): Response
     {
-        return $this->render('animal/index.html.twig', [
+        return $this->render('/admin/animal/index.html.twig', [
             'animals' => $animalRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class AnimalController extends AbstractController
             return $this->redirectToRoute('animal_index');
         }
 
-        return $this->render('animal/new.html.twig', [
+        return $this->render('admin/animal/new.html.twig', [
             'animal' => $animal,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class AnimalController extends AbstractController
      */
     public function show(Animal $animal): Response
     {
-        return $this->render('animal/show.html.twig', [
+        return $this->render('admin/animal/show.html.twig', [
             'animal' => $animal,
         ]);
     }
@@ -73,7 +73,7 @@ class AnimalController extends AbstractController
             return $this->redirectToRoute('animal_index');
         }
 
-        return $this->render('animal/edit.html.twig', [
+        return $this->render('/admin/animal/edit.html.twig', [
             'animal' => $animal,
             'form' => $form->createView(),
         ]);

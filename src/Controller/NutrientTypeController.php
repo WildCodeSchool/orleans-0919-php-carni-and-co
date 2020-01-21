@@ -20,7 +20,7 @@ class NutrientTypeController extends AbstractController
      */
     public function index(NutrientTypeRepository $nutrient): Response
     {
-        return $this->render('nutrient_type/index.html.twig', [
+        return $this->render('/admin/nutrient_type/index.html.twig', [
             'nutrient_types' => $nutrient->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class NutrientTypeController extends AbstractController
             return $this->redirectToRoute('nutrient_type_index');
         }
 
-        return $this->render('nutrient_type/new.html.twig', [
+        return $this->render('/admin/nutrient_type/new.html.twig', [
             'nutrient_type' => $nutrientType,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class NutrientTypeController extends AbstractController
      */
     public function show(NutrientType $nutrientType): Response
     {
-        return $this->render('nutrient_type/show.html.twig', [
+        return $this->render('/admin/nutrient_type/show.html.twig', [
             'nutrient_type' => $nutrientType,
         ]);
     }
@@ -74,7 +74,7 @@ class NutrientTypeController extends AbstractController
             return $this->redirectToRoute('nutrient_type_index');
         }
 
-        return $this->render('nutrient_type/edit.html.twig', [
+        return $this->render('/admin/nutrient_type/edit.html.twig', [
             'nutrient_type' => $nutrientType,
             'form' => $form->createView(),
         ]);

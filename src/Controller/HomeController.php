@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(AnimalRepository $animalRepository) :Response
     {
         $animals = $animalRepository->findAll();
-        return $this->render('home/index.html.twig', [
+        return $this->render('user/home/index.html.twig', [
             'animals' => $animals,
         ]);
     }

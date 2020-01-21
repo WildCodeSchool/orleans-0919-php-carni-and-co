@@ -36,7 +36,7 @@ class IngredientController extends AbstractController
             $request->query->getInt('page', 1), /*page number*/
             self::MAX_PER_PAGE /*limit per page*/
         );
-        return $this->render('ingredient/index.html.twig', [
+        return $this->render('/admin/ingredient/index.html.twig', [
             'ingredients' => $ingredients,
             'form' => $form->createView(),
         ]);
@@ -60,7 +60,7 @@ class IngredientController extends AbstractController
             return $this->redirectToRoute('ingredient_index');
         }
 
-        return $this->render('ingredient/new.html.twig', [
+        return $this->render('/admin/ingredient/new.html.twig', [
             'ingredient' => $ingredient,
             'form' => $form->createView(),
         ]);
@@ -71,7 +71,7 @@ class IngredientController extends AbstractController
      */
     public function show(Ingredient $ingredient): Response
     {
-        return $this->render('ingredient/show.html.twig', [
+        return $this->render('/admin/ingredient/show.html.twig', [
             'ingredient' => $ingredient,
         ]);
     }
@@ -91,7 +91,7 @@ class IngredientController extends AbstractController
             return $this->redirectToRoute('ingredient_index');
         }
 
-        return $this->render('ingredient/edit.html.twig', [
+        return $this->render('/admin/ingredient/edit.html.twig', [
             'ingredient' => $ingredient,
             'form' => $form->createView(),
         ]);
