@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
+{% block title %}Mot de passe oublié{% endblock %}
+
+{% block body %}
+
     <title>Renouvellement du mot de passe</title>
 </head>
 <body>
@@ -11,5 +11,5 @@
     {# pour que le lien fonctionne, il est indispensable que le lien soit absolu. #}
     <a href="{{absolute_url(path('resettoken', {'id': user.id, 'token': user.token}))}}">Changer le mot de passe</a>
 </p>
-</body>
-</html>
+
+{% endblock %}
