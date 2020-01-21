@@ -5,10 +5,9 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Mailer\Exception\TransportExceptionInterface;
 use Symfony\Component\Mailer\MailerInterface;
-use Symfony\Component\Mime\Address;
 use App\Form\ResetPasswordType;
 use App\Repository\UserRepository;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
@@ -88,7 +87,7 @@ class ResetPasswordController extends AbstractController
 
     // si supérieur à 24h, retourne false
     // sinon retourne false
-    private function isRequestInTime(\DateTime $passwordRequestedAt = null)
+    private function isRequestInTime(DateTime $passwordRequestedAt = null)
     {
         if ($passwordRequestedAt === null) {
             return false;
@@ -104,11 +103,6 @@ class ResetPasswordController extends AbstractController
 
     /**
      * @Route("/{id}/{token}", name="resettoken")
-     * @param User $user
-     * @param $token
-     * @param Request $request
-     * @param UserPasswordEncoderInterface $passwordEncoder
-     * @return RedirectResponse|Response
      */
     public function resettoken(User $user, $token, Request $request, UserPasswordEncoderInterface $passwordEncoder)
     {
