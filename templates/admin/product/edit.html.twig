@@ -11,6 +11,18 @@
             {{ include('admin/product/_delete_form.html.twig') }}
 
         </div>
+        <ul>
+        {%  for composition in product.compositions %}
+            <li>{{ composition.ingredient.name }} {{ composition.percentage }}%</li>
+        {% endfor %}
+        </ul>
+        <div class="form-composition">
+            {{ form_start(formComposition) }}
+            {{ form_widget(formComposition) }}
+            <button class="btn btn-secondary mb-1">{{ button_label|default('Ajouter Ingrédient') }}</button>
+            {{ form_end(formComposition) }}
+        </div>
+
         <a href="{{ path('admin_product_index') }}">
             <button class="btn btn-secondary mb-1">Retour à la liste</button>
         </a>
