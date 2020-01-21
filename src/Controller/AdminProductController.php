@@ -2,7 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Composition;
 use App\Entity\Product;
+use App\Form\CompositionType;
 use App\Form\ProductType;
 use App\Form\SearchProductType;
 use App\Repository\ProductRepository;
@@ -28,7 +30,7 @@ class AdminProductController extends AbstractController
         Request $request,
         PaginatorInterface $paginator
     ): Response {
-        $products = $productRepository->findBy([], ['reference'=>'asc']);
+        $products = $productRepository->findBy([], ['reference' => 'asc']);
         $form = $this->createForm(SearchProductType::class);
         $form->handleRequest($request);
         $data = $form->getData();
@@ -60,7 +62,7 @@ class AdminProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_product_index');
+            return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
 
         return $this->render('admin/product/new.html.twig', [
@@ -94,10 +96,23 @@ class AdminProductController extends AbstractController
 
             return $this->redirectToRoute('admin_product_index');
         }
+        $composition = new Composition();
+        $formComposition = $this->createForm(CompositionType::class, $composition);
+        $formComposition->handleRequest($request);
+
+        if ($formComposition->isSubmitted() && $formComposition->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $composition->setProduct($product);
+            $entityManager->persist($composition);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
+        }
 
         return $this->render('admin/product/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
+            'formComposition' => $formComposition->createView(),
         ]);
     }
 
@@ -106,7 +121,7 @@ class AdminProductController extends AbstractController
      */
     public function delete(Request $request, Product $product): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();

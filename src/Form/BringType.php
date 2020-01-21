@@ -20,7 +20,7 @@ class BringType extends AbstractType
             ->add('protein', NumberType::class, [
                 'label' => 'Protéines',
                 'scale' => 2,
-            ])
+                ])
             ->add('lipid', NumberType::class, [
                 'label' => 'Lipides',
                 'scale' => 2,
@@ -35,10 +35,6 @@ class BringType extends AbstractType
             ])
             ->add('humidity', NumberType::class, [
                 'label' => 'Humidités',
-                'scale' => 2,
-            ])
-            ->add('carbohydrate', NumberType::class, [
-                'label' => 'Glucides',
                 'scale' => 2,
             ])
             ->add('calcium', NumberType::class, [

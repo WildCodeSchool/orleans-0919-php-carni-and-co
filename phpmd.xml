@@ -14,6 +14,7 @@
     <rule ref="rulesets/codesize.xml">
         <exclude name="TooManyFields"/>
         <exclude name="ExcessiveClassComplexity"/>
+        <exclude name="CyclomaticComplexity"/>
     </rule>
     <rule ref="rulesets/codesize.xml/TooManyFields">
         <properties>
