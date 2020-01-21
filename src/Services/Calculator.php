@@ -5,7 +5,10 @@ namespace App\Services;
 
 use App\Entity\Bring;
 use App\Entity\Ingredient;
+use App\Entity\NutrientType;
+use App\Entity\Origin;
 use App\Entity\Product;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
 
 class Calculator
 {
@@ -87,6 +90,8 @@ class Calculator
         $percentage = 0;
         foreach ($compositions as $composition) {
             if ($composition->getIngredient() instanceof Ingredient &&
+                $composition->getIngredient()->getOrigin() instanceof Origin &&
+                $composition->getIngredient()->getNutrientType() instanceof NutrientType &&
                 $composition->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
                 $composition->getIngredient()->getNutrientType()->getNutrient() == self::PROTEINS) {
                 $percentage += $composition->getPercentage();

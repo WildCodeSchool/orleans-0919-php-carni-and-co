@@ -120,7 +120,7 @@ class Ingredient
         return $this;
     }
 
-    public function getNote(): int
+    public function getNote(): ?int
     {
         return $this->note;
     }
@@ -132,7 +132,7 @@ class Ingredient
         return $this;
     }
 
-    public function getOrigin(): Origin
+    public function getOrigin(): ?Origin
     {
         return $this->origin;
     }
@@ -144,7 +144,7 @@ class Ingredient
         return $this;
     }
 
-    public function getShape(): Shape
+    public function getShape(): ?Shape
     {
         return $this->shape;
     }
@@ -156,7 +156,7 @@ class Ingredient
         return $this;
     }
 
-    public function getNutrientType(): NutrientType
+    public function getNutrientType(): ?NutrientType
     {
         return $this->nutrientType;
     }
