@@ -183,6 +183,6 @@ class Calculator
         $this->calculPercentageLipid($product);
         $this->calculPercentageCarbohydrate($product);
         $this->calculAshAndFiber($product);
-        return $this->note / 8 * 20;
+        return round($this->note / 8 * 20);
     }
 }
