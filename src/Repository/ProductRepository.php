@@ -23,7 +23,7 @@ class ProductRepository extends ServiceEntityRepository
         parent::__construct($registry, Product::class);
     }
 
-    public function findByBrand(?Brand $brand, ?Food $food, ?Animal $animal, ?string $reference)
+    public function findByBrand(?Brand $brand, ?Food $food, ?Animal $animal, ?string $reference, $note)
     {
         $query = $this->createQueryBuilder('p');
         if ($brand) {
@@ -42,8 +42,10 @@ class ProductRepository extends ServiceEntityRepository
             $query->andWhere('p.reference LIKE :reference')
                 ->setParameter('reference', '%' . $reference . '%');
         }
-            $query->orderBy('p.reference', 'ASC');
-
+        if ($note) {
+            $query->orderBy('p.note', $note);
+        }
+        $query->addOrderBy('p.reference', 'ASC');
         $query = $query->getQuery();
         return $query->execute();
     }
