@@ -40,7 +40,8 @@
         </div>
         <div class="ingredients-evaluation">
             {% for composition in product.compositions %}
-                <p class="ingredient-title">Ingredient {{ loop.index }} ({{ composition.percentage }}%)</p>
+                <p class="ingredient-title">Ingredient {{ loop.index }} {% if composition.percentage is not null  %}
+                        ({{ composition.percentage }}%) {% endif %}</p>
                 <div>
                     <p>{{ composition.ingredient.name }}</p>
                     <p>{{ composition.ingredient.nutrientType.nutrient }} {{ composition.ingredient.origin.name }}</p>
