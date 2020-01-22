@@ -31,6 +31,7 @@ class NutrientFixtures extends Fixture
             $nutrientFixtures->setName($nutrientName);
             $nutrientFixtures->setUpdatedAt($faker->dateTime());
             $nutrientFixtures->setDescription($faker->paragraphs(4, true));
+            $nutrientFixtures->setImage('placeholder.png');
 
             $manager->persist($nutrientFixtures);
         }
