@@ -7,15 +7,26 @@
         <h1 class="h1-Admin">Liste des formes d'ingrédients</h1>
 
         <a href="{{ path('shape_new') }}"><button class="btn btn-secondary mb-3 center-button">Ajouter une nouvelle forme</button></a>
-        {% for shape in shapes %}
-            <div class="card mt-3 mb-3 col-8 offset-2">
-                <div class="card-body row justify-content-between align-items-center p-2">
-                    <h4 class="ml-2">{{ shape.name }}</h4>
-                    <a href="{{ path('shape_edit', {'id': shape.id}) }}"><button class="btn btn-secondary text-right">Editer</button></a>
-                </div>
-            </div>
-        {% else %}
-            <div>Pas de forme enregistrée</div>
-        {% endfor %}
+        <div class="row">
+            <table class="table-admin">
+                <thead class="header-table-admin">
+                <tr>
+                    <th>Forme du produit</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="body-table-admin">
+                {% for shape in shapes %}
+                    <tr>
+                        <td>{{ shape.name }}</td>
+                        <td>
+                            <a href="{{ path('shape_edit', {'id': shape.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <div>Pas de morceaux enregistrés</div>
+                {% endfor %}
+            </table>
+        </div>
     </div>
 {% endblock %}

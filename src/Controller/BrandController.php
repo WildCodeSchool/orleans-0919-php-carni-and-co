@@ -43,7 +43,7 @@ class BrandController extends AbstractController
             return $this->redirectToRoute('brand_index');
         }
 
-        return $this->render('brand/new.html.twig', [
+        return $this->render('/admin/brand/new.html.twig', [
             'brand' => $brand,
             'form' => $form->createView(),
         ]);
