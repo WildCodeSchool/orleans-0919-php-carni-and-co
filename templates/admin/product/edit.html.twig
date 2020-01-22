@@ -4,33 +4,41 @@
 
 {% block body %}
     <div class="flex-column">
-        <h1 class="h1-Admin">Modifier un produit</h1>
-
+        <div class="header-list-product">
+            <a href="{{ path('admin_product_index') }}">
+                <button class="btn btn-secondary mb-1 btn-back">← Retour à la liste</button>
+            </a>
+            <h1 class="h1-Admin">Modifier un produit</h1>
+            <a>
+                {{ include('admin/product/_delete_form.html.twig') }}
+            </a>
+        </div>
+        <h2 class="h2-list-product">Informations Générales</h2>
         <div class="flex-column">
             {{ include('admin/product/_form.html.twig', {'button_label': 'Modifier'}) }}
-            {{ include('admin/product/_delete_form.html.twig') }}
-
         </div>
-        <ul>
-        {%  for composition in product.compositions %}
-            <li>{{ composition.ingredient.name }} {{ composition.percentage }}%
-                <form method="post" action="{{ path('composition_delete', {'id': composition.id}) }}" onsubmit="return confirm('Etes-vous sûr(e) de vouloir retirer cet ingredient du produit ?');">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ composition.id) }}">
-                    <button class="btn btn-secondary mb-1">Retirer</button>
-                </form>
-            </li>
-        {% endfor %}
-        </ul>
-        <div class="form-composition">
-            {{ form_start(formComposition) }}
-            {{ form_widget(formComposition) }}
-            <button class="btn btn-secondary mb-1">{{ button_label|default('Ajouter Ingrédient') }}</button>
-            {{ form_end(formComposition) }}
-        </div>
+        <h2 class="h2-list-product">Les Ingredients</h2>
+        <div class="add-ingredient">
+            <div class="list-ingredient">
+                {% for composition in product.compositions %}
+                    <div class="item-ingredient"><p class="igredient-name">
+                            <a>{{ composition.ingredient.name }}</a><a>{{ composition.percentage }}%</a></p>
+                        <form method="post" action="{{ path('composition_delete', {'id': composition.id}) }}"
+                              onsubmit="return confirm('Etes-vous sûr(e) de vouloir retirer cet ingredient du produit ?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ composition.id) }}">
+                            <button class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </form>
+                    </div>
+                {% endfor %}
+            </div>
 
-        <a href="{{ path('admin_product_index') }}">
-            <button class="btn btn-secondary mb-1">Retour à la liste</button>
-        </a>
+            <div class="form-composition">
+                {{ form_start(formComposition) }}
+                {{ form_widget(formComposition) }}
+                <button class="btn btn-secondary mb-1">{{ button_label|default('Ajouter Ingrédient') }}</button>
+                {{ form_end(formComposition) }}
+            </div>
+        </div>
     </div>
 {% endblock %}
