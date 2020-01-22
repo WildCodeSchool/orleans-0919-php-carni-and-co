@@ -41,7 +41,8 @@ class ProductController extends AbstractController
                 $data['brand'],
                 $data['food'],
                 $data['animal'],
-                $data['search']
+                $data['search'],
+                $data['note']
             );
         }
 
