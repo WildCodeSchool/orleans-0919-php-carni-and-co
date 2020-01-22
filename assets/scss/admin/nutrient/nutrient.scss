@@ -23,6 +23,8 @@
 
 .form-group > #nutrient_description {
     height: 200px;
+    text-align: left;
+
 }
 
 .vich-image a img {
@@ -33,4 +35,5 @@
 .custom-file-input ~ .custom-file-label:lang(fr)::after {
     content: "Choisir une image";
 }
+
 

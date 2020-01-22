@@ -9,6 +9,7 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\PercentType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,9 +18,11 @@ class CompositionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('percentage', NumberType::class, [
+            ->add('percentage', PercentType::class, [
                 'label' => 'Pourcentage',
-                'scale' => 2
+                'scale' => 2,
+                'type' => 'integer',
+                'required' => false
             ])
             ->add('ingredient', EntityType::class, [
                 'class' => Ingredient::class,
