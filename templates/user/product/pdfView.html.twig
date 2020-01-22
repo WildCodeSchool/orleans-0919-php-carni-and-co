@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PDF Produit{% endblock %}
+
+{% block body %}
+    <h1 class="h1-Admin">Evaluation pour votre {{ product.animal.name }}</h1>
+    <div class="container-evaluation">
+        <div class="header-evaluation">
+            <div class="image-evaluation">
+                <img alt="image produit" src="https://via.placeholder.com/150">
+                <img alt="image code barre" src="https://via.placeholder.com/150">
+            </div>
+            <div class="value-evaluation">
+                <div class="product-reference">{{ product.reference }}
+                    <p class="bring-evaluation">
+                        Protéines : {{ product.bring.protein }} </br>
+                        Lipides : {{ product.bring.lipid }} </br>
+                        Cendres : {{ product.bring.ash }} </br>
+                        Fibres : {{ product.bring.fiber }} </br>
+                        Humidité {{ product.bring.humidity }} </br>
+                        Glucides : {{ product.bring.carbohydrate }}
+                    </p>
+                </div>
+                <div class='graph-evaluation' id="graph-bring"
+                     data-graph='{{ product.bring.protein }},
+                             {{ product.bring.lipid }},
+                             {{ product.bring.ash }},
+                             {{ product.bring.fiber }},
+                             {{ product.bring.humidity }},
+                             {{ product.bring.carbohydrate }}'>
+                    <canvas id="canvas" class="canvas" width="600" height="400">
+                        No Love for HTML5 eh?
+                    </canvas>
+                </div>
+            </div>
+        </div>
+        <div class="ingredients-evaluation">
+            {% for composition in product.compositions %}
+                <p class="ingredient-title">Ingredient {{ loop.index }}</p>
+                <div>
+                    <p>{{ composition.ingredient.name }}</p>
+                    <p>{{ composition.ingredient.nutrientType.nutrient }}</p>
+                    <p>{{ composition.ingredient.origin.name }}</p>
+                    <p>{{ composition.percentage }} %</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="note-evaluation">
+
+        </div>
+        <div class="recommendation-evaluation">
+
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('graph') }}
+{% endblock %}

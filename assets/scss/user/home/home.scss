@@ -1,0 +1,19 @@
+@import "presentation";
+@import "animal";
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.margeHome {
+    margin-top: 10vh;
+    margin-bottom: 10vh;
+}
+
+.animal {
+    margin-bottom: 5vh;
+}
+

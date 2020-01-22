@@ -1,10 +1,14 @@
-@import "product/product.scss";
 @import "blog/blog.scss";
+@import "home/home.scss";
+@import "nutrient/nutrient.scss";
+@import "product/product.scss";
 @import "nutrient/nutrient.scss";
 @import "navbarAdmin.scss";
-@import "admin_HomePage.scss";
-@import "nutrient/nutrient.scss";
 @import "table_admin.scss";
+
+*{
+    font-family: $fontText;
+}
 
 .h1-Admin{
     font-family: $fontTitle;
@@ -15,4 +19,3 @@
     margin-top: 5vh;
     margin-bottom: 3vh;
 }
-

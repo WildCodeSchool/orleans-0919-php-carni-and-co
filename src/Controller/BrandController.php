@@ -20,7 +20,7 @@ class BrandController extends AbstractController
      */
     public function index(BrandRepository $brandRepository): Response
     {
-        return $this->render('brand/index.html.twig', [
+        return $this->render('admin/brand/index.html.twig', [
             'brands' => $brandRepository->findAll(),
         ]);
     }
@@ -54,7 +54,7 @@ class BrandController extends AbstractController
      */
     public function show(Brand $brand): Response
     {
-        return $this->render('brand/show.html.twig', [
+        return $this->render('admin/brand/show.html.twig', [
             'brand' => $brand,
         ]);
     }
@@ -74,7 +74,7 @@ class BrandController extends AbstractController
             return $this->redirectToRoute('brand_index');
         }
 
-        return $this->render('brand/edit.html.twig', [
+        return $this->render('admin/brand/edit.html.twig', [
             'brand' => $brand,
             'form' => $form->createView(),
         ]);

@@ -2,10 +2,13 @@
 
 namespace App\Controller;
 
+use App\Entity\Composition;
 use App\Entity\Product;
+use App\Form\CompositionType;
 use App\Form\ProductType;
 use App\Form\SearchProductType;
 use App\Repository\ProductRepository;
+use App\Services\Calculator;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -27,7 +30,7 @@ class AdminProductController extends AbstractController
         Request $request,
         PaginatorInterface $paginator
     ): Response {
-        $products = $productRepository->findBy([], ['reference'=>'asc']);
+        $products = $productRepository->findBy([], ['reference' => 'asc']);
         $form = $this->createForm(SearchProductType::class);
         $form->handleRequest($request);
         $data = $form->getData();
@@ -59,7 +62,7 @@ class AdminProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_product_index');
+            return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
 
         return $this->render('admin/product/new.html.twig', [
@@ -81,20 +84,37 @@ class AdminProductController extends AbstractController
     /**
      * @Route("/{id}/edit", name="admin_product_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Product $product): Response
+    public function edit(Request $request, Product $product, Calculator $calculator): Response
     {
         $form = $this->createForm(ProductType::class, $product);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $note = $calculator->calculNoteProduct($product);
+            $product->setNote($note);
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_product_index');
+        }
+        $composition = new Composition();
+        $formComposition = $this->createForm(CompositionType::class, $composition);
+        $formComposition->handleRequest($request);
+
+        if ($formComposition->isSubmitted() && $formComposition->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $composition->setProduct($product);
+            $note = $calculator->calculNoteProduct($product);
+            $product->setNote($note);
+            $entityManager->persist($composition);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
 
         return $this->render('admin/product/edit.html.twig', [
             'product' => $product,
             'form' => $form->createView(),
+            'formComposition' => $formComposition->createView(),
         ]);
     }
 
@@ -103,7 +123,7 @@ class AdminProductController extends AbstractController
      */
     public function delete(Request $request, Product $product): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$product->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $product->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();

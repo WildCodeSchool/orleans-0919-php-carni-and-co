@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/ingredient/forme")
+ * @Route("admin/ingredients/forme")
  */
 class ShapeController extends AbstractController
 {
@@ -20,7 +20,7 @@ class ShapeController extends AbstractController
      */
     public function index(ShapeRepository $shapeRepository): Response
     {
-        return $this->render('shape/index.html.twig', [
+        return $this->render('/admin/shape/index.html.twig', [
             'shapes' => $shapeRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class ShapeController extends AbstractController
             return $this->redirectToRoute('shape_index');
         }
 
-        return $this->render('shape/new.html.twig', [
+        return $this->render('/admin/shape/new.html.twig', [
             'shape' => $shape,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class ShapeController extends AbstractController
      */
     public function show(Shape $shape): Response
     {
-        return $this->render('shape/show.html.twig', [
+        return $this->render('/admin/shape/show.html.twig', [
             'shape' => $shape,
         ]);
     }
@@ -74,7 +74,7 @@ class ShapeController extends AbstractController
             return $this->redirectToRoute('shape_index');
         }
 
-        return $this->render('shape/edit.html.twig', [
+        return $this->render('/admin/shape/edit.html.twig', [
             'shape' => $shape,
             'form' => $form->createView(),
         ]);

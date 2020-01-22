@@ -7,6 +7,7 @@
     <a href="{{ path('product_index') }}">
         <button type="button" class="btn btn-secondary">Retourner à la liste de produit</button>
     </a>
+    <a href="{{ path('product_pdf', {id : product.id}) }}">PDF</a>
     <div class="container-evaluation">
         <div class="header-evaluation">
             <div class="image-evaluation">
@@ -39,17 +40,30 @@
         </div>
         <div class="ingredients-evaluation">
             {% for composition in product.compositions %}
-                <p class="ingredient-title">Ingredient {{ loop.index }}</p>
+                <p class="ingredient-title">Ingredient {{ loop.index }} {% if composition.percentage is not null  %}
+                        ({{ composition.percentage }}%) {% endif %}</p>
                 <div>
                     <p>{{ composition.ingredient.name }}</p>
-                    <p>{{ composition.ingredient.nutrientType.nutrient }}</p>
-                    <p>{{ composition.ingredient.origin.name }}</p>
-                    <p>{{ composition.percentage }} %</p>
+                    <p>{{ composition.ingredient.nutrientType.nutrient }} {{ composition.ingredient.origin.name }}</p>
+                    <p>
+                        {% if composition.ingredient.note < 10 %}
+                            <a class="bad">Mauvais</a>
+                        {% elseif composition.ingredient.note <=15 %}
+                            <a class="medium">Moyen</a>
+                        {% else %}
+                            <a class="good">Bon</a>
+                        {% endif %}
+
+                    </p>
                 </div>
             {% endfor %}
         </div>
         <div class="note-evaluation">
-
+            <p class="note">{{ product.note | round }} </p>
+            <div class="">
+                <p class="titre">Note Global</p>
+                <p>Basée sur la qualité des ingrédients</br>et de la compostion analytique</p>
+            </div>
         </div>
         <div class="recommendation-evaluation">
 

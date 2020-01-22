@@ -66,6 +66,9 @@ class ProductType extends AbstractType
                         ->orderBy('b.name', 'ASC');
                 },
             ])
+            ->add('bring', BringType::class, [
+                'label' => 'Apports du produit'
+            ])
         ;
     }
 

@@ -25,40 +25,34 @@ class Bring
     private $calorie;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float")
      * @Assert\Type(type = "float")
      */
     private $protein;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float")
      * @Assert\Type(type = "float")
      */
     private $lipid;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float", options={"default":8})
      * @Assert\Type(type = "float")
      */
     private $ash;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float", options={"default":3})
      * @Assert\Type(type = "float")
      */
     private $fiber;
 
     /**
-     * @ORM\Column(type="float", nullable=true)
+     * @ORM\Column(type="float", options={"default":10})
      * @Assert\Type(type = "float")
      */
     private $humidity;
-
-    /**
-     * @ORM\Column(type="float", nullable=true)
-     * @Assert\Type(type = "float")
-     */
-    private $carbohydrate;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -106,7 +100,7 @@ class Bring
         return $this->protein;
     }
 
-    public function setProtein(?float $protein): self
+    public function setProtein(float $protein): self
     {
         $this->protein = $protein;
 
@@ -118,7 +112,7 @@ class Bring
         return $this->lipid;
     }
 
-    public function setLipid(?float $lipid): self
+    public function setLipid(float $lipid): self
     {
         $this->lipid = $lipid;
 
@@ -130,7 +124,7 @@ class Bring
         return $this->ash;
     }
 
-    public function setAsh(?float $ash): self
+    public function setAsh(float $ash): self
     {
         $this->ash = $ash;
 
@@ -142,7 +136,7 @@ class Bring
         return $this->fiber;
     }
 
-    public function setFiber(?float $fiber): self
+    public function setFiber(float $fiber): self
     {
         $this->fiber = $fiber;
 
@@ -154,7 +148,7 @@ class Bring
         return $this->humidity;
     }
 
-    public function setHumidity(?float $humidity): self
+    public function setHumidity(float $humidity): self
     {
         $this->humidity = $humidity;
 
@@ -163,14 +157,13 @@ class Bring
 
     public function getCarbohydrate(): ?float
     {
-        return $this->carbohydrate;
-    }
-
-    public function setCarbohydrate(?float $carbohydrate): self
-    {
-        $this->carbohydrate = $carbohydrate;
-
-        return $this;
+        return  100 - (
+                $this->getAsh() +
+                $this->getLipid() +
+                $this->getProtein() +
+                $this->getFiber() +
+                $this->getHumidity()
+            );
     }
 
     public function getCalcium(): ?float

@@ -20,7 +20,7 @@ class FoodController extends AbstractController
      */
     public function index(FoodRepository $foodRepository): Response
     {
-        return $this->render('food/index.html.twig', [
+        return $this->render('/admin/food/index.html.twig', [
             'foods' => $foodRepository->findAll(),
         ]);
     }
@@ -44,7 +44,7 @@ class FoodController extends AbstractController
             return $this->redirectToRoute('food_index');
         }
 
-        return $this->render('food/new.html.twig', [
+        return $this->render('/admin/food/new.html.twig', [
             'food' => $food,
             'form' => $form->createView(),
         ]);
@@ -55,7 +55,7 @@ class FoodController extends AbstractController
      */
     public function show(Food $food): Response
     {
-        return $this->render('food/show.html.twig', [
+        return $this->render('/admin/food/show.html.twig', [
             'food' => $food,
         ]);
     }

@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("admin/ingredient/origine")
+ * @Route("admin/ingredients/origine")
  */
 class OriginController extends AbstractController
 {
@@ -20,7 +20,7 @@ class OriginController extends AbstractController
      */
     public function index(OriginRepository $originRepository): Response
     {
-        return $this->render('origin/index.html.twig', [
+        return $this->render('/admin/origin/index.html.twig', [
             'origins' => $originRepository->findAll(),
         ]);
     }
@@ -43,7 +43,7 @@ class OriginController extends AbstractController
             return $this->redirectToRoute('origin_index');
         }
 
-        return $this->render('origin/new.html.twig', [
+        return $this->render('/admin/origin/new.html.twig', [
             'origin' => $origin,
             'form' => $form->createView(),
         ]);
@@ -54,7 +54,7 @@ class OriginController extends AbstractController
      */
     public function show(Origin $origin): Response
     {
-        return $this->render('origin/show.html.twig', [
+        return $this->render('/admin/origin/show.html.twig', [
             'origin' => $origin,
         ]);
     }
@@ -74,7 +74,7 @@ class OriginController extends AbstractController
             return $this->redirectToRoute('origin_index');
         }
 
-        return $this->render('origin/edit.html.twig', [
+        return $this->render('/admin/origin/edit.html.twig', [
             'origin' => $origin,
             'form' => $form->createView(),
         ]);

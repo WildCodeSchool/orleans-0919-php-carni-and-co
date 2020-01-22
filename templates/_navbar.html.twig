@@ -6,33 +6,19 @@
     <div class="collapse navbar-collapse nav-user" id="navbarNavDropdown">
         <ul class="navbar-nav justify-content-between">
             <li class="nav-item">
-                <a class="nav-link" href="{{ path('product_index') }}">EVALUATION</a>
+                <a class="nav-link" href="{{ path('product_index') }}">PRODUITS</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ path('nutrition_index') }}">NUTRITION</a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    ALIMENTATION
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <a class="dropdown-item nav-link" href="#">CROQUETTE</a>
-                    <a class="dropdown-item nav-link" href="#">PATEE</a>
-                    <a class="dropdown-item nav-link" href="#">RATION MENAGERE</a>
-                    <a class="dropdown-item nav-link" href="#">RAW FEEDING (CRU)</a>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">CONSEILS SANTE</a>
-            </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     CONTACTS
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <a class="dropdown-item nav-link" href="#">FAQ</a>
-                    <a class="dropdown-item nav-link" href="#">ESPACE PRESSE</a>
-                    <a class="dropdown-item nav-link" href="#">QUI SOMMES-NOUS</a>
+                    <a class="dropdown-item nav-link" href="{{ path('faq_visitor') }}">FAQ</a>
+                    <a class="dropdown-item nav-link" href="{{ path('contact_index') }}">NOUS CONTACTER</a>
                 </div>
             </li>
             <li class="nav-item">

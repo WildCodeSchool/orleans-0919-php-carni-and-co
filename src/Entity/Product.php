@@ -55,7 +55,10 @@ class Product
     private $cereal;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255 ,nullable=true)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "Le code bar ne doit pas excéder {{ limit }} caractères.")
      */
     private $source;
 
@@ -66,6 +69,11 @@ class Product
      *     maxMessage = "Le code bar ne doit pas excéder {{ limit }} caractères.")
      */
     private $barCode;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
     /**
      *
@@ -80,14 +88,6 @@ class Product
      *)
      */
     private $imageFile;
-
-    /**
-     * @ORM\Column(type="string", length=255 , nullable=true)
-     * @Assert\Length(
-     *     max = 255,
-     *     maxMessage = "Le lien de l'image ne doit pas excéder {{ limit }} caractères.")
-     */
-    private $image;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="products")
@@ -122,6 +122,18 @@ class Product
      * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product")
      */
     private $compositions;
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Assert\LessThanOrEqual(
+     *     value = 20,
+     *     message = "La note ne doit pas excéder {{ compared_value }}."
+     * )
+     * @Assert\PositiveOrZero(
+     *     message = "La note doit être positive."
+     * )
+     */
+    private $note;
 
     public function __construct()
     {
@@ -205,6 +217,18 @@ class Product
         return $this;
     }
 
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    public function setImage($image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
     /**
      * @param File|UploadedFile $imageFile
      * @throws Exception
@@ -226,18 +250,6 @@ class Product
     public function setUpdatedAt(DateTime $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
-
-        return $this;
-    }
-
-    public function getImage()
-    {
-        return $this->image;
-    }
-
-    public function setImage($image): self
-    {
-        $this->image = $image;
 
         return $this;
     }
@@ -283,7 +295,7 @@ class Product
         return $this->bring;
     }
 
-    public function setBring(?Bring $bring): self
+    public function setBring(Bring $bring): self
     {
         $this->bring = $bring;
 
@@ -319,5 +331,22 @@ class Product
         }
 
         return $this;
+    }
+
+    public function getNote(): ?float
+    {
+        return $this->note;
+    }
+
+    public function setNote(?float $note): self
+    {
+        $this->note = $note;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 }

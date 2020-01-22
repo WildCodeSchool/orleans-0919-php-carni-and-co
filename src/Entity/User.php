@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -53,6 +54,24 @@ class User implements UserInterface
      * match=true, message="L'adresse email doit être valide.")
      */
     private $email;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true, options={"default": "CURRENT_TIMESTAMP"})
+     * @var DateTime
+     */
+    private $passwordRequestedAt;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $token;
+
+    /**
+     * @var DateTime
+     */
+    private $updatedAt;
 
     public function getId(): ?int
     {
@@ -133,5 +152,47 @@ class User implements UserInterface
      */
     public function eraseCredentials()
     {
+    }
+
+    /*
+     * Get passwordRequestedAt
+     */
+    public function getPasswordRequestedAt()
+    {
+        return $this->passwordRequestedAt;
+    }
+
+    /*
+     * Set passwordRequestedAt
+     */
+    public function setPasswordRequestedAt($passwordRequestedAt)
+    {
+        $this->passwordRequestedAt = $passwordRequestedAt;
+        return $this;
+    }
+
+    /*
+     * Get token
+     */
+    public function getToken()
+    {
+        return $this->token;
+    }
+
+    /*
+     * Set token
+     */
+    public function setToken($token)
+    {
+        $this->token = $token;
+        return $this;
+    }
+
+    /**
+     * @param DateTime $updatedAt
+     */
+    public function setUpdatedAt(DateTime $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
     }
 }

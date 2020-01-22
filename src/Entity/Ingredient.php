@@ -43,7 +43,7 @@ class Ingredient
     private $precisedPart;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="integer")
      * @Assert\LessThanOrEqual(
      *     value = 20,
      *     message = "La note ne doit pas excéder {{ compared_value }}."
@@ -125,7 +125,7 @@ class Ingredient
         return $this->note;
     }
 
-    public function setNote(?int $note): self
+    public function setNote(int $note): self
     {
         $this->note = $note;
 
