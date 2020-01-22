@@ -62,7 +62,7 @@ class AdminProductController extends AbstractController
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return $this->redirectToRoute('admin_product_index');
+            return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
 
         return $this->render('admin/product/new.html.twig', [
@@ -103,6 +103,8 @@ class AdminProductController extends AbstractController
         if ($formComposition->isSubmitted() && $formComposition->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $composition->setProduct($product);
+            $note = $calculator->calculNoteProduct($product);
+            $product->setNote($note);
             $entityManager->persist($composition);
             $entityManager->flush();
 
