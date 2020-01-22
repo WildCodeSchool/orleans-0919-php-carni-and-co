@@ -1,0 +1,53 @@
+.form-product {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+
+    .checkbox-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .separate-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .form-left {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+        }
+
+        .form-right {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+        }
+    }
+
+    .bring-form{
+        border-top: $boxColor 2px solid;
+        margin-top: 2vh;
+
+        legend{
+            text-align: center;
+            font-size: $h3Size;
+            font-weight: $fontWeightTitle;
+            margin-bottom: 1vh;
+        }
+    }
+}
+
+div #product_bring {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .form-group {
+        width: 17%;
+        text-align: center;
+    }
+}
