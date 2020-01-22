@@ -1,5 +1,5 @@
 <form method="post" action="{{ path('origin_delete', {'id': origin.id}) }}" onsubmit="return confirm('Etes-vous sûr(e) de vouloir supprimer cette origine?');">
     <input type="hidden" name="_method" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ origin.id) }}">
-    <button class="btn btn-danger mt-3">Supprimer</button>
+    <button class="btn btn-danger mt-3"><i class="far fa-trash-alt"></i> Supprimer</button>
 </form>

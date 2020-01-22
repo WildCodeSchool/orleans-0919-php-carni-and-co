@@ -10,7 +10,7 @@
         <div class="col-3">
             {{ form_start(formfilter,{'method': 'GET'}) }}
             {{ form_widget(formfilter) }}
-            <button class="btn btn-secondary w-100">{{ button_label|default('Rechercher') }}</button>
+            <button class="btn btn-secondary w-100"><i class="fas fa-search"></i> {{ button_label|default('Rechercher') }}</button>
             {{ form_end(formfilter) }}
         </div>
         <div class="col-9">
@@ -24,7 +24,7 @@
                                 <p>Marque : {{ product.brand.name }}</p>
                                 <p>Type : {{ product.food.type }}</p>
                                 <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}"
-                                   role="button">Plus d'infos</a>
+                                   role="button"><i class="far fa-eye"></i> Plus d'infos</a>
                             </div>
                         </div>
                     {% else %}

@@ -40,7 +40,7 @@ class UserController extends AbstractController
             self::MAX_PER_PAGE /*limit per page*/
         );
 
-        return $this->render('user/index.html.twig', [
+        return $this->render('admin/users/index.html.twig', [
             'users' => $users,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class UserController extends AbstractController
      */
     public function show(User $user): Response
     {
-        return $this->render('user/show.html.twig', [
+        return $this->render('admin/users/show.html.twig', [
             'user' => $user,
         ]);
     }
