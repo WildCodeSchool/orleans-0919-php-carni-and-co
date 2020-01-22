@@ -1,4 +1,26 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-secondary mb-1">{{ button_label|default('Enregistrer') }}</button>
+<div class="form-product">
+    {{ form_row(form.reference) }}
+    <div class="checkbox-form">
+        {{ form_row(form.vegan) }}
+        {{ form_row(form.organic) }}
+        {{ form_row(form.cereal) }}
+    </div>
+    <div class="separate-form">
+        <div class="form-left">
+            {{ form_row(form.animal) }}
+            {{ form_row(form.brand) }}
+            {{ form_row(form.food) }}
+        </div>
+        <div class="form-right">
+            {{ form_row(form.imageFile) }}
+            {{ form_row(form.barCode) }}
+            {{ form_row(form.source) }}
+        </div>
+    </div>
+    <div class="bring-form">
+        {{ form_row(form.bring) }}
+    </div>
+</div>
+<button class="btn btn-secondary mb-1">{{ button_label|default('Enregistrer') }}</button>
 {{ form_end(form) }}
