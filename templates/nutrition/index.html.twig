@@ -197,7 +197,11 @@
                 <div class="card mb-3 card-nutrition">
                     <div class="row no-gutters">
                         <div class="col-md-4 order-{{ loop.index0%2 }}">
-                            <img src="{{ vich_uploader_asset(nutrient, 'imageFile') }}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
+                            {% if  nutrient.image is not null %}
+                                <img src="{{ vich_uploader_asset(nutrient, 'imageFile') }}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
+                            {% else %}
+                                <img src="{{asset('build/placeholder_nutrition.png')}}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
+                            {% endif %}
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
