@@ -51,6 +51,7 @@ class Ingredient
      * @Assert\PositiveOrZero(
      *     message = "La note doit être positive."
      * )
+     * @Assert\NotBlank
      */
     private $note;
 
