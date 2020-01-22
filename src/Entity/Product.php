@@ -58,7 +58,7 @@ class Product
      * @ORM\Column(type="string", length=255 ,nullable=true)
      * @Assert\Length(
      *     max = 255,
-     *     maxMessage = "Le code bar ne doit pas excéder {{ limit }} caractères.")
+     *     maxMessage = "La source ne doit pas excéder {{ limit }} caractères.")
      */
     private $source;
 
