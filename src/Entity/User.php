@@ -10,7 +10,7 @@ use \DateTime;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
- * @UniqueEntity(fields={"username"}, message="There is already an account with this username")
+ * @UniqueEntity(fields={"username"}, message="Cette Identifiant est déjà utilisé")
  */
 class User implements UserInterface
 {
@@ -47,7 +47,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Assert\Email( message = "The email '{{ value }}' is not a valid email." )
+     * @Assert\Email( message = "Cette email '{{ value }}' n'est pas valide." )
      * @Assert\Length(
      *     min="6",
      *     max="80", minMessage="email invalide", maxMessage="Votre email ne doit pas contenit plus de 80 caractères")
