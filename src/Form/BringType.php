@@ -16,6 +16,7 @@ class BringType extends AbstractType
             ->add('calorie', NumberType::class, [
                 'label' => 'Calories',
                 'scale' => 2,
+                'required' => false
             ])
             ->add('protein', NumberType::class, [
                 'label' => 'Protéines',
@@ -40,18 +41,22 @@ class BringType extends AbstractType
             ->add('calcium', NumberType::class, [
                 'label' => 'Calciums',
                 'scale' => 2,
+                'required' => false
             ])
             ->add('phosphorus', NumberType::class, [
                 'label' => 'Phosphores',
                 'scale' => 2,
+                'required' => false
             ])
             ->add('omega6', NumberType::class, [
                 'label' => 'Omega 6',
                 'scale' => 2,
+                'required' => false
             ])
             ->add('omega3', NumberType::class, [
                 'label' => 'Omega 3',
                 'scale' => 2,
+                'required' => false
             ]);
     }
 

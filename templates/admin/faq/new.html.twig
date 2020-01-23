@@ -1,0 +1,16 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Nouvelle question{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center box-title-nutrient">
+        <h1 class="h1-Admin">Creation d'une nouvelle question</h1>
+        <div class="flex-column">
+            {{ include('/admin/faq/_form.html.twig') }}
+        </div>
+
+        <a href="{{ path('faq_index') }}">
+            <button class="btn btn-secondary mb-1 button-return-list-nutrient">← Retourner à la liste</button>
+        </a>
+    </div>
+{% endblock %}

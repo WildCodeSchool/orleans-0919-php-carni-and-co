@@ -1,0 +1,44 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Liste des aliments{% endblock %}
+
+{% block body %}
+<div class="flex-column text-center">
+    <h1 class="h1-Admin">Liste des aliments</h1>
+
+    <a href="{{ path('food_new') }}">
+        <button class="btn btn-secondary mb-3 center-button">
+            <i class="fas fa-plus"></i> Ajouter un nouvel aliment
+        </button>
+    </a>
+
+    <table class="table-admin">
+        <thead class="header-table-admin">
+            <tr>
+                <th>Type</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody class="body-table-admin">
+        {% for food in foods %}
+            <tr>
+                <td>{{ food.type }}</td>
+                <td>{{ food.description }}</td>
+                <td>
+                    <a href="{{ path('food_edit', {'id': food.id}) }}">
+                        <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Pas de donnée renseignée</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+</div>
+{% endblock %}

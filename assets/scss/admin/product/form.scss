@@ -1,0 +1,111 @@
+.header-list-product {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    a {
+        width: 20%;
+        text-align: center;
+    }
+}
+
+.form-product {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+
+    .checkbox-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .separate-form {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+
+        .form-left {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+        }
+
+        .form-right {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+        }
+    }
+
+    .bring-form {
+        border-top: $boxColor 2px solid;
+        margin-top: 2vh;
+
+        legend {
+            text-align: center;
+            font-size: $h3Size;
+            font-weight: $fontWeightTitle;
+            margin-bottom: 1vh;
+        }
+    }
+}
+
+.btn-update{
+    text-align: center;
+}
+
+div #product_bring {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+    .form-group {
+        width: 17%;
+        text-align: center;
+    }
+}
+
+.h2-list-product {
+    text-align: center;
+    font-size: $h3Size;
+    font-weight: $fontWeightTitle;
+    margin-bottom: 1vh;
+    border-top: $boxColor 2px solid;
+    margin-top: 2vh;
+    padding-top: 1vh;
+}
+
+.add-ingredient {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 5vh;
+    margin-top: 3vh;
+
+    .list-ingredient {
+        display: flex;
+        flex-direction: column;
+        margin-top: 2vh;
+
+        .item-ingredient {
+            display: flex;
+            flex-direction: row;
+            width: 75%;
+
+            .igredient-name {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-around;
+                width: 15vw;
+
+                a {
+                    width: 50%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

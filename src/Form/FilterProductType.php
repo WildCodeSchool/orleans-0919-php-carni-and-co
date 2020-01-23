@@ -57,6 +57,15 @@ class FilterProductType extends AbstractType
                     return $er->createQueryBuilder('f')
                         ->orderBy('f.type', 'ASC');
                 }
+            ])
+            ->add('note', ChoiceType::class, [
+                'required' => false,
+                'label' => 'Trier par :',
+                'placeholder' => 'Référence',
+                'choices'  => [
+                    'note ▼' => 'DESC',
+                    'note ▲ ' => 'ASC',
+                ],
             ]);
     }
 
