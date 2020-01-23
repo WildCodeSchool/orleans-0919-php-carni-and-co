@@ -20,11 +20,26 @@
                         <div class="card card-product-user bg-light mb-3">
                             <div class="card-header card-header-user">{{ product.reference }}</div>
                             <div class="card-body">
-                                <p>{{ product.animal.name }}</p>
-                                <p>Marque : {{ product.brand.name }}</p>
-                                <p>Type : {{ product.food.type }}</p>
-                                <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}"
-                                   role="button"><i class="far fa-eye"></i> Plus d'infos</a>
+                                <div class="card-item">
+                                    {% if  product.image is not null %}
+                                        <img src="{{ vich_uploader_asset(product, 'imageFile') }}"
+                                             class="card-img product-img" alt="{{ product.reference }}">
+                                    {% else %}
+                                        <img src="{{ asset('build/placeholder_nutrition.png') }}"
+                                             class="card-img product-img" alt="{{ product.reference }}">
+                                    {% endif %}
+                                    <p class="card-note">{{ product.note }}/20</p>
+                                </div>
+                                <div class="card-item">
+                                    <p>{{ product.animal.name }}</p>
+                                    <p>{{ product.brand.name }}</p>
+                                    <p>{{ product.food.type }}</p>
+                                </div>
+                            </div>
+                            <div class="btn-product">
+                                <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}" role="button">
+                                    <i class="far fa-eye"></i> Plus d'infos
+                                </a>
                             </div>
                         </div>
                     {% else %}
