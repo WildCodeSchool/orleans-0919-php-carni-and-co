@@ -36,6 +36,7 @@ class NutrientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $nutrient->setUpdatedAt(new \DateTime());
             $entityManager->persist($nutrient);
             $entityManager->flush();
             $this->addFlash('success', 'Le nutriment a bien été ajouté!');
@@ -68,6 +69,7 @@ class NutrientController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $nutrient->setUpdatedAt(new \DateTime());
             $this->getDoctrine()->getManager()->flush();
             $this->addFlash('warning', 'Le nutriment a bien été modifié!');
             return $this->redirectToRoute('nutrient_index');
