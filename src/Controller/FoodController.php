@@ -75,7 +75,7 @@ class FoodController extends AbstractController
             return $this->redirectToRoute('food_index');
         }
 
-        return $this->render('food/edit.html.twig', [
+        return $this->render('admin/food/edit.html.twig', [
             'food' => $food,
             'form' => $form->createView(),
         ]);
