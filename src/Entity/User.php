@@ -47,10 +47,9 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=80)
-     * @Assert\Email( message = "Cette email '{{ value }}' n'est pas valide." )
+     * @Assert\Email( message = "Cette adresse email '{{ value }}' n'est pas valide." )
      * @Assert\Length(
-     *     min="6",
-     *     max="80", minMessage="email invalide", maxMessage="Votre email ne doit pas contenit plus de 80 caractères")
+     *     max="80", minMessage="email invalide", maxMessage="Votre email ne doit pas contenir plus de 80 caractères")
      * match=true, message="L'adresse email doit être valide.")
      */
     private $email;
