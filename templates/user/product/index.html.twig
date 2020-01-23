@@ -8,10 +8,14 @@
     </div>
     <div class="row">
         <div class="col-3">
-            {{ form_start(formfilter,{'method': 'GET'}) }}
-            {{ form_widget(formfilter) }}
-            <button class="btn btn-secondary w-100"><i class="fas fa-search"></i> {{ button_label|default('Rechercher') }}</button>
-            {{ form_end(formfilter) }}
+            <div class="filter-container">
+                {{ form_start(formfilter,{'method': 'GET'}) }}
+                {{ form_widget(formfilter) }}
+                <button class="btn btn-secondary w-100">
+                    <i class="fas fa-search"></i> {{ button_label|default('Rechercher') }}
+                </button>
+                {{ form_end(formfilter) }}
+            </div>
         </div>
         <div class="col-9">
             <div class="container-user-product">
@@ -37,7 +41,8 @@
                                 </div>
                             </div>
                             <div class="btn-product">
-                                <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}" role="button">
+                                <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}"
+                                   role="button">
                                     <i class="far fa-eye"></i> Plus d'infos
                                 </a>
                             </div>
