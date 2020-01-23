@@ -8,24 +8,30 @@
     <div class="admin-search-container">
         {{ form_start(form, {'method': 'GET'}) }}
         {{ form_widget(form) }}
-        <button class="btn btn-secondary mb-3 ml-1">{{ button_label|default('Rechercher') }}</button>
+        <button class="btn btn-secondary mb-3 ml-1">
+            <i class="fas fa-search"></i> {{ button_label|default('Rechercher') }}
+        </button>
         {{ form_end(form) }}
     </div>
 
-    <a href="{{ path('ingredient_new') }}"><button class="btn btn-secondary mb-4">Ajouter un nouvel ingrédient</button></a>
+    <a href="{{ path('ingredient_new') }}">
+        <button class="btn btn-secondary mb-4">
+            <i class="fas fa-plus"></i> Ajouter un nouvel ingrédient
+        </button>
+    </a>
 
     <table class="table-admin">
         <thead class="header-table-admin">
-            <tr>
-                <th>Nom</th>
-                <th>Type précisé</th>
-                <th>Morceau précisé</th>
-                <th>Note</th>
-                <th>Origine</th>
-                <th>Forme</th>
-                <th>Type de nutriment</th>
-                <th></th>
-            </tr>
+        <tr>
+            <th>Nom</th>
+            <th>Type précisé</th>
+            <th>Morceau précisé</th>
+            <th>Note</th>
+            <th>Origine</th>
+            <th>Forme</th>
+            <th>Type de nutriment</th>
+            <th></th>
+        </tr>
         </thead>
         <tbody class="body-table-admin">
         {% for ingredient in ingredients %}
@@ -34,11 +40,13 @@
                 <td>{{ ingredient.precisedType ? 'Oui' : 'Non' }}</td>
                 <td>{{ ingredient.precisedPart ? 'Oui' : 'Non' }}</td>
                 <td>{{ ingredient.note }}</td>
-                <td>{{ ingredient.origin.name ?? 'Non précisée'}}</td>
-                <td>{{ ingredient.shape.name ?? 'Non précisée'}}</td>
-                <td>{{ ingredient.nutrientType.nutrient ?? 'Non précisée'}}</td>
+                <td>{{ ingredient.origin.name ?? 'Non précisée' }}</td>
+                <td>{{ ingredient.shape.name ?? 'Non précisée' }}</td>
+                <td>{{ ingredient.nutrientType.nutrient ?? 'Non précisée' }}</td>
                 <td>
-                    <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                    <a href="{{ path('ingredient_edit', {'id': ingredient.id}) }}">
+                        <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
+                    </a>
                 </td>
             </tr>
         {% else %}

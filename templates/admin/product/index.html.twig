@@ -9,11 +9,15 @@
             <div class="search-container">
                 {{ form_start(form, {'method': 'GET'}) }}
                 {{ form_widget(form) }}
-                <button class="btn btn-secondary mb-3 ml-1">{{ button_label|default('Rechercher') }}</button>
+                <button class="btn btn-secondary mb-3 ml-1">
+                    <i class="fas fa-search"></i> {{ button_label|default('Rechercher') }}
+                </button>
                 {{ form_end(form) }}
             </div>
             <a class="btn-add" href="{{ path('admin_product_new') }}">
-                <button type="button" class="btn btn-secondary">Ajouter un Produit</button>
+                <button type="button" class="btn btn-secondary">
+                    <i class="fas fa-plus"></i> Ajouter un Produit
+                </button>
             </a>
         </div>
         <table class="table-admin">
@@ -34,11 +38,8 @@
                     <td>{{ product.food.type }}</td>
                     <td>{{ product.brand.name }}</td>
                     <td>
-                        <a href="{{ path('admin_product_show', {'id': product.id}) }}">
-                            <button class="btn btn-secondary">Voir</button>
-                        </a>
                         <a href="{{ path('admin_product_edit', {'id': product.id}) }}">
-                            <button class="btn btn-secondary">Modifier</button>
+                            <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
                         </a>
                     </td>
                 </tr>
@@ -48,5 +49,4 @@
         </table>
     </div>
     {{ knp_pagination_render(products) }}
-    </div>
 {% endblock %}
