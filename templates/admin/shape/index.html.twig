@@ -1,0 +1,32 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Liste des formes ingrédients{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center">
+        <h1 class="h1-Admin">Liste des formes d'ingrédients</h1>
+
+        <a href="{{ path('shape_new') }}"><button class="btn btn-secondary mb-3 center-button">Ajouter une nouvelle forme</button></a>
+        <div class="row">
+            <table class="table-admin">
+                <thead class="header-table-admin">
+                <tr>
+                    <th>Forme du produit</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="body-table-admin">
+                {% for shape in shapes %}
+                    <tr>
+                        <td>{{ shape.name }}</td>
+                        <td>
+                            <a href="{{ path('shape_edit', {'id': shape.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <div>Pas de morceaux enregistrés</div>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

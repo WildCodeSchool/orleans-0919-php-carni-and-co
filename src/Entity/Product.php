@@ -55,7 +55,10 @@ class Product
     private $cereal;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @ORM\Column(type="string", length=255 ,nullable=true)
+     * @Assert\Length(
+     *     max = 255,
+     *     maxMessage = "La source ne doit pas excéder {{ limit }} caractères.")
      */
     private $source;
 
@@ -110,7 +113,7 @@ class Product
     private $bring;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var DateTimeInterface
      */
     private $updatedAt;

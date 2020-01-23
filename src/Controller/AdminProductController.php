@@ -103,6 +103,8 @@ class AdminProductController extends AbstractController
         if ($formComposition->isSubmitted() && $formComposition->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
             $composition->setProduct($product);
+            $note = $calculator->calculNoteProduct($product);
+            $product->setNote($note);
             $entityManager->persist($composition);
             $entityManager->flush();
 

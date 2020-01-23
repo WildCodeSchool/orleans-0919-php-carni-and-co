@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Nutrient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
@@ -16,7 +17,7 @@ class NutrientType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, ['label' => 'Nom'])
-            ->add('description', TextType::class, ['label' => 'Description'])
+            ->add('description', TextAreaType::class, ['label' => 'Description'])
             ->add('imageFile', VichImageType::class, ['label' => 'Image', 'required' => false,
                 'download_uri' => false])
         ;

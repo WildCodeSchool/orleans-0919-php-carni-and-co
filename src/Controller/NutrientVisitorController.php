@@ -20,7 +20,7 @@ class NutrientVisitorController extends AbstractController
      */
     public function index(NutrientRepository $nutrientRepository): Response
     {
-        return $this->render('nutrition/index.html.twig', [
+        return $this->render('user/nutrition/index.html.twig', [
             'nutrients' => $nutrientRepository->findAll(),
         ]);
     }
