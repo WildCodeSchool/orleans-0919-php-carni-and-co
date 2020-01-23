@@ -1,0 +1,36 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Administration - Page FAQ{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center box-title-nutrient">
+        <h1 class="h1-Admin">Liste des Questions/réponses</h1>
+
+        <a href="{{ path('faq_new') }}">
+            <button class="btn btn-secondary mb-3 center-button">
+                <i class="fas fa-plus"></i> Ajouter une nouvelle question/réponse
+            </button>
+        </a>
+        <table class="table-admin">
+            <thead class="header-table-admin">
+            <tr>
+                <th>Titre de la question</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody class="body-table-admin">
+            {% for faq in faqs %}
+                <tr>
+                    <td>{{ faq.title }}</td>
+                    <td>
+                        <a href="{{ path('faq_edit', {'id': faq.id}) }}">
+                            <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <div>Pas de questions/réponses enregistrées</div>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}

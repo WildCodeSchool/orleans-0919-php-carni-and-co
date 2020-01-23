@@ -1,0 +1,38 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Liste Type de Nutriment{% endblock %}
+
+{% block body %}
+    <div class="flex-column text-center">
+        <h1 class="h1-Admin">Liste des types de nutriments</h1>
+
+        <a href="{{ path('nutrient_type_new') }}">
+            <button class="btn btn-secondary mb-3 center-button">
+                <i class="fas fa-plus"></i> Ajouter un nouveau type de nutriment
+            </button>
+        </a>
+        <div class="row">
+            <table class="table-admin">
+                <thead class="header-table-admin">
+                <tr>
+                    <th>Type de nutriment</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody class="body-table-admin">
+                {% for nutrient_type in nutrient_types %}
+                    <tr>
+                        <td>{{ nutrient_type.nutrient }}</td>
+                        <td>
+                            <a href="{{ path('nutrient_type_edit', {'id': nutrient_type.id}) }}">
+                                <button class="btn btn-secondary"> <i class="fas fa-pen"></i>Modifier</button>
+                            </a>
+                        </td>
+                    </tr>
+                {% else %}
+                    <div>Pas de type de nutriments enregistré.</div>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -20,7 +20,7 @@ class FaqController extends AbstractController
      */
     public function index(FaqRepository $faqRepository): Response
     {
-        return $this->render('faq/index.html.twig', [
+        return $this->render('/admin/faq/index.html.twig', [
             'faqs' => $faqRepository->findAll(),
         ]);
     }
@@ -42,7 +42,7 @@ class FaqController extends AbstractController
             return $this->redirectToRoute('faq_index');
         }
 
-        return $this->render('faq/new.html.twig', [
+        return $this->render('/admin/faq/new.html.twig', [
             'faq' => $faq,
             'form' => $form->createView(),
         ]);
@@ -53,7 +53,7 @@ class FaqController extends AbstractController
      */
     public function show(Faq $faq): Response
     {
-        return $this->render('faq/show.html.twig', [
+        return $this->render('admin/faq/show.html.twig', [
             'faq' => $faq,
         ]);
     }
@@ -73,7 +73,7 @@ class FaqController extends AbstractController
             return $this->redirectToRoute('faq_index');
         }
 
-        return $this->render('faq/edit.html.twig', [
+        return $this->render('admin/faq/edit.html.twig', [
             'faq' => $faq,
             'form' => $form->createView(),
         ]);

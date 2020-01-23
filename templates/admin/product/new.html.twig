@@ -1,6 +1,6 @@
 {% extends 'admin/index.html.twig' %}
 
-{% block title %}New Product{% endblock %}
+{% block title %}Nouveau produit{% endblock %}
 
 {% block body %}
 <div class="flex-column">
@@ -9,7 +9,7 @@
     <div class="flex-column">
     {{ include('admin/product/_form.html.twig') }}
     </div>
-    <a href="{{ path('admin_product_index') }}"><button class="btn btn-secondary mb-1">Retour à la liste</button></a>
+    <a href="{{ path('admin_product_index') }}"><button class="btn btn-secondary mb-1">← Retour à la liste</button></a>
 </div>
 
 {% endblock %}

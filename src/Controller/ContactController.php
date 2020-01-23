@@ -28,7 +28,7 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $body =  $this->renderView(
-                'contact\notification.html.twig',
+                '/user/contact\notification.html.twig',
                 [
                     'contact' => $contact
                 ]
@@ -43,7 +43,7 @@ class ContactController extends AbstractController
             $this->addFlash('success', 'Le message a bien été envoyé.');
         }
 
-        return $this->render('contact/index.html.twig', [
+        return $this->render('/user/contact/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }

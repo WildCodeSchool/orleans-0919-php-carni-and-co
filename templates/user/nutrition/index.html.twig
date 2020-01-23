@@ -1,0 +1,218 @@
+{% extends 'layout.html.twig' %}
+{% block title %}Nutrition{% endblock %}
+{% block body %}
+    <div class="container-fluid">
+        <h1 class="h1-User">Nutrition</h1>
+        <div class="box-nutrition">
+            <h2 class="h2-nutrition">Carnivores ou omnivores?</h2>
+            <div class="box-img-carni-nutrition">
+                <img src="{{asset('build/dog-mouth.jpg')}}" class="img-nutrition-carni" alt=" Carnivore ou omnivore" />
+            </div>
+            <p class="text-nutrition">
+                La question de savoir si le chien est un
+                carnivore ou un omnivore fait depuis
+                longtemps l'objet d'un débat. Le Conseil
+                national de recherches des Académies
+                nationales et certaines grandes
+                entreprises d'aliments pour chiens considèrent
+                les chiens comme omnivores. Cependant, la
+                plupart des vétérinaires holistiques
+                croient que les chiens sont carnivores.
+            </p>
+            <p class="text-nutrition">
+                Par définition, un animal qui mange
+                sans distinction toutes sortes d'aliments,
+                d'origine animale et végétale, est omnivore.
+                Les humains sont considérés comme omnivores.
+                Un carnivore est un animal qui ne consomme
+                que de la chair. Les chats, par exemple,
+                sont plus facilement acceptés par la plupart
+                des gens comme étant carnivores. Ensuite,
+                il y a les herbivores, des animaux qui se
+                nourrissent de plantes, comme les chevaux
+                et le bétail.
+            </p>
+            <div class="box-elements-nutrition-general">
+                <div class="box-img-carni-nutrition">
+                    <img src="{{asset('build/appareil_digestif_chat.webp')}}" class="img-nutrition-intestin" alt=" Système digestif du chat" />
+                </div>
+                <h3 class="h3-nutrition">Le système gastro-intestinal</h3>
+                <p class="text-nutrition">
+                    Puisque nous parlons d'évolution alimentaire,
+                    le système gastro-intestinal est l'adaptation
+                    la plus évidente au départ. La digestion d'un
+                    régime à base de plantes est par nature très
+                    différente de celle d'un régime à base de
+                    viande. Les plantes contiennent beaucoup de
+                    cellulose et d'amidon. Pour décomposer ces
+                    matières, l'organisme a besoin d'enzymes
+                    digestives uniques ainsi que de la dentition
+                    appropriée pour broyer et décomposer ces
+                    gros composants.
+                </p>
+                <p class="text-nutrition">
+                    L'amylase et la cellulase sont les enzymes
+                    digestives dont l'organisme a besoin pour
+                    transformer les amidons et la cellulose
+                    d'origine végétale en sucres qui peuvent
+                    ensuite être absorbés par l'intestin grêle
+                    ou, dans le cas de la cellulose, fermentés
+                    davantage pour développer des macronutriments
+                    alimentaires utiles. Les herbivores et les
+                    omnivores sécrètent de l'amylase dans leur
+                    salive pour commencer la décomposition des
+                    amidons en glucose dès que la plante entre
+                    dans la bouche.
+                    Comme les carnivores mangent très peu
+                    d'aliments végétaux, ils ne se sont pas
+                    adaptés pour produire de l'amylase salivaire.
+                    Les chats et les chiens ne produisent pas
+                    d'amylase salivaire.
+                </p>
+
+                <div class="card mb-3 card-nutrition">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img src="{{asset('build/Boxer-nutrition.webp')}}" class="card-img nutrition-img" alt="Dentition chien">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="h3-nutrition">Adaptation de la dentition</h3>
+                                <p class="text-nutrition">
+                                    La taille, la forme et la dentition
+                                    (la façon dont les dents s'emboîtent)
+                                    de la bouche d'un animal se sont
+                                    également adaptées à son alimentation.
+                                    Les herbivores, comme les chevaux et les
+                                    bovins, ont des molaires longues, larges
+                                    et larges avec des surfaces plates pour
+                                    permettre un broyage approprié de leur
+                                    régime alimentaire riche en fibres
+                                    végétales. Ce broyage décompose la
+                                    matière végétale en une matière plus
+                                    petite et plus utilisable.
+                                    Les incisives des herbivores sont
+                                    conçues pour cueillir le matériel végétal,
+                                    comme l'herbe. La longue langue pousse
+                                    ensuite l'herbe vers l'arrière de la
+                                    bouche pour qu'elle soit broyée par les
+                                    molaires très fortes et efficaces.
+                                    La nourriture finale, moulue
+                                    mécaniquement, est ensuite avalée
+                                    pour une digestion plus poussée.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card mb-3 card-nutrition">
+                    <div class="row no-gutters">
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="h3-nutrition">Les oméga-3</h3>
+                                <p class="text-nutrition">
+                                    Tous les animaux ont besoin
+                                    d'acides gras oméga-3 pour rester
+                                    en bonne santé. Un acide gras oméga-3
+                                    est considéré comme un acide gras
+                                    essentiel, ce qui signifie que
+                                    l'organisme de l'animal ne le produit
+                                    pas et doit donc être consommé.
+                                    Il existe des sources d'oméga-3
+                                    à base de légumes et de poissons.
+                                    Les sources végétales d'oméga-3
+                                    se présentent sous forme d'acide
+                                    alpha-linolénique, connu sous le
+                                    nom d'ALA. L'ALA se trouve dans les
+                                    légumes à feuilles vertes ainsi que
+                                    dans les huiles de lin, de chanvre,
+                                    de chia et autres huiles végétales.
+                                    L'ALA doit être converti en acide
+                                    eicosapentaénoïque, EPA et acide
+                                    docosahexénoïque, ou DHA. L'EPA
+                                    et le DHA sont les formes actives
+                                    des acides gras oméga-3.
+                                    Pour en savoir plus sur les
+                                    bienfaits du chia pour la santé
+                                    de votre chien, cliquez ici !
+                                    Les herbivores et les omnivores
+                                    peuvent convertir les sources
+                                    d'ALA d'origine végétale en EPA
+                                    et DHA par une série de réactions
+                                    enzymatiques. Les chats, cependant,
+                                    manquent complètement des enzymes
+                                    nécessaires à cette conversion, et
+                                    les chiens ne peuvent convertir qu'
+                                    environ 5 à 15 % des sources d'ALA.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <img src="{{asset('build/cat-nutrition.webp')}}" class="card-img nutrition-img" alt="chat soleil">
+                        </div>
+                    </div>
+                </div>
+                <h3 class="h3-nutrition">Omnivore ou carnivore ?</h3>
+                <p class="text-nutrition">
+                    Bien qu'ils diffèrent quelque peu des chats,
+                    les chiens devraient être considérés comme des
+                    carnivores en fonction de leur dentition et de
+                    la longueur de leurs dents (canines). Les dents
+                    d'un chien reflètent la mécanique de l'arrachement
+                    et du déchirement de la nourriture. Ils possèdent
+                    également un tractus gastro-intestinal raccourci,
+                    par opposition au tractus gastro-intestinal plus
+                    long d'un omnivore ou d'un herbivore. De plus, les
+                    chiens n'ont pas d'amylase, une enzyme qui décompose
+                    les sucres, dans leur salive, comme un omnivore et un
+                    herbivore le ferait. L'incapacité relative de convertir
+                    les sources d'acides gras oméga-3 d'origine végétale en
+                    EPA et DHA est également une indication forte du statut
+                    carnivore.
+                </p>
+                <p class="text-nutrition">
+                    D'après l'adaptation de leur tube digestif,  les chiens
+                    sont des carnivores charognards, tandis que les chats sont
+                    de vrais carnivores. Un charognard est un animal qui triera
+                    les déchets ou mangera les carcasses mortes pour profiter de
+                    ce qu'il trouve. Bien que les chiens préfèrent la viande.
+                </p>
+                <p class="text-nutrition-italic">
+                    Malgré cela, les humains omnivores nourrissent les chiens
+                    depuis des années avec des régimes omnivores, remplis de
+                    sources de protéines végétales et de glucides comme le maïs
+                    et le riz. Un chien peut-il vivre de ce régime ? La réponse
+                    est oui et non.  Un tel régime n'est pas sans induire de forts
+                    risques, pour le chien et le chat, pouvant déclencher de
+                    nombreuses pathologies (obésité, diabète, allergies,
+                    problèmes urinaires, etc.).
+                </p>
+            </div>
+        </div>
+        <div class="box-nutrition">
+            <h2 class="h2-nutrition">Les nutriments</h2>
+
+            {% for nutrient in nutrients %}
+
+                <div class="card mb-3 card-nutrition">
+                    <div class="row no-gutters">
+                        <div class="col-md-4 order-{{ loop.index0%2 }}">
+                            {% if  nutrient.image is not null %}
+                                <img src="{{ vich_uploader_asset(nutrient, 'imageFile') }}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
+                            {% else %}
+                                <img src="{{asset('build/placeholder_nutrition.png')}}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
+                            {% endif %}
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h3 class="h3-nutrition">{{ nutrient.name }}</h3>
+                                <p class="text-nutrition">{{ nutrient.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

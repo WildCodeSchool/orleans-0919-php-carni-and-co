@@ -57,8 +57,7 @@ class Animal
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     ** @Assert\NotBlank()
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $image;
 
@@ -68,7 +67,7 @@ class Animal
     private $products;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @var DateTimeInterface
      */
     private $updatedAt;
@@ -132,7 +131,7 @@ class Animal
         return $this;
     }
 
-    public function getImage()
+    public function getImage() : ?string
     {
         return $this->image;
     }

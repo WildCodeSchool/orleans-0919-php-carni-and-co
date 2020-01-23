@@ -1,0 +1,15 @@
+{% extends 'admin/index.html.twig' %}
+
+{% block title %}Nouvel aliment{% endblock %}
+
+{% block body %}
+<div class="flex-column">
+    <h1 class="h1-Admin">Ajouter un nouvel aliment</h1>
+
+    <div class="flex-column">
+    {{ include('/admin/food/_form.html.twig') }}
+    </div>
+
+    <a href="{{ path('food_index') }}"><button class="btn btn-secondary mb-1">← Retour à la liste</button></a>
+</div>
+{% endblock %}
