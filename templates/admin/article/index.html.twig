@@ -12,7 +12,6 @@
         <table class="table-admin">
             <thead class="header-table-admin">
             <tr>
-                <th>Id</th>
                 <th>Title</th>
                 <th>Description</th>
                 <th>Date</th>
@@ -23,9 +22,8 @@
             <tbody class="body-table-admin">
             {% for article in articles %}
                 <tr>
-                    <td>{{ article.id }}</td>
                     <td>{{ article.title }}</td>
-                    <td>{{ article.description }}</td>
+                    <td>{{ article.description | truncate(100, false, '...') }}</td>
                     <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ article.image }}</td>
                     <td>
