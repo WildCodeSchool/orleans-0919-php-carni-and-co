@@ -9,6 +9,8 @@
         <div class="flex-column">
             {{ include('/admin/origin/_form.html.twig') }}
         </div>
-        <a href="{{ path('origin_index') }}"><button class="btn btn-secondary mb-1">Retour à la liste</button></a>
+        <a href="{{ path('origin_index') }}">
+            <button class="btn btn-secondary mb-1">← Retour à la liste</button>
+        </a>
     </div>
 {% endblock %}

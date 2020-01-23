@@ -6,8 +6,10 @@
 <div class="flex-column text-center">
     <h1 class="h1-Admin">Liste des aliments</h1>
 
-    <a href="{{ path('food_new') }}"><button class="btn btn-secondary mb-3 center-button">
-            Ajouter un nouvel aliment</button>
+    <a href="{{ path('food_new') }}">
+        <button class="btn btn-secondary mb-3 center-button">
+            <i class="fas fa-plus"></i> Ajouter un nouvel aliment
+        </button>
     </a>
 
     <table class="table-admin">
@@ -24,8 +26,9 @@
                 <td>{{ food.type }}</td>
                 <td>{{ food.description }}</td>
                 <td>
-                    <a href="{{ path('food_show', {'id': food.id}) }}"><button class="btn btn-secondary">Voir</button></a>
-                    <a href="{{ path('food_edit', {'id': food.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                    <a href="{{ path('food_edit', {'id': food.id}) }}">
+                        <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
+                    </a>
                 </td>
             </tr>
         {% else %}

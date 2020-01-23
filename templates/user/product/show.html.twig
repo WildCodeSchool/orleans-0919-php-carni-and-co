@@ -5,7 +5,7 @@
 {% block body %}
     <h1 class="h1-Admin">Evaluation pour votre {{ product.animal.name }}</h1>
     <a href="{{ path('product_index') }}">
-        <button type="button" class="btn btn-secondary">Retourner à la liste de produit</button>
+        <button type="button" class="btn btn-secondary">← Retourner à la liste de produit</button>
     </a>
     <a href="{{ path('product_pdf', {id : product.id}) }}">PDF</a>
     <div class="container-evaluation">

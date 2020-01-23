@@ -6,7 +6,11 @@
     <div class="flex-column text-center box-title-nutrient">
         <h1 class="h1-Admin">Liste des Questions/réponses</h1>
 
-        <a href="{{ path('faq_new') }}"><button class="btn btn-secondary mb-3 center-button">Enregistrer une nouvelle question/réponse</button></a>
+        <a href="{{ path('faq_new') }}">
+            <button class="btn btn-secondary mb-3 center-button">
+                <i class="fas fa-plus"></i> Ajouter une nouvelle question/réponse
+            </button>
+        </a>
         <table class="table-admin">
             <thead class="header-table-admin">
             <tr>
@@ -19,7 +23,9 @@
                 <tr>
                     <td>{{ faq.title }}</td>
                     <td>
-                        <a href="{{ path('faq_edit', {'id': faq.id}) }}"><button class="btn btn-secondary">Modifier</button></a>
+                        <a href="{{ path('faq_edit', {'id': faq.id}) }}">
+                            <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
+                        </a>
                     </td>
                 </tr>
             {% else %}

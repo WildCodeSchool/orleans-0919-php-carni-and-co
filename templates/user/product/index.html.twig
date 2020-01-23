@@ -11,7 +11,9 @@
             <div class="filter-container">
                 {{ form_start(formfilter,{'method': 'GET'}) }}
                 {{ form_widget(formfilter) }}
-                <button class="btn btn-secondary w-100">{{ button_label|default('Rechercher') }}</button>
+                <button class="btn btn-secondary w-100">
+                    <i class="fas fa-search"></i> {{ button_label|default('Rechercher') }}
+                </button>
                 {{ form_end(formfilter) }}
             </div>
         </div>
@@ -40,7 +42,9 @@
                             </div>
                             <div class="btn-product">
                                 <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}"
-                                   role="button">Plus d'infos →</a>
+                                   role="button">
+                                    <i class="far fa-eye"></i> Plus d'infos
+                                </a>
                             </div>
                         </div>
                     {% else %}
