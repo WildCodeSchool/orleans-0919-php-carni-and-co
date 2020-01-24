@@ -10,6 +10,10 @@
     {{ include('/admin/food/_form.html.twig', {'button_label': 'Valider les modifications'}) }}
 
     {{ include('/admin/food/_delete_form.html.twig') }}
+    {% if food.products is not empty %}
+        <p class="alert-danger mt-2"><i class="fas fa-exclamation-circle"></i>
+            Attention si vous supprimez ce type d'aliment, tous les produits liés seront également supprimés</p>
+    {% endif %}
 
     <a href="{{ path('food_index') }}"><button class="btn btn-secondary mb-3 mt-3">Retour à la liste</button></a>
 

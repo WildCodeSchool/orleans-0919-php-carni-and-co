@@ -11,4 +11,8 @@
         <a href="{{ path('animal_index') }}"> <button class="btn btn-secondary">Retour à la liste</button></a>
     </p>
     {{ include('admin/animal/_delete_form.html.twig') }}
+    {% if animal.products is not empty %}
+        <p class="alert-danger mt-2"><i class="fas fa-exclamation-circle"></i>
+            Attention si vous supprimez cet animal tous les produits liés seront également supprimés</p>
+    {% endif %}
 {% endblock %}

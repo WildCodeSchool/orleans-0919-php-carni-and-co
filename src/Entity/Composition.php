@@ -23,13 +23,11 @@ class Composition
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="compositions")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $product;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Ingredient", inversedBy="compositions")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $ingredient;
 

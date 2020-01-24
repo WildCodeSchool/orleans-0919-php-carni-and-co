@@ -57,24 +57,21 @@ class Ingredient
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Origin", inversedBy="ingredients")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $origin;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Shape", inversedBy="ingredients")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $shape;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\NutrientType", inversedBy="ingredients")
-     * @ORM\JoinColumn(onDelete="CASCADE")
      */
     private $nutrientType;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="ingredient")
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="ingredient", cascade={"remove"})
      */
     private $compositions;
 

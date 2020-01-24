@@ -31,7 +31,7 @@ class Shape
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ingredient", mappedBy="shape")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ingredient", mappedBy="shape", cascade={"remove"})
      */
     private $ingredients;
 

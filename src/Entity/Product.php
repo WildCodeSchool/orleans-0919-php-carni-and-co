@@ -91,24 +91,24 @@ class Product
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Animal", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $animal;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Food", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $food;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Brand", inversedBy="products")
-     * @ORM\JoinColumn(nullable=false, onDelete="CASCADE")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $brand;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Bring", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\Bring")
      */
     private $bring;
 
@@ -119,7 +119,7 @@ class Product
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product", cascade={"remove"})
      */
     private $compositions;
 
