@@ -14,7 +14,6 @@
             <tr>
                 <th>Nom</th>
                 <th>Description</th>
-                <th>Image</th>
                 <th></th>
             </tr>
             </thead>
@@ -23,20 +22,16 @@
             <tr>
                 <td>{{ animal.name }}</td>
                 <td>{{ animal.description }}</td>
-                <td>{{ animal.image }}</td>
                 <td>
-                    <a href="{{ path('animal_edit', {'id': animal.id}) }}">
-                        <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
-                    </a>
-                    <a href="{{ path('animal_show', {'id': animal.id}) }}">
-                        <button class="btn btn-secondary"><i class="fas fa-pen"></i> voir</button>
-                    </a>
+                        <a href="{{ path('animal_edit', {'id': animal.id}) }}">
+                            <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>
+                        </a>
                 </td>
             </tr>
+            {% else %}
+                <p>Aucun animal trouvé</p>
+            {% endfor %}
             </tbody>
         </table>
-        {% else %}
-            <p>Aucun animal trouvé</p>
-        {% endfor %}
     </div>
 {% endblock %}
