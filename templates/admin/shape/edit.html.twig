@@ -9,6 +9,10 @@
         {{ include('/admin/shape/_form.html.twig', {'button_label': 'Valider les modifications'}) }}
 
         {{ include('/admin/shape/_delete_form.html.twig') }}
+        {% if shape.ingredients is not empty %}
+            <p class="alert-danger mt-2"><i class="fas fa-exclamation-circle"></i>
+                Attention si vous supprimez cet forme d'ingrédient, tous les ingrédients liés seront également supprimés</p>
+        {% endif %}
 
         <a href="{{ path('shape_index') }}">
             <button class="btn btn-secondary mb-3 mt-3"> ←Retour à la liste</button>

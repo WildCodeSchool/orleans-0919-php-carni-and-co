@@ -119,7 +119,7 @@ class Product
     private $updatedAt;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product")
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="product", cascade={"remove"})
      */
     private $compositions;
 

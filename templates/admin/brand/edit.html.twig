@@ -9,6 +9,10 @@
         {{ include('admin/brand/_form.html.twig', {'button_label': 'Modifier'}) }}
 
         {{ include('admin/brand/_delete_form.html.twig') }}
+        {% if brand.products is not empty %}
+            <p class="alert-danger mt-2"><i class="fas fa-exclamation-circle"></i>
+                Attention si vous supprimez cette marque, tous les produits liés seront également supprimés</p>
+        {% endif %}
 
         <a href="{{ path('brand_index') }}"><button class="btn btn-secondary mb-3 mt-3">← Retour à la liste</button></a>
 
