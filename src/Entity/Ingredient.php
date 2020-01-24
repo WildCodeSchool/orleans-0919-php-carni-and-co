@@ -71,7 +71,7 @@ class Ingredient
     private $nutrientType;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="ingredient")
+     * @ORM\OneToMany(targetEntity="App\Entity\Composition", mappedBy="ingredient", cascade={"remove"})
      */
     private $compositions;
 

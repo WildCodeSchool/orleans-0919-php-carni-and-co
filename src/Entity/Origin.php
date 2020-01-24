@@ -31,7 +31,7 @@ class Origin
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ingredient", mappedBy="origin")
+     * @ORM\OneToMany(targetEntity="App\Entity\Ingredient", mappedBy="origin", cascade={"remove"})
      */
     private $ingredients;
 
