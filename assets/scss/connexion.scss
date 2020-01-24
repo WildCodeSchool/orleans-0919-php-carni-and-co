@@ -7,3 +7,23 @@
     margin-top: 5px;
     margin-bottom: 30px;
 }
+
+.button-connexion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:link {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:visited {
+    text-decoration: none;
+    color: #000000;
+}
