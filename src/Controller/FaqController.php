@@ -21,7 +21,7 @@ class FaqController extends AbstractController
     public function index(FaqRepository $faqRepository): Response
     {
         return $this->render('/admin/faq/index.html.twig', [
-            'faqs' => $faqRepository->findby(array(), array('title'=>'ASC')),
+            'faqs' => $faqRepository->findby([], ['title'=>'ASC']),
         ]);
     }
 
