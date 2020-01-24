@@ -108,7 +108,7 @@ class Product
     private $brand;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\Bring")
+     * @ORM\OneToOne(targetEntity="App\Entity\Bring", cascade={"persist", "remove"})
      */
     private $bring;
 
