@@ -6,8 +6,8 @@
     <div class="header-user-product">
         <h1 class="h1-User">Tous les produits</h1>
     </div>
-    <div class="row">
-        <div class="col-3">
+    <div class="index-product-continer">
+        <div class="filter">
             <div class="filter-container">
                 {{ form_start(formfilter,{'method': 'GET'}) }}
                 {{ form_widget(formfilter) }}
@@ -17,7 +17,7 @@
                 {{ form_end(formfilter) }}
             </div>
         </div>
-        <div class="col-9">
+        <div class="product">
             <div class="container-user-product">
                 <div class="all-card-user-product">
                     {% for product in products %}

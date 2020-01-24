@@ -7,6 +7,22 @@
     margin: 4rem;
 }
 
+.index-product-continer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .filter {
+        width: 25vh;
+    }
+
+    .product {
+        width: 80vh;
+    }
+}
+
 .all-card-user-product {
     display: flex;
     flex-direction: row;
@@ -16,7 +32,7 @@
     .card-product-user {
         margin: 1rem;
         text-align: center;
-        width: 27%;
+        width: 12rem;
 
         .card-header-user {
             font-size: $h3Size;
