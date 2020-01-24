@@ -22,7 +22,7 @@ class NutrientController extends AbstractController
     public function index(NutrientRepository $nutrientRepository): Response
     {
         return $this->render('/admin/nutrient/index.html.twig', [
-            'nutrients' => $nutrientRepository->findby(array(), array('name'=>'ASC')),
+            'nutrients' => $nutrientRepository->findby([], ['name'=>'ASC']),
         ]);
     }
 
