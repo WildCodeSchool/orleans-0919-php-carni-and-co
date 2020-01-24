@@ -1,4 +1,6 @@
 {{ form_start(form) }}
     {{ form_widget(form) }}
-<button class="btn btn-secondary mb-1"><i class="far fa-save"></i> {{ button_label|default('Enregistrer') }}</button>
+<div class="record-button mb-4">
+    <button class="btn btn-secondary"><i class="far fa-save"></i> {{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}

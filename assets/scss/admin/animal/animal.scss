@@ -1,0 +1,13 @@
+.box-title-animal {
+    margin-top: 5em;
+}
+
+.box-title-nutrient > h1 {
+    font-family: $fontTitle;
+    color: $titleColor;
+}
+
+.record-button {
+    display: flex;
+    justify-content: center;
+}

@@ -3,6 +3,7 @@
 {% block title %}Modifier un animal{% endblock %}
 
 {% block body %}
+<div class="flex-column text-center box-title-animal">
     <h1 class="h1-Admin">Modifier un animal</h1>
 
     {{ include('admin/animal/_form.html.twig', {'button_label': 'Enregistrer'}) }}
@@ -11,4 +12,5 @@
         <a href="{{ path('animal_index') }}"> <button class="btn btn-secondary">← Retour à la liste</button></a>
     </p>
     {{ include('admin/animal/_delete_form.html.twig') }}
+</div>
 {% endblock %}
