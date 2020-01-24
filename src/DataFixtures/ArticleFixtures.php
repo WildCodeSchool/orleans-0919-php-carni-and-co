@@ -17,9 +17,9 @@ class ArticleFixtures extends Fixture
 
         for ($i = 1; $i <= 15; $i++) {
             $article = new Article();
-            $article->setTitle($faker->sentence);
+            $article->setTitle($faker->sentence(6));
             $article->setImage($faker->imageUrl());
-            $article->setDescription($faker->sentence);
+            $article->setDescription($faker->sentence(500, true));
             $article->setDate($faker->dateTime);
             $article->setUpdatedAt($faker->dateTime());
 

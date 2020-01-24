@@ -9,6 +9,17 @@
 
 .box-form-contact {
     margin-bottom: 4em;
+    width: 75vh;
+
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .form-group{
+        width: 100%;
+    }
 }
 
 .box-form-contact label {
@@ -20,7 +31,7 @@
 .box-form-contact input {
     border: 2px solid $titleColor;
     height: 30px;
-    width: 150%;
+    width: 100%;
     color: $textColor;
     font-family: $fontText;
 }
@@ -32,7 +43,7 @@
 }
 
 .box-form-contact #contact_message {
-    width: 150%;
+    width: 100%;
     height: 200px;
 }
 

@@ -29,10 +29,10 @@
                                         <img src="{{ vich_uploader_asset(product, 'imageFile') }}"
                                              class="card-img product-img" alt="{{ product.reference }}">
                                     {% else %}
-                                        <img src="{{ asset('build/placeholder_nutrition.png') }}"
+                                        <img src="{{ asset('build/PlaceholderCroquette.jpeg') }}"
                                              class="card-img product-img" alt="{{ product.reference }}">
                                     {% endif %}
-                                    <p class="card-note">{{ product.note }}/20</p>
+                                    <p class="card-note">{{ product.note | round }}/20</p>
                                 </div>
                                 <div class="card-item">
                                     <p>{{ product.animal.name }}</p>
