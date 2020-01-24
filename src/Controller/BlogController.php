@@ -30,7 +30,8 @@ class BlogController extends AbstractController
         $articles = $articleRepository->findBy([], ['date' => 'DESC']);
         $articles = $paginator->paginate(
             $articles,
-            $request->query->getInt('page', 1), self::MAX_PER_PAGE
+            $request->query->getInt('page', 1),
+            self::MAX_PER_PAGE
         );
         return $this->render('user/blog/index.html.twig', [
             'articles' => $articles,
@@ -47,6 +48,4 @@ class BlogController extends AbstractController
             'article' => $article,
         ]);
     }
-
-
 }

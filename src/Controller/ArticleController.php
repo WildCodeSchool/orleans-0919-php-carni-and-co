@@ -32,7 +32,8 @@ class ArticleController extends AbstractController
         $articles = $articleRepository->findBy([], ['date' => 'DESC']);
         $articles = $paginator->paginate(
             $articles,
-            $request->query->getInt('page', 1), self::MAX_PER_PAGE
+            $request->query->getInt('page', 1),
+            self::MAX_PER_PAGE
         );
         return $this->render('admin/article/index.html.twig', [
             'articles' => $articles,
