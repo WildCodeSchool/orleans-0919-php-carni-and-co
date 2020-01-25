@@ -81,7 +81,7 @@ class Product
      *
      * @var File|null
      * @Assert\File(
-     *    maxSize = "200k",
+     *    maxSize = "500k",
      *    maxSizeMessage = "L'image ne doit pas faire plus de {{ limit }} mega-octets.",
      *    mimeTypes = {"image/gif", "image/jpeg", "image/png", "image/svg+xml", "image/webp"},
      *    mimeTypesMessage = "Format d'image non reconnu. Veuillez choisir une nouvelle image."
