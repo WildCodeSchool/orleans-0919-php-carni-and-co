@@ -3,8 +3,9 @@
     flex-direction: row;
     justify-content: space-around;
     background-color: $navbarColor;
-    height: 30vh;
     position: relative;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
     bottom: 0;
     font-family: $fontText;
 
@@ -59,4 +60,17 @@
     font-size: $footerTitleSize;
     font-weight: $fontWeightTitle;
     padding-bottom: 1vh;
+}
+
+@media screen and (max-width: 540px) {
+    .footer-user {
+        display: flex;
+        flex-direction: column-reverse;
+        text-align: center;
+
+        .footer-information, .footer-reseaux, .footer-logo {
+            width: 100%;
+            margin-top: 2vh;
+        }
+    }
 }
