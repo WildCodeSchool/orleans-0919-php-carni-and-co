@@ -3,6 +3,7 @@
 {% block title %}Modifier un animal{% endblock %}
 
 {% block body %}
+<div class="flex-column text-center box-title-animal">
     <h1 class="h1-Admin">Modifier un animal</h1>
 
     {{ include('admin/animal/_form.html.twig', {'button_label': 'Enregistrer'}) }}
@@ -11,4 +12,9 @@
         <a href="{{ path('animal_index') }}"> <button class="btn btn-secondary">← Retour à la liste</button></a>
     </p>
     {{ include('admin/animal/_delete_form.html.twig') }}
+    {% if animal.products is not empty %}
+        <p class="alert-danger mt-2"><i class="fas fa-exclamation-circle"></i>
+            Attention si vous supprimez cet animal tous les produits liés seront également supprimés</p>
+    {% endif %}
+</div>
 {% endblock %}

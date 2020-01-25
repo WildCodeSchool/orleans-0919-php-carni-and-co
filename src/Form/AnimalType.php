@@ -19,8 +19,8 @@ class AnimalType extends AbstractType
                 'label' => 'Titre'
             ])
             ->add('description', TextareaType:: class, [
-                'label' => 'Description'
-            ])
+                'label' => 'Description',
+                'attr' => ['rows' => 10]])
             ->add('imageFile', VichImageType::class, [
                 'label' => 'Image',
                 'required' => false,

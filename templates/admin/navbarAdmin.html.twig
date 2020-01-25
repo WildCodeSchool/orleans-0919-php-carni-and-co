@@ -25,11 +25,24 @@
             <li class="nav-item nav-item-admin">
                 <a class="nav-link-admin" href="{{ path('user_index') }}">Utilisateur</a>
             </li>
-            <li class="nav-item nav-item-admin">
+           <!-- <li class="nav-item nav-item-admin">
                 <a class="nav-link-admin" href="{{ path('other_tables_index') }}">Autres tables</a>
+            </li>-->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Autres tables
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                    <a class="dropdown-item nav-link" href="{{ path('faq_index') }}">FAQ</a>
+                    <a class="dropdown-item nav-link" href="{{ path('brand_index') }}">Marques</a>
+                    <a class="dropdown-item nav-link" href="{{ path('origin_index') }}">Origines</a>
+                    <a class="dropdown-item nav-link" href="{{ path('shape_index') }}">Morceaux</a>
+                    <a class="dropdown-item nav-link" href="{{ path('nutrient_type_index') }}">Nutriments</a>
+                    <a class="dropdown-item nav-link" href="{{ path('food_index') }}">Aliments</a>
+                </div>
             </li>
             <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="{{ path('home_index') }}">Mode Visiteur</a>
+                <a class="nav-link-admin" href="{{ path('home_index') }}">Retour au site</a>
             </li>
         </ul>
         <div class="connexion-admin">

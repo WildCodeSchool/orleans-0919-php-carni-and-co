@@ -21,7 +21,7 @@ class OriginController extends AbstractController
     public function index(OriginRepository $originRepository): Response
     {
         return $this->render('/admin/origin/index.html.twig', [
-            'origins' => $originRepository->findAll(),
+            'origins' => $originRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 

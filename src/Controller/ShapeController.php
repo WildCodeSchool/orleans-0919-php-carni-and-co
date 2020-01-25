@@ -21,7 +21,7 @@ class ShapeController extends AbstractController
     public function index(ShapeRepository $shapeRepository): Response
     {
         return $this->render('/admin/shape/index.html.twig', [
-            'shapes' => $shapeRepository->findAll(),
+            'shapes' => $shapeRepository->findBy([], ['name' => 'ASC']),
         ]);
     }
 
