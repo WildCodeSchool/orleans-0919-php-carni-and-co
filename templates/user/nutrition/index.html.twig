@@ -73,7 +73,7 @@
                 <div class="card mb-3 card-nutrition">
                     <div class="row no-gutters">
                         <div class="col-md-4">
-                            <img src="{{asset('build/Boxer-nutrition.webp')}}" class="card-img nutrition-img" alt="Dentition chien">
+                            <img src="{{asset('build/dog-nutrition.jpg')}}" class="card-img nutrition-img" alt="Dentition chien">
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <img src="{{asset('build/cat-nutrition.webp')}}" class="card-img nutrition-img" alt="chat soleil">
+                            <img src="{{asset('build/cat-nutrition.jpg')}}" class="card-img nutrition-img" alt="chat soleil">
                         </div>
                     </div>
                 </div>
@@ -196,7 +196,7 @@
 
                 <div class="card mb-3 card-nutrition">
                     <div class="row no-gutters">
-                        <div class="col-md-4 order-md-{{ loop.index0%2 }}">
+                        <div class=" test col-md-4 order-md-{{ loop.index0%2 }}">
                             {% if  nutrient.image is not null %}
                                 <img src="{{ vich_uploader_asset(nutrient, 'imageFile') }}" class="card-img nutrition-img" alt="{{ nutrient.name }}">
                             {% else %}
