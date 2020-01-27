@@ -31,20 +31,25 @@
     flex-wrap: wrap;
     justify-content: center;
 
-    .card-product-user {
+    .card-product-link {
+        text-decoration: none;
         margin: 1rem;
+    }
+
+    .card-product-user {
         text-align: center;
         width: 15rem;
 
         .card-header-user {
             font-size: $h3Size;
-            color: $titleColor;
+            color: $hoverColor;
         }
 
         .card-body {
             display: flex;
             flex-direction: row;
             justify-content: space-around;
+            color: $textColor;
 
             .card-item {
                 display: flex;
@@ -63,16 +68,18 @@
             }
         }
     }
+}
 
-    .btn-product {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        margin-bottom: 2vh;
+.card-product-user:hover {
+    background-color: $titleColor;
+    box-shadow: 10px 10px 5px 0 $hoverColor;
 
-        a {
-            width: 60%;
-        }
+    .card-header-user {
+        color: $textColor;
+    }
+
+    .card-body {
+        background-color: $navbarColor;
     }
 }
 
