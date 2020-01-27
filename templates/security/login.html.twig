@@ -21,10 +21,10 @@
         <label for="inputPassword">Mot de passe</label>
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
         <input type="password" name="password" id="inputPassword" class="form-control field-input" required>
-        <p class="mt-3">
-            <a class="forget-password" href="{{ path('resetpassword_request') }}">Mot de passe oublié ?</a>
-        </p>
         <div class="button-connexion">
+            <p class="mt-3">
+                <a class="forget-password" href="{{ path('resetpassword_request') }}">Mot de passe oublié ?</a>
+            </p>
             <button class="btn btn-secondary" type="submit">
                 Connexion
             </button>
