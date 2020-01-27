@@ -31,6 +31,10 @@ class IngredientType extends AbstractType
                 ])
             ->add('note', NumberType::class, [
                 'html5' => true,
+                'attr' => [
+                    'min'  => 0,
+                    'max'  => 20,
+                    ],
                 ])
             ->add('origin', EntityType::class, [
                 'class' => Origin::class,
