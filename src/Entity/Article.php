@@ -46,7 +46,7 @@ class Article
      *
      * @var File|null
      * @Assert\File(
-     *    maxSize = "200k",
+     *    maxSize = "500k",
      *    maxSizeMessage = "L'image ne doit pas faire plus de {{ limit }} mega-octets.",
      *    mimeTypes = {"image/gif", "image/jpeg", "image/png", "image/svg+xml", "image/webp"},
      *    mimeTypesMessage = "Format d'image non reconnu. Veuillez choisir une nouvelle image."
@@ -136,7 +136,7 @@ class Article
         return $this->image;
     }
 
-    public function setImage(string $image): self
+    public function setImage(?string $image): self
     {
         $this->image = $image;
 

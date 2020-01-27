@@ -3,20 +3,16 @@
 {% block title %}Animal{% endblock %}
 
 {% block body %}
+<div class="flex-column text-center box-title-animal">
     <h1 class="h1-Admin">{{ animal.name | title }}</h1>
 
     <div class="card mb-3 margeHome">
         <div class="row no-gutters">
             <div class="col-md-4 image">
-                <img src="{{ asset( '/build/'~animal.image ) }}" class="card-img"
-                     alt="Photo de {{ animal.name }}">
+                <img src="{{ asset('uploads/'~animal.image) }}" alt="image de {{ animal.image }}">
             </div>
             <div class="col-md-8 text">
                 <div class="card-body textcard">
-                    <h2 class="card-title">{{ animal.name | title }}</h2>
-                    <p>
-                        <a href="{{ path('animal_edit', {'id': animal.id}) }}"> <button class="btn btn-secondary">Modifier</button></a>
-                    </p>
                     <p class="card-text">
                         {{ animal.description }}
                     </p>
@@ -24,5 +20,11 @@
             </div>
         </div>
     </div>
-    <a href="{{ path('animal_index') }}"> <button class="btn btn-secondary">Retour à la liste</button></a>
+    <p>
+        <a href="{{ path('animal_edit', {'id': animal.id}) }}"> <button class="btn btn-secondary">Modifier</button></a>
+    </p>
+    <p>
+        <a href="{{ path('animal_index') }}"> <button class="btn btn-secondary">Retour à la liste</button></a>
+    </p>
+    </div>
 {% endblock %}

@@ -21,7 +21,7 @@ class NutrientTypeController extends AbstractController
     public function index(NutrientTypeRepository $nutrient): Response
     {
         return $this->render('/admin/nutrient_type/index.html.twig', [
-            'nutrient_types' => $nutrient->findAll(),
+            'nutrient_types' => $nutrient->findBy([], ['nutrient' => 'ASC']),
         ]);
     }
 
