@@ -36,7 +36,7 @@ class Food
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="food", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Product", mappedBy="food", orphanRemoval=true, cascade={"remove"})
      */
     private $products;
 

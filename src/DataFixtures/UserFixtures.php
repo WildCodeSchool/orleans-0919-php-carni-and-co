@@ -23,7 +23,7 @@ class UserFixtures extends Fixture
 
         $faker = Faker\Factory::create('fr_FR');
 
-        for ($i = 1; $i <= 5; $i++) {
+        for ($i = 1; $i <= 500; $i++) {
             $subscriber = new User();
             $subscriber-> setUsername($faker->firstName);
             $subscriber-> setEmail($faker->email);

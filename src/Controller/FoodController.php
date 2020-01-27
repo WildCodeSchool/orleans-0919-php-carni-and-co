@@ -21,7 +21,7 @@ class FoodController extends AbstractController
     public function index(FoodRepository $foodRepository): Response
     {
         return $this->render('/admin/food/index.html.twig', [
-            'foods' => $foodRepository->findAll(),
+            'foods' => $foodRepository->findBy([], ['type' => 'ASC']),
         ]);
     }
 
@@ -75,7 +75,7 @@ class FoodController extends AbstractController
             return $this->redirectToRoute('food_index');
         }
 
-        return $this->render('food/edit.html.twig', [
+        return $this->render('admin/food/edit.html.twig', [
             'food' => $food,
             'form' => $form->createView(),
         ]);
