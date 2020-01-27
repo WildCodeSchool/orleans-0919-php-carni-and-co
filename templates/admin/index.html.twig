@@ -5,3 +5,95 @@
 {% block header %}
     {% include 'admin/navbarAdmin.html.twig' %}
 {% endblock %}
+
+{% block body %}
+    <h1 class="h1-Admin">Bienvenue</h1>
+    <h2>Guide d'utilisation</h2>
+    <hr>
+    <h3>Introduction</h3>
+        <p class >
+            Cette page est dédiée à l'administration de votre site, elle vous donne pleine accès à
+            toutes les parties modifiables de celui-ci.
+            Tout en haut de cette page vous trouverez une barre de navigation regroupant l'ensemble des fonctionnalités que vous
+            pourrez effectuer sur les différentes pages administrables. Vous trouverez ci-dessous le détail de chaque fonctionnalité
+            regroupées par section. En outre chaque action de votre part tel "Ajouter, Modifier, Supprimer" sera confirmé par l'affichage
+            en haut droite d'un message de validation.
+        </p>
+    <h3>1 - Le lien "Administrateur"</h3>
+        <p>
+            A tout moment il vous permet de revenir à la page d'accueil de la partie admnistrative par un simple clique sur celui-ci
+        </p>
+    <h3>2 - La section "Animal"</h3>
+        <p>
+            Le lien vous renvoit sur la page index qui "liste les animaux".
+            A partir de celle-ci vous pourrez gèrer Les articles de votre "Homepage".
+        </p>
+        <h4>2.1 - Le lien "Ajouter"</h4>
+            <p>
+                Il se situe en haut de page pour plus de facilité et vous renvoit sur le formulaire permettant l'ajout d'un article pour
+                votre page d'accueil. Il comprend les champs "Titre", "Description", et "Image" à remplir avant d'enregistrer votre nouvel
+                animal. Un bouton parcourir permet d'uploader un fichier image de votre choix.
+                Enfin un bouton "Retour vers la liste" vous renvoit sur l'index des animaux si vous décidez de n'effectuer aucun choix.
+            </p>
+        <h4>2.2 - Le lien "Modifier"</h4>
+            <p>
+                Il vous renvoit sur la page qui edit un animal déjà existant que vous avez préalablement sélectionné.
+                Vous pourrrez y modifer les différents éléments le concernant et éventuellement le supprimer.
+                Une "checkbox Supprimer" a ét& prévue pour le cas où lors du changement d'une image vous ne vouliez pas conserver
+                l'ancienne. Pour plus de détails concernant la suppression d'un "Animal" voir le paragraphe suivant. Enfin vous
+                pourrez valider vos modifications grâce au bouton "Enregistrer" ou retourner à l'index animal grâce au bouton
+                "Retour à la liste".
+            </p>
+        <h4>2.3 - Le lien "Supprimer"</h4>
+            <p>
+                Attention lors de la suppression d'un animal vous supprimerez tous les produits reliés à celui-ci. Le message
+                suivant situé sous le bouton "Supprimer" vous le rappelera à chaque suppression.
+                "Attention si vous supprimez cet animal tous les produits liés seront également supprimés."
+                De plus suite à l'appui sur le bouton "Supprimer" un message; on vous demandera de valider cette action
+                qui sera suivi d'un message de confirmation qui apparaitra en haut à doite de votre écran.
+            </p>
+    <h3>3 - La section "Produit"</h3>
+        <p>
+            Ce Lien vous renvoit sur la page index "Tous les produits"
+            Elle contient un barre de recherche ainsi que deux boutons "Aouter un produit" et "Modifier".
+        </p>
+        <h4>3.1 - Le champs de "Recherche"</h4>
+            <p>
+                Il prend en charge un pattern de caractères qui peuvent se trouver n'importe où dans le terme relatif au produit
+                recherché. Ainsi par exemple la recherche "edi" renverra entre autre dans le résultat de recherche aussi bien
+                "pedigree" que "editour" ou encore "editer".
+            </p>
+        <h4>3.2 - Le lien "Ajouter"</h4>
+            <p>
+                Il se situe en haut de page pour plus de facilité et vous renvoit sur le formulaire permettant l'ajout d'un produit.
+                Il comprend deux sous formulaires "Référenes" et "Ajout d'un produit", regroupant différents champs à remplir avant
+                d'enregistrer votre nouveau produit. Un bouton parcourir permet d'uploader un fichier image de votre choix et des bountons
+                sélecteurs vous permettent de choisir différentes options avant de valider votre recherche après l'appui sur
+                le bouton "Enregistrer .
+            </p>
+        <h4>3.3 - Le lien "Modifier"</h4>
+            <p>
+                Il vous renvoit sur la page qui edit un "Produit" existant que vous avez préalablement sélectionné.
+                Il comprend deux trois sous formulaires "Informations Généralres", ""                                                                " et "Ajout d'un produit", regroupant différents champs à remplir avant
+                d'enregistrer votre nouveau produit.
+                Vous pourrrez y modifer les différents éléments le concernant et éventuellement le supprimer.
+                Une "checkbox Supprimer" a ét& prévue pour le cas où lors du changement d'une image vous ne vouliez pas conserver
+                l'ancienne.
+
+                Enfin vous
+                pourrez valider vos modifications grâce au bouton "Enregistrer" ou retourner à l'index animal grâce au bouton
+                "Retour à la liste".
+            </p>
+
+
+
+    <h3>La section "Nutrition"</h3>
+    <h3>La section "Ingrédient"</h3>
+    <p>
+
+    </p>
+    <h3>La section "Blog</h3>
+    <p>
+
+    </p>
+{% endblock %}

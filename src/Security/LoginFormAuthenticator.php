@@ -73,7 +73,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
 
         if (!$user) {
             // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('L\identifiant n\'est valide.');
+            throw new CustomUserMessageAuthenticationException('L\'identifiant n\'est pas valide.');
         }
 
         return $user;
