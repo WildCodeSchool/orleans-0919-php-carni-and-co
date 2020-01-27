@@ -56,6 +56,12 @@ class Article
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Image(
+     *      minwidth = 200,
+     *      maxwidth = 300,
+     *      minheight = 200,
+     *      maxheight = 300
+     *     )
      */
     private $image;
 

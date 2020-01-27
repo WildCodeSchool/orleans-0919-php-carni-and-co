@@ -24,7 +24,7 @@
         {% for food in foods %}
             <tr>
                 <td>{{ food.type }}</td>
-                <td>{{ food.description }}</td>
+                <td>{{ food.description | truncate(50, false, '...') }}</td>
                 <td>
                     <a href="{{ path('food_edit', {'id': food.id}) }}">
                         <button class="btn btn-secondary"><i class="fas fa-pen"></i> Modifier</button>

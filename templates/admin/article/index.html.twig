@@ -22,7 +22,7 @@
             <tbody class="body-table-admin">
             {% for article in articles %}
                 <tr>
-                    <td>{{ article.title }}</td>
+                    <td>{{ article.title | truncate(50,false, '...') }}</td>
                     <td>{{ article.description | truncate(100, false, '...') }}</td>
                     <td>{{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}</td>
                     <td>{{ article.image }}</td>
