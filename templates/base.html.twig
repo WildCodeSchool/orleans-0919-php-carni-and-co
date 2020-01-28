@@ -15,9 +15,9 @@
         <header>
             {% block header %}{% endblock %}
         </header>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
+        <main class="container">
+            <div class="row w-100 position-absolute">
+                <div class="offset-10 col-2 pr-0">
                     {% for label, messages in app.flashes %}
                         {% for message in messages %}
                             <div class="alert alert-{{ label }} alert-dismissible fade show">
@@ -30,8 +30,6 @@
                     {% endfor %}
                 </div>
             </div>
-        </div>
-        <main class="container">
             {% block body %}{% endblock %}
         </main>
         <footer>
