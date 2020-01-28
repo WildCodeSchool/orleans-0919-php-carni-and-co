@@ -8,3 +8,23 @@
     margin-bottom: 30px;
 }
 
+.button-connexion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+    color: $textColor;
+}
+
+a:link {
+    text-decoration: none;
+    color: $textColor;
+}
+
+a:visited {
+    text-decoration: none;
+    color: $textColor;
+}
