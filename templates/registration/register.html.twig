@@ -7,9 +7,10 @@
 
     {{ form_start(registrationForm) }}
     {{ form_row(registrationForm.username) }}
-    {{ form_row(registrationForm.plainPassword) }}
     {{ form_row(registrationForm.email) }}
-
-    <button class="btn btn-secondary center-button field-connexion">s'inscrire</button>
+    {{ form_row(registrationForm.plainPassword) }}
+    <div class="button-connexion">
+        <button class="btn btn-secondary ">s'inscrire</button>
+    </div>
     {{ form_end(registrationForm) }}
 {% endblock %}

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-admin navbar-expand-lg navbar-light fixed-top">
-    <a class="navbar-brand-admin" href="{{ path('admin_index') }}">Administrateur</a>
+    <a class="navbar-brand-admin" href="{{ path('admin_index') }}">Admin</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -25,20 +25,17 @@
             <li class="nav-item nav-item-admin">
                 <a class="nav-link-admin" href="{{ path('user_index') }}">Utilisateur</a>
             </li>
-           <!-- <li class="nav-item nav-item-admin">
-                <a class="nav-link-admin" href="{{ path('other_tables_index') }}">Autres tables</a>
-            </li>-->
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link-admin dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Autres tables
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
-                    <a class="dropdown-item nav-link" href="{{ path('faq_index') }}">FAQ</a>
-                    <a class="dropdown-item nav-link" href="{{ path('brand_index') }}">Marques</a>
-                    <a class="dropdown-item nav-link" href="{{ path('origin_index') }}">Origines</a>
-                    <a class="dropdown-item nav-link" href="{{ path('shape_index') }}">Morceaux</a>
-                    <a class="dropdown-item nav-link" href="{{ path('nutrient_type_index') }}">Nutriments</a>
-                    <a class="dropdown-item nav-link" href="{{ path('food_index') }}">Aliments</a>
+                <div class="dropdown-menu dropdown-menu-admin" aria-labelledby="navbarDropdownMenuLink2">
+                    <a class="dropdown-item nav-link-admin-dropdown" href="{{ path('faq_index') }}">FAQ</a>
+                    <a class="dropdown-item nav-link-admin-dropdown" href="{{ path('brand_index') }}">Marques</a>
+                    <a class="dropdown-item nav-link-admin-dropdown" href="{{ path('origin_index') }}">Origines</a>
+                    <a class="dropdown-item nav-link-admin-dropdown" href="{{ path('shape_index') }}">Formes</a>
+                    <a class="dropdown-item nav-link-admin-dropdown" href="{{ path('nutrient_type_index') }}">Nutriments</a>
+                    <a class="dropdown-item nav-link-admin-dropdown" href="{{ path('food_index') }}">Aliments</a>
                 </div>
             </li>
             <li class="nav-item nav-item-admin">

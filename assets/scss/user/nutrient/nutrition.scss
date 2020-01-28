@@ -10,7 +10,7 @@
 .box-nutrition {
     margin-right: 2em;
     margin-left: 2em;
-    padding-bottom: 2em;
+    padding-bottom: 4em;
 }
 
 .h2-nutrition {
@@ -54,6 +54,8 @@
 
 .nutrition-img {
     margin-top: 46px;
+    object-fit: cover;
+    height: 80%;
 }
 
 .box-img-carni-nutrition {
@@ -64,10 +66,6 @@
 
 .box-img-carni-nutrition > .img-nutrition-carni {
     width: 40%;
-    border-radius: 5px;
-}
-
-.box-img-carni-nutrition > .img-nutrition-intestin {
     border-radius: 5px;
 }
 
