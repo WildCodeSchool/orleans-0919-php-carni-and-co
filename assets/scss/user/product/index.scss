@@ -72,7 +72,7 @@
 
 .card-product-user:hover {
     background-color: $titleColor;
-    box-shadow: 10px 10px 5px 0 $hoverColor;
+    box-shadow: 5px 5px 5px 0 $hoverColor;
 
     .card-header-user {
         color: $textColor;
@@ -100,6 +100,11 @@
     margin-top: 5vh;
     position: sticky;
     top: 15vh;
+}
+
+.nothing-found {
+    font-size: $h3Size;
+    margin-top: 5vh;
 }
 
 
