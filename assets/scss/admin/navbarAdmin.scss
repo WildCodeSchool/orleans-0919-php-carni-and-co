@@ -25,6 +25,7 @@
 .nav-link-admin:hover{
     color:$hoverColor;
     text-decoration: none;
+    padding: 0;
 }
 
 .connexion-admin{
@@ -35,4 +36,19 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
+
+.nav-link-admin-dropdown {
+    color: $titleColor;
+    font-family: $fontText;
+    font-size: $h3Size;
+}
+
+.dropdown .dropdown-menu-admin{
+    margin-left: 2vw;
+
+    .nav-link-admin-dropdown:hover{
+        color:$hoverColor;
+        text-decoration: none;
+    }
 }
