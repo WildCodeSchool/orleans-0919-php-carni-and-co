@@ -61,7 +61,7 @@
                 <p class="ingredient-title">{{ composition.ingredient.name }} {% if composition.percentage is not null %}
                         ({{ composition.percentage }}%) {% endif %}</p>
                 <div>
-                    <p>{{ composition.ingredient.nutrientType.nutrient }} {{ composition.ingredient.origin.name }}</p>
+                    <p>{{ composition.ingredient.nutrientType.nutrient ?? ''}} {{ composition.ingredient.origin.name ?? ''}}</p>
                     <p>
                         {% if composition.ingredient.note < 10 %}
                             <span class="badge badge-pill badge-danger">
