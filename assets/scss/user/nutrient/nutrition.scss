@@ -72,3 +72,9 @@
 .link-faq-collapse:hover {
     text-decoration: none;
 }
+
+@media screen and (min-width: 200px) and (max-width: 540px) {
+    .box-img-carni-nutrition > .img-nutrition-carni {
+        width: 80%;
+    }
+}
