@@ -24,11 +24,8 @@
                 {{ article.description }}
             </p>
         </div>
-        <p class="psizearticle">
-            {{ article.description }}
-        </p>
         <div class="col-12">
-            {{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}
+            {{ article.date ? article.date|date('d-m-Y H:i:s') : '' }}
         </div>
         <a href="{{ path('blog_index') }}">
             <button class="btn btn-secondary mb-3">← Retour au blog</button>
