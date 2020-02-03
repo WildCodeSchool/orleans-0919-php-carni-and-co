@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Composition;
 use App\Entity\Ingredient;
 use App\Entity\Product;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -27,7 +28,11 @@ class CompositionType extends AbstractType
             ->add('ingredient', EntityType::class, [
                 'class' => Ingredient::class,
                 'choice_label' => 'name',
-                'label' => 'Ingredient'
+                'label' => 'Ingredient',
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('i')
+                        ->orderBy('i.name', 'ASC');
+                },
             ])
         ;
     }
