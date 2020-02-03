@@ -3,25 +3,23 @@
 {% block title %}Evaluation Produit{% endblock %}
 
 {% block body %}
-    <h1 class="h1-Admin">Evaluation pour votre {{ product.animal.name }}</h1>
-    <a href="{{ path('product_index') }}">
-        <button type="button" class="btn btn-secondary">← Retourner à la liste de produit</button>
-    </a>
-    <a href="{{ path('product_pdf', {id : product.id}) }}">PDF</a>
+    <div class="title-evaluation">
+        <div class="content-header">
+            <a href="{{ path('product_index') }}">
+                <button type="button" class="btn btn-outline-secondary">← Retour à la liste</button>
+            </a>
+        </div>
+        <div class="content-header">
+            <h1 class="h1-User">{{ product.reference }}</h1>
+        </div>
+        <div class="content-header">
+
+        </div>
+    </div>
     <div class="container-evaluation">
         <div class="header-evaluation">
-            <div class="image-evaluation">
-                {% if  product.image is not null %}
-                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}"
-                         class="card-img product-img" alt="{{ product.reference }}">
-                {% else %}
-                    <img src="{{ asset('build/PlaceholderCroquette.jpeg') }}"
-                         class="card-img product-img" alt="{{ product.reference }}">
-                {% endif %}
-                <img alt="image code barre" src="https://via.placeholder.com/150">
-            </div>
             <div class="value-evaluation">
-                <div class="product-reference">{{ product.reference }}
+                <div class="product-reference">Apports
                     <p class="bring-evaluation">
                         Protéines : {{ product.bring.protein }} </br>
                         Lipides : {{ product.bring.lipid }} </br>
@@ -38,26 +36,45 @@
                              {{ product.bring.fiber }},
                              {{ product.bring.humidity }},
                              {{ product.bring.carbohydrate }}'>
-                    <canvas id="canvas" class="canvas" width="600" height="400">
-                        No Love for HTML5 eh?
-                    </canvas>
+                    <canvas id="canvas" class="canvas" width="600" height="400"></canvas>
                 </div>
+            </div>
+            <div class="image-evaluation">
+                {% if  product.image is not null %}
+                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}"
+                         class="card-img product-img" alt="{{ product.imageFile }}">
+                {% else %}
+                    <img src="{{ asset('build/PlaceholderCroquette.jpeg') }}"
+                         class="card-img product-img" alt="{{ product.imageFile }}">
+                {% endif %}
+                {% if  product.barCode is not null %}
+                    <img src="{{ vich_uploader_asset(product, 'barCode') }}"
+                         class="card-img product-barCode" alt="{{ product.barCode }}">
+                {% else %}
+                    <img src="{{ asset('build/BarCode-Placeholder.png') }}"
+                         class="card-img product-barCode" alt="{{ product.barCode }}">
+                {% endif %}
             </div>
         </div>
         <div class="ingredients-evaluation">
             {% for composition in product.compositions %}
-                <p class="ingredient-title">Ingredient {{ loop.index }} {% if composition.percentage is not null  %}
+                <p class="ingredient-title">{{ composition.ingredient.name }} {% if composition.percentage is not null %}
                         ({{ composition.percentage }}%) {% endif %}</p>
                 <div>
-                    <p>{{ composition.ingredient.name }}</p>
-                    <p>{{ composition.ingredient.nutrientType.nutrient }} {{ composition.ingredient.origin.name }}</p>
+                    <p>{{ composition.ingredient.nutrientType.nutrient ?? ''}} {{ composition.ingredient.origin.name ?? ''}}</p>
                     <p>
                         {% if composition.ingredient.note < 10 %}
-                            <a class="bad">Mauvais</a>
+                            <span class="badge badge-pill badge-danger">
+                                <a><i class="fas fa-times"></i> Mauvais</a>
+                            </span>
                         {% elseif composition.ingredient.note <=15 %}
-                            <a class="medium">Moyen</a>
+                            <span class="badge badge-pill badge-warning">
+                                <a><i class="fas fa-exclamation"></i> Moyen</a>
+                            </span>
                         {% else %}
-                            <a class="good">Bon</a>
+                            <span class="badge badge-pill badge-success">
+                                <a><i class="fas fa-check"></i> Bon</a>
+                            </span>
                         {% endif %}
 
                     </p>

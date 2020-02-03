@@ -19,14 +19,21 @@
             <img class="image-article" src="{{ asset('build/placeholder_nutrition.png') }}"
                  alt="{{ article.title }}">
         {% endif %}
+        <div class="flex-column p-3">
+            <img class="image-inside-article mr-2" src="{{ vich_uploader_asset(article, 'imageFile') }}"
+                 alt="{{ article.image }}">
+            <p class="psizearticle">
+                {{ article.description }}
+            </p>
+        </div>
+        <p class="psizearticle">
+            {{ article.description }}
+        </p>
+        <div class="col-12">
+            {{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}
+        </div>
+        <a href="{{ path('blog_index') }}">
+            <button class="btn btn-secondary mb-3">Retour au blog</button>
+        </a>
     </div>
-    <p class="psizearticle">
-        {{ article.description }}
-    </p>
-    <div class="col-12">
-        {{ article.date ? article.date|date('Y-m-d H:i:s') : '' }}
-    </div>
-    <a href="{{ path('blog_index') }}">
-        <button class="btn btn-secondary mb-3">Retour au blog</button>
-    </a>
 {% endblock %}

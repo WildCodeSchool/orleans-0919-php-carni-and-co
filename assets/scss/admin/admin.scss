@@ -17,7 +17,54 @@
     font-size: $h1Size;
     font-weight: $fontWeightTitle;
     text-align: center;
-    margin-top: 5vh;
     margin-bottom: 3vh;
     padding-top: 1em;
 }
+
+.h2-Admin{
+    font-family: $fontTitle;
+    color: $textColor;
+    font-size: $h2Size;
+    font-weight: $fontWeightTitle;
+    text-align: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+    padding-top: 1em;
+}
+
+.h3-Admin{
+    font-family: $fontTitle;
+    color: $textColor;
+    font-size: $h3Size;
+    font-weight: $fontWeightTitle;
+    align-self: start;
+    margin-bottom: 3vh;
+    padding-top: 1em;
+}
+
+.h3-Admin-sommaire {
+    font-family: $fontTitle;
+    color: $textColor;
+    font-size: $h3Size;
+    font-weight: $fontWeightTitle;
+    align-self: start;
+    margin-bottom: 3vh;
+    padding-top: 1em;
+    text-align: center;
+}
+
+.h4-Admin {
+    font-family: $fontTitle;
+    color: $textColor;
+    font-size: $textSize;
+    font-weight: $fontWeightTitle;
+    align-self: start;
+    text-align: left;
+    margin-bottom: 3vh;
+    padding-top: 1em;
+}
+
+.a-Admin, .a-Admin>a {
+    text-align: center;
+}
+

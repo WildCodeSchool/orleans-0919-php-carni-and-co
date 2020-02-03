@@ -63,6 +63,7 @@ class AdminProductController extends AbstractController
             $product->setUpdatedAt(new DateTime());
             $entityManager->persist($product);
             $entityManager->flush();
+            $this->addFlash('success', 'Le produit a bien été ajouté!');
 
             return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
@@ -96,6 +97,7 @@ class AdminProductController extends AbstractController
             $product->setNote($note);
             $product->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'Le produit a bien été modifié!');
 
             return $this->redirectToRoute('admin_product_index');
         }
@@ -110,6 +112,7 @@ class AdminProductController extends AbstractController
             $product->setNote($note);
             $entityManager->persist($composition);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'ingrédient a bien été ajouté!');
 
             return $this->redirectToRoute('admin_product_edit', ['id'=>$product->getId()]);
         }
@@ -130,6 +133,7 @@ class AdminProductController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($product);
             $entityManager->flush();
+            $this->addFlash('success', 'Le produit a bien été supprimé!');
         }
 
         return $this->redirectToRoute('admin_product_index');

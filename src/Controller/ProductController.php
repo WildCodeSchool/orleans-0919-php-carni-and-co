@@ -18,7 +18,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProductController extends AbstractController
 {
-    const MAX_PER_PAGE = 12;
+    const MAX_PER_PAGE = 21;
 
     /**
      * @Route("/", name="product_index", methods={"GET"})

@@ -1,3 +1,16 @@
+.title-evaluation {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+
+    .content-header {
+        text-align: center;
+        width: 30%;
+    }
+}
+
 .header-evaluation{
     display: flex;
     align-items: center;
@@ -11,9 +24,15 @@
     margin:3vh;
     width: 150px;
 
-    img{
+    .product-img{
         margin:2%;
         height: 150px;
+        width: 150px;
+    }
+
+    .product-barCode{
+        margin:2%;
+        height: 100px;
         width: 150px;
     }
 }
@@ -51,9 +70,10 @@
     justify-content: center;
     font-family: $fontText;
     font-size: $h3Size;
+    border-bottom: $boxColor 2px solid;
 
     .ingredient-title{
-        width: 50%;
+        width: 100%;
         background: $gradientBackground;
     }
 
@@ -63,30 +83,17 @@
         justify-content: space-around;
         align-items: center;
         font-size: $textSize;
-        border-bottom: $boxColor 2px solid;
         margin-bottom: 1vh;
 
         p{
             display: flex;
-            width: 30%;
+            width: 50%;
             justify-content: center;
 
-            .bad{
-                background: $gradientBad;
-                width: 7vw;
+            a {
+                width: 50%;
                 text-align: center;
-            }
-
-            .medium{
-                background: $gradientMedium;
-                width: 7vw;
-                text-align: center;
-            }
-
-            .good{
-                background: $gradientGood;
-                width: 7vw;
-                text-align: center;
+                color: $white;
             }
         }
     }
@@ -95,13 +102,14 @@
 .note-evaluation{
     display: flex;
     flex-direction: row;
+    margin-top: 2vh;
 
     .note{
-        padding: 10px 20px;
+        padding: 20px 20px;
         background-color: $boxColor;
         font-size: $h1Size;
         color: $lightColor;
-        width: 6vw;
+        width: 6rem;
         text-align: center;
     }
 
@@ -111,6 +119,31 @@
 
         .titre{
             font-size: $h2Size;
+        }
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .header-evaluation {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .image-evaluation {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+            width:100%;
+        }
+    }
+
+    .value-evaluation {
+        flex-direction: column;
+        text-align: center;
+
+        .product-reference{
+            width: 100%;
         }
     }
 }
