@@ -44,3 +44,20 @@
     flex-direction: row;
     justify-content: space-between;
 }
+
+
+@media screen and (max-width: 540px) {
+    .connexion {
+        display: none;
+    }
+
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+
+        .nav-item .dropdown-menu {
+            text-align: center;
+        }
+    }
+
+}

@@ -23,7 +23,7 @@
                     {% for product in products %}
                     <a class="card-product-link" href="{{ path('product_show', {'id': product.id}) }}">
                         <div class="card card-product-user mb-3">
-                            <div class="card-header card-header-user">{{ product.reference }}</div>
+                            <div class="card-header card-header-user">{{ product.reference | truncate(10)}}</div>
                             <div class="card-body">
                                 <div class="card-item">
                                     {% if  product.image is not null %}

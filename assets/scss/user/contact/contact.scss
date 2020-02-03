@@ -47,3 +47,8 @@
     height: 200px;
 }
 
+@media screen and (max-width: 540px) {
+    .box-form-contact {
+        width: 90%;
+    }
+}
