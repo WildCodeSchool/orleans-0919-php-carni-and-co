@@ -23,7 +23,7 @@
 
 .background-title{
     background-color: $boxColor;
-    padding: 0.5em;
+    padding: 0.5em 0;
 }
 
 .picture-home {
@@ -48,4 +48,16 @@
     font-size: $textSize;
     margin-top: 2vh;
     margin-bottom: 2vh;
+}
+
+@media screen and (max-width: 540px) {
+    .container-presentation {
+        width: 100%;
+        text-align: center;
+
+        img {
+            width: 100%;
+        }
+    }
+
 }
