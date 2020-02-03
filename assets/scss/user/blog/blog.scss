@@ -44,9 +44,16 @@
 }
 
 .image-inside-article {
-    float: left;
+    display: flex;
+
+    img {
+        width: 100%;
+        height: auto;
+        align-self: center;
+    }
 }
 
 .psizearticle {
     font-size: $textSize;
 }
+
