@@ -56,6 +56,10 @@ class Article
 
     /**
      * @ORM\Column(type="string", nullable=true)
+     * @Assert\Image(
+     *     mimeTypes = {"image/gif", "image/jpeg", "image/png", "image/svg+xml", "image/webp"},
+     *     mimeTypesMessage = "Format d'image non reconnu. Veuillez choisir une nouvelle image."
+     *)
      */
     private $image;
 
