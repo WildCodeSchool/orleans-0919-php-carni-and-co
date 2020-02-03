@@ -118,10 +118,26 @@
             width: 100%;
             display: flex;
             justify-content: center;
+
+            .filter-container {
+                width: 90%;
+            }
         }
 
         .product {
             width: 100%;
+            margin-top:  4vh;
+        }
+    }
+    .all-card-user-product {
+
+        .card-product-link {
+            width: 100%;
+            text-align: center;
+
+            .card-product-user {
+                width: 100%;
+            }
         }
     }
 }

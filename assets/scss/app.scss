@@ -19,7 +19,7 @@ body {
     background-size: cover;
     box-shadow: inset 10000000px 0 0 0 $bodyFilter ;
     height: 100%;
-    margin-top: 6vh;
+    margin-top: 8vh;
     min-height: 100vh;
 }
 
@@ -28,4 +28,8 @@ main{
     box-shadow: inset 10000000px 0 0 0 $mainFilter ;
     padding-bottom: 10vh;
     padding-top: 5vh;
+}
+
+@media screen and (max-width: 540px){
+    width: 100%;
 }

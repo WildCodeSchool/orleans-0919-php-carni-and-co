@@ -147,3 +147,17 @@
         }
     }
 }
+
+@media screen and (max-width: 540px){
+    .title-evaluation {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+
+        .content-header {
+            width: 100%;
+        }
+    }
+
+}
