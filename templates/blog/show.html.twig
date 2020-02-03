@@ -19,6 +19,11 @@
             <img class="image-article" src="{{ asset('build/placeholder_nutrition.png') }}"
                  alt="{{ article.title }}">
         {% endif %}
+    <div class="flex-column p-3">
+        <img class="image-inside-article mr-2" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.image }}">
+        <p class="psizearticle">
+            {{ article.description }}
+        </p>
     </div>
     <p class="psizearticle">
         {{ article.description }}

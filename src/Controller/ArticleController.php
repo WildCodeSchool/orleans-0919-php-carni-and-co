@@ -54,6 +54,7 @@ class ArticleController extends AbstractController
             $article->setUpdatedAt(new DateTime());
             $entityManager->persist($article);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'article a bien été ajouté!');
 
             return $this->redirectToRoute('article_index');
         }
@@ -85,6 +86,7 @@ class ArticleController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $article->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'article a bien été modifié!');
 
             return $this->redirectToRoute('article_index');
         }
@@ -104,6 +106,7 @@ class ArticleController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($article);
             $entityManager->flush();
+            $this->addFlash('success', 'L\'article a bien été supprimé!');
         }
 
         return $this->redirectToRoute('article_index');

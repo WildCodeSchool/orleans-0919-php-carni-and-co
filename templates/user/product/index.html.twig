@@ -21,7 +21,8 @@
             <div class="container-user-product">
                 <div class="all-card-user-product">
                     {% for product in products %}
-                        <div class="card card-product-user bg-light mb-3">
+                    <a class="card-product-link" href="{{ path('product_show', {'id': product.id}) }}">
+                        <div class="card card-product-user mb-3">
                             <div class="card-header card-header-user">{{ product.reference }}</div>
                             <div class="card-body">
                                 <div class="card-item">
@@ -40,15 +41,10 @@
                                     <p>{{ product.food.type }}</p>
                                 </div>
                             </div>
-                            <div class="btn-product">
-                                <a class="btn btn-secondary" href="{{ path('product_show', {'id': product.id}) }}"
-                                   role="button">
-                                    <i class="far fa-eye"></i> Plus d'infos
-                                </a>
-                            </div>
                         </div>
+                    </a>
                     {% else %}
-                        <p>Pas de produits trouvés</p>
+                        <p class="nothing-found">Pas de produits trouvés.</p>
                     {% endfor %}
                 </div>
             </div>

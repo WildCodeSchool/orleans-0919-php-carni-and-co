@@ -10,10 +10,10 @@
                 <div class="row col-lg-10 col-md-12 offset-lg-1 mt-3">
                     <div class="col">
                         <div class="image_article">
-                            <img class="media p-3 float-left" src="{{ article.image }}" alt="{{ article.title }}">
+                            <img class="media p-3 float-left" src="{{ vich_uploader_asset(article, 'imageFile') }}" alt="{{ article.title }}">
                         </div>
                         <h5 class="mt-0 article_title">{{ article.title }}</h5>
-                        <p class="article">{{ article.description |truncate(300, true, '...') }}</p>
+                        <p class="article">{{ article.description | truncate(300, true, '...') }}</p>
                         <p class="article_date">{{ article.date|date("d/m/Y") }}</p>
                         <div class="float-right">
                             <div class="button_article">

@@ -55,7 +55,9 @@ class Calculator
     private function calculFirstGoodIngredient(Product $product) :float
     {
         $compositions = $product->getCompositions();
-        if ($compositions[0]->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
+        if ($compositions[0]->getIngredient()->getOrigin() instanceof Origin &&
+            $compositions[0]->getIngredient()->getNutrientType() instanceof NutrientType &&
+            $compositions[0]->getIngredient()->getOrigin()->getName() == self::ANIMALE &&
             $compositions[0]->getIngredient()->getNutrientType()->getNutrient() == self::PROTEINS) {
             if ($compositions[0]->getIngredient()->getPrecisedType()) {
                 $this->setNote($this->getNote() + 1);

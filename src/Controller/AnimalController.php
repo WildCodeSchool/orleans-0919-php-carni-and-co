@@ -72,6 +72,7 @@ class AnimalController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $animal->setUpdatedAt(new DateTime());
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash('success', 'L\'animal a bien été modifié!');
 
             return $this->redirectToRoute('animal_index');
         }

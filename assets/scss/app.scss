@@ -24,6 +24,8 @@ body {
 }
 
 main{
-    min-height: 70vh;
+    min-height: 100vh;
     box-shadow: inset 10000000px 0 0 0 $mainFilter ;
+    padding-bottom: 10vh;
+    padding-top: 5vh;
 }
